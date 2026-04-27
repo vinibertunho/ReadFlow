@@ -1,5 +1,29 @@
 import prisma from '../lib/services/prismaClient.js';
 
+const IDIOMAS_VALIDOS = new Set(['PT_BR', 'EN']);
+
+function normalizarIdiomaPreferido(idiomaPreferido) {
+    if (!idiomaPreferido) {
+        return 'PT_BR';
+    }
+
+    const valor = String(idiomaPreferido).trim().toUpperCase().replace(/-/g, '_');
+
+    if (IDIOMAS_VALIDOS.has(valor)) {
+        return valor;
+    }
+
+    if (['PT', 'PTBR', 'PORTUGUES', 'PORTUGUÊS', 'PORTUGUESE'].includes(valor)) {
+        return 'PT_BR';
+    }
+
+    if (['EN', 'ENG', 'INGLES', 'INGLÊS', 'ENGLISH'].includes(valor)) {
+        return 'EN';
+    }
+
+    throw new Error('O campo "idiomaPreferido" deve ser português ou inglês.');
+}
+
 export default class UsuarioModel {
     constructor({
         id = null,
@@ -15,7 +39,7 @@ export default class UsuarioModel {
         this.email = email;
         this.senhaHash = senhaHash;
         this.papel = papel;
-        this.idiomaPreferido = idiomaPreferido;
+        this.idiomaPreferido = normalizarIdiomaPreferido(idiomaPreferido);
         this.ativo = ativo;
     }
 
@@ -25,9 +49,11 @@ export default class UsuarioModel {
             email: this.email,
             senhaHash: this.senhaHash,
             papel: this.papel,
-            idiomaPreferido: this.idiomaPreferido,
+            idiomaPreferido: normalizarIdiomaPreferido(this.idiomaPreferido),
             ativo: this.ativo,
         };
+
+        this.idiomaPreferido = dados.idiomaPreferido;
 
         if (this.id) {
             return prisma.usuario.update({ where: { id: this.id }, data: dados });
