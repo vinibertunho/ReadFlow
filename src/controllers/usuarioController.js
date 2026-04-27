@@ -1,4 +1,4 @@
-import ExemploModel from '../models/ExemploModel.js';
+import UsuarioModel from '../models/UsuarioModel.js';
 
 export const criar = async (req, res) => {
     try {
@@ -6,7 +6,7 @@ export const criar = async (req, res) => {
             return res.status(400).json({ error: 'Corpo da requisição vazio. Envie os dados!' });
         }
 
-        const { nome, estado, preco } = req.body;
+        const { nome, email, senhaHash, papel, idiomaPreferido, ativo, criadoEm, atualizadoEm, equipes, conteudos, tentativas } = req.body;
 
         if (!nome){
             return res.status(400).json({ error: 'O campo "nome" é obrigatório!' });
@@ -15,7 +15,7 @@ export const criar = async (req, res) => {
             return res.status(400).json({ error: 'O campo "preco" é obrigatório!' });
         }
 
-        const exemplo = new ExemploModel({ nome, estado, preco: parseFloat(preco) });
+        const exemplo = new UsuarioModel({ nome, estado, preco: parseFloat(preco) });
         const data = await exemplo.criar();
 
         return res.status(201).json({ message: 'Registro criado com sucesso!', data });
@@ -27,7 +27,7 @@ export const criar = async (req, res) => {
 
 export const buscarTodos = async (req, res) => {
     try {
-        const registros = await ExemploModel.buscarTodos(req.query);
+        const registros = await UsuarioModel.buscarTodos(req.query);
 
         if (!registros || registros.length === 0) {
             return res.status(400).json({ message: 'Nenhum registro encontrado.' });
@@ -48,7 +48,7 @@ export const buscarPorId = async (req, res) => {
             return res.status(400).json({ error: 'O ID enviado não é um número válido.' });
         }
 
-        const exemplo = await ExemploModel.buscarPorId(parseInt(id));
+        const exemplo = await UsuarioModel.buscarPorId(parseInt(id));
 
         if (!exemplo) {
             return res.status(404).json({ error: 'Registro não encontrado.' });
@@ -73,7 +73,7 @@ export const atualizar = async (req, res) => {
             return res.status(400).json({ error: 'Corpo da requisição vazio. Envie os dados!' });
         }
 
-        const exemplo = await ExemploModel.buscarPorId(parseInt(id));
+        const exemplo = await UsuarioModel.buscarPorId(parseInt(id));
 
         if (!exemplo) {
             return res.status(404).json({ error: 'Registro não encontrado para atualizar.' });
@@ -106,7 +106,7 @@ export const deletar = async (req, res) => {
             return res.status(400).json({ error: 'ID inválido.' });
         }
 
-        const exemplo = await ExemploModel.buscarPorId(parseInt(id));
+        const exemplo = await UsuarioModel.buscarPorId(parseInt(id));
 
         if (!exemplo) {
             return res.status(404).json({ error: 'Registro não encontrado para deletar.' });
