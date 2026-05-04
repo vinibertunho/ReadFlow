@@ -3,7 +3,7 @@ generator client {
 }
 
 datasource db {
-  provider  = "postgresql"
+  provider = "postgresql"
 }
 
 enum PapelUsuario {
@@ -15,13 +15,6 @@ enum PapelUsuario {
 enum Idioma {
   PT_BR @map("pt-BR")
   EN    @map("en")
-}
-
-enum TipoConteudo {
-  RESUMO
-  ANALISE
-  CURIOSIDADE
-  DICA
 }
 
 enum LetraAlternativa {
@@ -38,119 +31,88 @@ enum DificuldadeQuestao {
   DIFICIL
 }
 
-enum StatusTentativa {
-  EM_ANDAMENTO
-  FINALIZADO
-  CANCELADO
-}
-
 model Usuario {
-  id              Int                 @id @default(autoincrement())
+  id              Int           @id @default(autoincrement())
   nome            String
-  email           String              @unique
-  senhaHash       String              @map("senha_hash")
-  papel           PapelUsuario        @default(LEITOR)
-  idiomaPreferido Idioma              @default(PT_BR) @map("idioma_preferido")
-  ativo           Boolean             @default(true)
-  criadoEm        DateTime            @default(now()) @map("criado_em")
-  atualizadoEm    DateTime            @updatedAt @map("atualizado_em")
-  equipes         EquipeMembro[]
-  conteudos       Conteudo[]
-  tentativas      TentativaSimulado[]
+  email           String        @unique
+  senhaHash       String        @map("senha_hash")
+  papel           PapelUsuario  @default(LEITOR)
+  idiomaPreferido Idioma        @default(PT_BR) @map("idioma_preferido")
+  ativo           Boolean       @default(true)
+  criadoEm        DateTime      @default(now()) @map("criado_em")
+  atualizadoEm    DateTime      @updatedAt @map("atualizado_em")
+  livros          Livro[]
+  curiosidades    Curiosidade[]
 
   @@map("usuarios")
 }
 
-model Equipe {
-  id        Int            @id @default(autoincrement())
-  nome      String
-  descricao String?
-  criadoEm  DateTime       @default(now()) @map("criado_em")
-  membros   EquipeMembro[]
-  livros    Livro[]
-
-  @@map("equipes")
-}
-
-model EquipeMembro {
-  id        Int      @id @default(autoincrement())
-  equipeId  Int      @map("equipe_id")
-  usuarioId Int      @map("usuario_id")
-  funcao    String
-  criadoEm  DateTime @default(now()) @map("criado_em")
-  equipe    Equipe   @relation(fields: [equipeId], references: [id], onDelete: Cascade)
-  usuario   Usuario  @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
-
-  @@map("equipe_membros")
-}
-
 model Livro {
-  id               Int          @id @default(autoincrement())
-  titulo           String
-  autor            String
-  anoPublicacao    Int?         @map("ano_publicacao")
-  sinopse          String?
-  capaUrl          String?      @map("capa_url")
-  equipeId         Int?         @map("equipe_id")
-  isLivroPrincipal Boolean      @default(false) @map("is_livro_principal")
-  criadoEm         DateTime     @default(now()) @map("criado_em")
-  atualizadoEm     DateTime     @updatedAt @map("atualizado_em")
-  equipe           Equipe?      @relation(fields: [equipeId], references: [id], onDelete: SetNull)
-  personagens      Personagem[]
-  conteudos        Conteudo[]
-  simulados        Simulado[]
+  id            Int          @id @default(autoincrement())
+  titulo        String
+  autor         String
+  anoPublicacao Int?         @map("ano_publicacao")
+  genero_pt        String
+  genero_en        String
+  descricao_pt       String?
+  descricao_en       String?
+  capaUrl       String?      @map("capa_url")
+  usuarioId     Int?         @map("usuario_id")
+  criadoEm      DateTime     @default(now()) @map("criado_em")
+  atualizadoEm  DateTime     @updatedAt @map("atualizado_em")
+  usuario       Usuario?     @relation(fields: [usuarioId], references: [id], onDelete: SetNull)
+  personagens   Personagem[]
+  quizzes       Quiz[]
+  curiosidades  Curiosidade[]
 
   @@map("livros")
 }
 
+model Quiz {
+  id             Int         @id @default(autoincrement())
+  livroId        Int?        @map("livro_id")
+  titulo         String
+  descricao      String?
+  idioma         Idioma      @default(PT_BR)
+  tempoLimiteMin Int?        @map("tempo_limite_min")
+  ativo          Boolean     @default(true)
+  criadoEm       DateTime    @default(now()) @map("criado_em")
+  atualizadoEm   DateTime    @updatedAt @map("atualizado_em")
+  livro          Livro?      @relation(fields: [livroId], references: [id], onDelete: SetNull)
+  questoes       Questao[]
+
+  @@map("quizzes")
+}
+
+model Curiosidade {
+  id             Int       @id @default(autoincrement())
+  livroId        Int?      @map("livro_id")
+  titulo         String
+  texto          String
+  autorUsuarioId Int?      @map("autor_usuario_id")
+  publicado      Boolean   @default(false)
+  criadoEm       DateTime  @default(now()) @map("criado_em")
+  atualizadoEm   DateTime  @updatedAt @map("atualizado_em")
+  livro          Livro?    @relation(fields: [livroId], references: [id], onDelete: SetNull)
+  autor          Usuario?  @relation(fields: [autorUsuarioId], references: [id], onDelete: SetNull)
+
+  @@map("curiosidades")
+}
+
 model Personagem {
-  id        Int      @id @default(autoincrement())
-  livroId   Int      @map("livro_id")
+  id        Int     @id @default(autoincrement())
+  livroId   Int     @map("livro_id")
   nome      String
   descricao String?
   criadoEm  DateTime @default(now()) @map("criado_em")
-  livro     Livro    @relation(fields: [livroId], references: [id], onDelete: Cascade)
+  livro     Livro   @relation(fields: [livroId], references: [id], onDelete: Cascade)
 
   @@map("personagens")
 }
 
-model Conteudo {
-  id              Int      @id @default(autoincrement())
-  livroId         Int      @map("livro_id")
-  tipo            TipoConteudo
-  idioma          Idioma   @default(PT_BR)
-  titulo          String
-  texto           String
-  fonteReferencia String?  @map("fonte_referencia")
-  autorUsuarioId  Int?     @map("autor_usuario_id")
-  publicado       Boolean  @default(false)
-  criadoEm        DateTime @default(now()) @map("criado_em")
-  atualizadoEm    DateTime @updatedAt @map("atualizado_em")
-  livro           Livro    @relation(fields: [livroId], references: [id], onDelete: Cascade)
-  autor           Usuario? @relation(fields: [autorUsuarioId], references: [id], onDelete: SetNull)
-
-  @@map("conteudos")
-}
-
-model Simulado {
-  id             Int                 @id @default(autoincrement())
-  livroId        Int?                @map("livro_id")
-  titulo         String
-  descricao      String?
-  idioma         Idioma              @default(PT_BR)
-  tempoLimiteMin Int?                @map("tempo_limite_min")
-  ativo          Boolean             @default(true)
-  criadoEm       DateTime            @default(now()) @map("criado_em")
-  livro          Livro?              @relation(fields: [livroId], references: [id], onDelete: SetNull)
-  questoes       Questao[]
-  tentativas     TentativaSimulado[]
-
-  @@map("simulados")
-}
-
 model Questao {
   id                  Int                 @id @default(autoincrement())
-  simuladoId          Int                 @map("simulado_id")
+  quizId              Int                 @map("quiz_id")
   enunciado           String
   alternativaA        String              @map("alternativa_a")
   alternativaB        String              @map("alternativa_b")
@@ -161,36 +123,7 @@ model Questao {
   dificuldade         DificuldadeQuestao  @default(MEDIA)
   comentarioResolucao String?             @map("comentario_resolucao")
   criadoEm            DateTime            @default(now()) @map("criado_em")
-  simulado            Simulado            @relation(fields: [simuladoId], references: [id], onDelete: Cascade)
-  respostas           RespostaTentativa[]
+  quiz                Quiz                @relation(fields: [quizId], references: [id], onDelete: Cascade)
 
   @@map("questoes")
-}
-
-model TentativaSimulado {
-  id           Int                 @id @default(autoincrement())
-  simuladoId   Int                 @map("simulado_id")
-  usuarioId    Int                 @map("usuario_id")
-  iniciadoEm   DateTime            @default(now()) @map("iniciado_em")
-  finalizadoEm DateTime?           @map("finalizado_em")
-  pontuacao    Decimal?            @db.Decimal(5, 2)
-  status       StatusTentativa     @default(EM_ANDAMENTO)
-  simulado     Simulado            @relation(fields: [simuladoId], references: [id], onDelete: Cascade)
-  usuario      Usuario             @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
-  respostas    RespostaTentativa[]
-
-  @@map("tentativas_simulado")
-}
-
-model RespostaTentativa {
-  id              Int               @id @default(autoincrement())
-  tentativaId     Int               @map("tentativa_id")
-  questaoId       Int               @map("questao_id")
-  respostaMarcada LetraAlternativa? @map("resposta_marcada")
-  correta         Boolean?
-  respondidoEm    DateTime          @default(now()) @map("respondido_em")
-  tentativa       TentativaSimulado @relation(fields: [tentativaId], references: [id], onDelete: Cascade)
-  questao         Questao           @relation(fields: [questaoId], references: [id], onDelete: Cascade)
-
-  @@map("respostas_tentativa")
 }
