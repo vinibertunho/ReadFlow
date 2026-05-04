@@ -58,6 +58,10 @@ async function main() {
       anoPublicacao: 1937,
       genero_pt: "Romance",
       genero_en: "Novel",
+      contexto_pt:
+        "Salvador na década de 1930, marcada por desigualdade social, abandono infantil e repressão institucional.",
+      contexto_en:
+        "Salvador in the 1930s, marked by social inequality, child abandonment, and institutional repression.",
       descricao_pt:
         "A obra retrata a vida de um grupo de menores abandonados que vivem nas ruas de Salvador.",
       descricao_en:

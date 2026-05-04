@@ -54,6 +54,8 @@ model Livro {
   anoPublicacao Int?         @map("ano_publicacao")
   genero_pt        String
   genero_en        String
+  contexto_pt      String?
+  contexto_en      String?
   descricao_pt       String?
   descricao_en       String?
   capaUrl       String?      @map("capa_url")
