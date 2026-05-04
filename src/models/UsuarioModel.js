@@ -64,6 +64,36 @@ export default class UsuarioModel {
         return novo;
     }
 
+    async criar() {
+        return prisma.usuario.create({
+            data: {
+                nome: this.nome.this,
+                email: this.email,
+                senhaHash: this.senhaHash,
+                papel: this.papel,
+                idiomaPreferido: this.idiomaPreferido,
+                ativo: this.ativo
+            }
+        })
+    }
+
+    async atualizar() {
+        return prisma.usuario.update({
+            where: { id: this.id },
+            nome: this.nome,
+            email: this.email,
+            senhaHash: this.senhaHaSH,
+            papel: this.papel,
+            idiomaPreferido: this.idiomaPreferido,
+            ativo: this.ativo
+
+        });
+    }
+
+    async deletar() {
+        return prisma.aluno.delete({ where: { id: this.id } });
+    }
+
     static async buscarTodos(filtros = {}) {
         const where = {};
         if (filtros.nome) where.nome = { contains: filtros.nome, mode: 'insensitive' };
