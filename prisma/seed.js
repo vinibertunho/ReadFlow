@@ -56,8 +56,12 @@ async function main() {
       titulo: "Capitães da Areia",
       autor: "Jorge Amado",
       anoPublicacao: 1937,
-      sinopse:
+      genero_pt: "Romance",
+      genero_en: "Novel",
+      descricao_pt:
         "A obra retrata a vida de um grupo de menores abandonados que vivem nas ruas de Salvador.",
+      descricao_en:
+        "The work portrays the lives of abandoned children living on the streets of Salvador.",
       capaUrl: "https://ibb.co/6R0jzHXy.jpg",
       usuarioId: editor.id,
     },
