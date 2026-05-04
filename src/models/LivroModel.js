@@ -3,13 +3,12 @@ import prisma from '../lib/services/prismaClient.js';
 export default class LivroModel {
     constructor({
         id = null,
-        titulo,
-        autor,
+        titulo = null,
+        autor = null,
         anoPublicacao = null,
         sinopse = null,
         capaUrl = null,
-        equipeId = null,
-        isLivroPrincipal = false,
+        usuarioId = null,
     } = {}) {
         this.id = id;
         this.titulo = titulo;
@@ -17,8 +16,7 @@ export default class LivroModel {
         this.anoPublicacao = anoPublicacao;
         this.sinopse = sinopse;
         this.capaUrl = capaUrl;
-        this.equipeId = equipeId;
-        this.isLivroPrincipal = isLivroPrincipal;
+        this.usuarioId = usuarioId;
     }
 
     async criar() {
@@ -29,8 +27,7 @@ export default class LivroModel {
                 anoPublicacao: this.anoPublicacao,
                 sinopse: this.sinopse,
                 capaUrl: this.capaUrl,
-                equipeId: this.equipeId,
-                isLivroPrincipal: this.isLivroPrincipal,
+                usuarioId: this.usuarioId,
             },
         });
     }
@@ -44,8 +41,7 @@ export default class LivroModel {
                 anoPublicacao: this.anoPublicacao,
                 sinopse: this.sinopse,
                 capaUrl: this.capaUrl,
-                equipeId: this.equipeId,
-                isLivroPrincipal: this.isLivroPrincipal,
+                usuarioId: this.usuarioId,
             },
         });
     }
@@ -63,15 +59,11 @@ export default class LivroModel {
         if (filtros.autor) {
             where.autor = { contains: filtros.autor, mode: 'insensitive' };
         }
-        if (filtros.isLivroPrincipal !== undefined) {
-            where.isLivroPrincipal =
-                filtros.isLivroPrincipal === 'true' || filtros.isLivroPrincipal === true;
-        }
         if (filtros.anoPublicacao) {
             where.anoPublicacao = parseInt(filtros.anoPublicacao, 10);
         }
-        if (filtros.equipeId) {
-            where.equipeId = filtros.equipeId;
+        if (filtros.usuarioId) {
+            where.usuarioId = parseInt(filtros.usuarioId, 10);
         }
 
         return prisma.livro.findMany({ where });

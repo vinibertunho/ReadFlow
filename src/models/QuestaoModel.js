@@ -3,19 +3,19 @@ import prisma from '../lib/services/prismaClient.js';
 export default class QuestaoModel {
     constructor({
         id = null,
-        simuladoId,
-        enunciado,
-        alternativaA,
-        alternativaB,
-        alternativaC,
-        alternativaD,
+        quizId = null,
+        enunciado = null,
+        alternativaA = null,
+        alternativaB = null,
+        alternativaC = null,
+        alternativaD = null,
         alternativaE = null,
-        gabarito,
+        gabarito = null,
         dificuldade = 'MEDIA',
         comentarioResolucao = null,
     } = {}) {
         this.id = id;
-        this.simuladoId = simuladoId;
+        this.quizId = quizId;
         this.enunciado = enunciado;
         this.alternativaA = alternativaA;
         this.alternativaB = alternativaB;
@@ -30,7 +30,7 @@ export default class QuestaoModel {
     async criar() {
         return prisma.questao.create({
             data: {
-                simuladoId: this.simuladoId,
+                quizId: this.quizId,
                 enunciado: this.enunciado,
                 alternativaA: this.alternativaA,
                 alternativaB: this.alternativaB,
@@ -48,7 +48,7 @@ export default class QuestaoModel {
         return prisma.questao.update({
             where: { id: this.id },
             data: {
-                simuladoId: this.simuladoId,
+                quizId: this.quizId,
                 enunciado: this.enunciado,
                 alternativaA: this.alternativaA,
                 alternativaB: this.alternativaB,
@@ -69,8 +69,8 @@ export default class QuestaoModel {
     static async buscarTodos(filtros = {}) {
         const where = {};
 
-        if (filtros.simuladoId !== undefined) {
-            where.simuladoId = parseInt(filtros.simuladoId, 10);
+        if (filtros.quizId !== undefined) {
+            where.quizId = parseInt(filtros.quizId, 10);
         }
         if (filtros.gabarito) {
             where.gabarito = filtros.gabarito;
