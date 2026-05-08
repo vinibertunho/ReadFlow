@@ -27,9 +27,9 @@ function normalizarIdiomaPreferido(idiomaPreferido) {
 export default class UsuarioModel {
     constructor({
         id = null,
-        nome,
-        email,
-        senhaHash,
+        nome = null,
+        email = null,
+        senhaHash = null,
         papel = 'LEITOR',
         idiomaPreferido = 'PT_BR',
         ativo = true,
@@ -43,8 +43,8 @@ export default class UsuarioModel {
         this.ativo = ativo;
     }
 
-    async salvar() {
-        const dados = {
+    async criar() {
+        const data = {
             nome: this.nome,
             email: this.email,
             senhaHash: this.senhaHash,
@@ -53,45 +53,38 @@ export default class UsuarioModel {
             ativo: this.ativo,
         };
 
-        this.idiomaPreferido = dados.idiomaPreferido;
+        this.idiomaPreferido = data.idiomaPreferido;
 
-        if (this.id) {
-            return prisma.usuario.update({ where: { id: this.id }, data: dados });
-        }
-
-        const novo = await prisma.usuario.create({ data: dados });
+        const novo = await prisma.usuario.create({ data });
         this.id = novo.id;
-        return novo;
-    }
 
-    async criar() {
-        return prisma.usuario.create({
-            data: {
-                nome: this.nome.this,
-                email: this.email,
-                senhaHash: this.senhaHash,
-                papel: this.papel,
-                idiomaPreferido: this.idiomaPreferido,
-                ativo: this.ativo
-            }
-        })
+        return novo;
     }
 
     async atualizar() {
         return prisma.usuario.update({
             where: { id: this.id },
-            nome: this.nome,
-            email: this.email,
-            senhaHash: this.senhaHaSH,
-            papel: this.papel,
-            idiomaPreferido: this.idiomaPreferido,
-            ativo: this.ativo
-
+            data: {
+                nome: this.nome,
+                email: this.email,
+                senhaHash: this.senhaHash,
+                papel: this.papel,
+                idiomaPreferido: normalizarIdiomaPreferido(this.idiomaPreferido),
+                ativo: this.ativo,
+            },
         });
     }
 
     async deletar() {
-        return prisma.aluno.delete({ where: { id: this.id } });
+        return prisma.usuario.delete({ where: { id: this.id } });
+    }
+
+    async salvar() {
+        if (this.id) {
+            return this.atualizar();
+        }
+
+        return this.criar();
     }
 
     static async buscarTodos(filtros = {}) {
