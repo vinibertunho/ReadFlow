@@ -7,7 +7,18 @@ export default class LivroModel {
         autor = null,
         anoPublicacao = null,
         sinopse = null,
-        capaUrl = null,
+        detalhes_autor_pt = null,
+        detalhes_autor_en = null,
+        estilo_escrita_pt = null,
+        estilo_escrita_en = null,
+        verossimilhanca_pt = null,
+        verossimilhanca_en = null,
+        caracteristicas_literarias_pt = null,
+        caracteristicas_literarias_en = null,
+        conclusao_pt = null,
+        conclusao_en = null,
+        video_url = null,
+        capa_url = null,
         usuarioId = null,
     } = {}) {
         this.id = id;
@@ -15,7 +26,18 @@ export default class LivroModel {
         this.autor = autor;
         this.anoPublicacao = anoPublicacao;
         this.sinopse = sinopse;
-        this.capaUrl = capaUrl;
+        this.detalhes_autor_pt = detalhes_autor_pt;
+        this.detalhes_autor_en = detalhes_autor_en;
+        this.estilo_escrita_pt = estilo_escrita_pt;
+        this.estilo_escrita_en = estilo_escrita_en;
+        this.verossimilhanca_pt = verossimilhanca_pt;
+        this.verossimilhanca_en = verossimilhanca_en;
+        this.caracteristicas_literarias_pt = caracteristicas_literarias_pt;
+        this.caracteristicas_literarias_en = caracteristicas_literarias_en;
+        this.conclusao_pt = conclusao_pt;
+        this.conclusao_en = conclusao_en;
+        this.video_url = video_url;
+        this.capa_url = capa_url;
         this.usuarioId = usuarioId;
     }
 
@@ -26,7 +48,18 @@ export default class LivroModel {
                 autor: this.autor,
                 anoPublicacao: this.anoPublicacao,
                 sinopse: this.sinopse,
-                capaUrl: this.capaUrl,
+                detalhes_autor_pt: this.detalhes_autor_pt,
+                detalhes_autor_en: this.detalhes_autor_en,
+                estilo_escrita_pt: this.estilo_escrita_pt,
+                estilo_escrita_en: this.estilo_escrita_en,
+                verossimilhanca_pt: this.verossimilhanca_pt,
+                verossimilhanca_en: this.verossimilhanca_en,
+                caracteristicas_literarias_pt: this.caracteristicas_literarias_pt,
+                caracteristicas_literarias_en: this.caracteristicas_literarias_en,
+                conclusao_pt: this.conclusao_pt,
+                conclusao_en: this.conclusao_en,
+                video_url: this.video_url,
+                capa_url: this.capa_url,
                 usuarioId: this.usuarioId,
             },
         });
@@ -40,7 +73,18 @@ export default class LivroModel {
                 autor: this.autor,
                 anoPublicacao: this.anoPublicacao,
                 sinopse: this.sinopse,
-                capaUrl: this.capaUrl,
+                detalhes_autor_pt: this.detalhes_autor_pt,
+                detalhes_autor_en: this.detalhes_autor_en,
+                estilo_escrita_pt: this.estilo_escrita_pt,
+                estilo_escrita_en: this.estilo_escrita_en,
+                verossimilhanca_pt: this.verossimilhanca_pt,
+                verossimilhanca_en: this.verossimilhanca_en,
+                caracteristicas_literarias_pt: this.caracteristicas_literarias_pt,
+                caracteristicas_literarias_en: this.caracteristicas_literarias_en,
+                conclusao_pt: this.conclusao_pt,
+                conclusao_en: this.conclusao_en,
+                video_url: this.video_url,
+                capa_url: this.capa_url,
                 usuarioId: this.usuarioId,
             },
         });

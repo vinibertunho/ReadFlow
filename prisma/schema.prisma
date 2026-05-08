@@ -52,13 +52,25 @@ model Livro {
   titulo        String
   autor         String
   anoPublicacao Int?         @map("ano_publicacao")
-  genero_pt        String
-  genero_en        String
-  contexto_pt      String?
-  contexto_en      String?
-  descricao_pt       String?
-  descricao_en       String?
-  capaUrl       String?      @map("capa_url")
+  sinopse       String?
+  genero_pt     String
+  genero_en     String
+  contexto_pt   String?
+  contexto_en   String?
+  descricao_pt  String?
+  descricao_en  String?
+  detalhes_autor_pt String?
+  detalhes_autor_en String?
+  estilo_escrita_pt String?
+  estilo_escrita_en String?
+  verossimilhanca_pt String?
+  verossimilhanca_en String?
+  caracteristicas_literarias_pt String?
+  caracteristicas_literarias_en String?
+  conclusao_pt  String?
+  conclusao_en  String?
+  video_url     String?
+  capa_url      String?
   usuarioId     Int?         @map("usuario_id")
   criadoEm      DateTime     @default(now()) @map("criado_em")
   atualizadoEm  DateTime     @updatedAt @map("atualizado_em")
