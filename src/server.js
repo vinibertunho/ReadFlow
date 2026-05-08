@@ -1,7 +1,9 @@
 import express from 'express';
 import 'dotenv/config';
 import livrosRoutes from './routes/livroRoute.js';
-import personagemRoutes from './routes/personagemRoute.js'
+import personagemRoutes from './routes/personagemRoute.js';
+import usuarioRoutes from './routes/usuarioRoute.js';
+import quizRoutes from './routes/quizRoute.js'
 
 const app = express();
 const PORT = process.env.PORT || 3001;
