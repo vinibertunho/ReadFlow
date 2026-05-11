@@ -31,6 +31,15 @@ enum DificuldadeQuestao {
   DIFICIL
 }
 
+enum NomeIntegranteEquipe {
+  BEATRIZ_TSUMOTO     @map("Beatriz Tsumoto")
+  JULIA_DEGRAVA       @map("Julia Degrava")
+  ISABELLA_PINESSO    @map("Isabella Pinesso")
+  ANA_BAGGIO          @map("Ana Baggio")
+  VINICIUS_BERTUNHO   @map("Vinicius Bertunho")
+  MURILO_ROCHA        @map("Murilo Rocha")
+}
+
 model Usuario {
   id              Int           @id @default(autoincrement())
   nome            String
@@ -43,8 +52,32 @@ model Usuario {
   atualizadoEm    DateTime      @updatedAt @map("atualizado_em")
   livros          Livro[]
   curiosidades    Curiosidade[]
+  equipes         Equipe[]
 
   @@map("usuarios")
+}
+
+model Equipe {
+  id            Int       @id @default(autoincrement())
+  nome          String
+  descricao     String?
+  criadoEm      DateTime  @default(now()) @map("criado_em")
+  atualizadoEm  DateTime  @updatedAt @map("atualizado_em")
+  integrantes   IntegranteEquipe[]
+  usuarios      Usuario[]
+
+  @@map("equipes")
+}
+
+model IntegranteEquipe {
+  id          Int                  @id @default(autoincrement())
+  equipeId    Int                  @map("equipe_id")
+  nome        NomeIntegranteEquipe
+  criadoEm    DateTime             @default(now()) @map("criado_em")
+  atualizadoEm DateTime            @updatedAt @map("atualizado_em")
+  equipe      Equipe                @relation(fields: [equipeId], references: [id], onDelete: Cascade)
+
+  @@map("integrantes_equipe")
 }
 
 model Livro {
