@@ -74,7 +74,7 @@ async function main() {
     conclusao_pt: "",
     conclusao_en: "",
     video_url: "",
-    capa_url: "",
+    capa_url: "https://ibb.co/SDKnDwjK.jpeg",
     usuarioId: editor.id,
   };
 

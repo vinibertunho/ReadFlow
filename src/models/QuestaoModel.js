@@ -1,5 +1,30 @@
 import prisma from '../lib/services/prismaClient.js';
 
+const DIFICULDADES_VALIDAS = new Set(['FACIL', 'MEDIA', 'DIFICIL']);
+const GABARITOS_VALIDOS = new Set(['A', 'B', 'C', 'D', 'E']);
+
+function validarDificuldade(dificuldade) {
+    if (!dificuldade) {
+        return 'MEDIA';
+    }
+    
+    if (!DIFICULDADES_VALIDAS.has(dificuldade)) {
+        throw new Error('Dificuldade deve ser FACIL, MEDIA ou DIFICIL.');
+    }
+    
+    return dificuldade;
+}
+
+function validarGabarito(gabarito) {
+    if (!gabarito) return true;
+    
+    if (!GABARITOS_VALIDOS.has(gabarito)) {
+        throw new Error('Gabarito deve ser uma das alternativas: A, B, C, D ou E.');
+    }
+    
+    return true;
+}
+
 export default class QuestaoModel {
     constructor({
         id = null,
@@ -14,6 +39,8 @@ export default class QuestaoModel {
         dificuldade = 'MEDIA',
         comentarioResolucao = null,
     } = {}) {
+        validarGabarito(gabarito);
+        
         this.id = id;
         this.quizId = quizId;
         this.enunciado = enunciado;
@@ -23,7 +50,7 @@ export default class QuestaoModel {
         this.alternativaD = alternativaD;
         this.alternativaE = alternativaE;
         this.gabarito = gabarito;
-        this.dificuldade = dificuldade;
+        this.dificuldade = validarDificuldade(dificuldade);
         this.comentarioResolucao = comentarioResolucao;
     }
 

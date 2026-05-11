@@ -1,5 +1,19 @@
 import prisma from '../lib/services/prismaClient.js';
 
+function validarNome(nome) {
+    if (!nome || String(nome).trim().length === 0) {
+        throw new Error('O nome do personagem é obrigatório.');
+    }
+    return String(nome).trim();
+}
+
+function validarLivroId(livroId) {
+    if (!livroId) {
+        throw new Error('O livroId é obrigatório.');
+    }
+    return livroId;
+}
+
 export default class PersonagemModel {
     constructor({
         id = null,
@@ -8,8 +22,8 @@ export default class PersonagemModel {
         descricao = null,
     } = {}) {
         this.id = id;
-        this.livroId = livroId;
-        this.nome = nome;
+        this.livroId = validarLivroId(livroId);
+        this.nome = validarNome(nome);
         this.descricao = descricao;
     }
 

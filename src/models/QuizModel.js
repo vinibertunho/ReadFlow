@@ -1,5 +1,24 @@
 import prisma from '../lib/services/prismaClient.js';
 
+const IDIOMAS_VALIDOS = new Set(['PT_BR', 'EN']);
+
+function validarIdioma(idioma) {
+    if (!IDIOMAS_VALIDOS.has(idioma)) {
+        throw new Error('Idioma deve ser PT_BR ou EN.');
+    }
+    return true;
+}
+
+function validarTempoLimite(tempo) {
+    if (tempo !== null && tempo !== undefined) {
+        const tempoNum = parseInt(tempo, 10);
+        if (isNaN(tempoNum) || tempoNum <= 0) {
+            throw new Error('Tempo limite deve ser um número positivo ou nulo.');
+        }
+    }
+    return true;
+}
+
 export default class QuizModel {
     constructor({
         id = null,
@@ -10,6 +29,9 @@ export default class QuizModel {
         tempoLimiteMin = null,
         ativo = true,
     } = {}) {
+        validarIdioma(idioma);
+        validarTempoLimite(tempoLimiteMin);
+        
         this.id = id;
         this.livroId = livroId;
         this.titulo = titulo;

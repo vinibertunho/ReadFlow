@@ -1,5 +1,31 @@
 import prisma from '../lib/services/prismaClient.js';
 
+const DIFICULDADES_VALIDAS = new Set(['FACIL', 'MEDIA', 'DIFICIL']);
+
+function validarAnoPublicacao(ano) {
+    if (!ano) return true;
+    
+    const anoNum = parseInt(ano, 10);
+    const anoAtual = new Date().getFullYear();
+    
+    if (isNaN(anoNum) || anoNum < 1000 || anoNum > anoAtual) {
+        throw new Error(`O ano de publicação deve ser entre 1000 e ${anoAtual}.`);
+    }
+    
+    return true;
+}
+
+function validarUrl(url) {
+    if (!url) return true;
+    
+    try {
+        new URL(url);
+        return true;
+    } catch {
+        throw new Error('URL inválida fornecida.');
+    }
+}
+
 export default class LivroModel {
     constructor({
         id = null,
@@ -21,6 +47,10 @@ export default class LivroModel {
         capa_url = null,
         usuarioId = null,
     } = {}) {
+        validarAnoPublicacao(anoPublicacao);
+        validarUrl(video_url);
+        validarUrl(capa_url);
+        
         this.id = id;
         this.titulo = titulo;
         this.autor = autor;

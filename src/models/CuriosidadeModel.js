@@ -1,5 +1,26 @@
 import prisma from '../lib/services/prismaClient.js';
 
+function validarTitulo(titulo) {
+    if (!titulo || String(titulo).trim().length === 0) {
+        throw new Error('O título da curiosidade é obrigatório.');
+    }
+    return String(titulo).trim();
+}
+
+function validarTexto(texto) {
+    if (!texto || String(texto).trim().length === 0) {
+        throw new Error('O texto da curiosidade é obrigatório.');
+    }
+    return String(texto).trim();
+}
+
+function validarLivroId(livroId) {
+    if (!livroId) {
+        throw new Error('O livroId é obrigatório.');
+    }
+    return livroId;
+}
+
 export default class CuriosidadeModel {
     constructor({
         id = null,
@@ -10,9 +31,9 @@ export default class CuriosidadeModel {
         publicado = false,
     } = {}) {
         this.id = id;
-        this.livroId = livroId;
-        this.titulo = titulo;
-        this.texto = texto;
+        this.livroId = validarLivroId(livroId);
+        this.titulo = validarTitulo(titulo);
+        this.texto = validarTexto(texto);
         this.autorUsuarioId = autorUsuarioId;
         this.publicado = publicado;
     }
