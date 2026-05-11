@@ -1,5 +1,6 @@
 import express from 'express';
 import 'dotenv/config';
+import cors from 'cors';
 import livrosRoutes from './routes/livroRoute.js';
 import usuarioRoutes from './routes/usuarioRoute.js';
 import personagemRoutes from './routes/personagemRoute.js';
@@ -11,18 +12,19 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 app.use(express.json());
+app.use(cors());
 
 app.get('/', (req, res) => {
     res.send('🚀 API funcionando');
 });
 
 // Rotas
-app.use('/api/livro', livrosRoutes);
-app.use('/api/usuario', usuarioRoutes);
-app.use('/api/personagem', personagemRoutes);
-app.use('/api/questao', questaoRoutes);
+app.use('/api/livros', livrosRoutes);
+app.use('/api/usuarios', usuarioRoutes);
+app.use('/api/personagens', personagemRoutes);
+app.use('/api/questoes', questaoRoutes);
 app.use('/api/quiz', quizRoutes);
-app.use('/api/curiosidade', curiosidadeRoutes);
+app.use('/api/curiosidades', curiosidadeRoutes);
 
 app.use((req, res) => {
     res.status(404).json({ error: 'Rota não encontrada' });
