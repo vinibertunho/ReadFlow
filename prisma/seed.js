@@ -17,6 +17,8 @@ async function main() {
   await prisma.curiosidade.deleteMany();
   await prisma.personagem.deleteMany();
   await prisma.livro.deleteMany();
+  await prisma.integranteEquipe.deleteMany();
+  await prisma.equipe.deleteMany();
   await prisma.usuario.deleteMany();
 
   console.log("📦 Inserindo usuários de exemplo...");
@@ -46,6 +48,32 @@ async function main() {
       email: "ana@sesi.com",
       senhaHash: "123456",
       papel: "EDITOR",
+    },
+  });
+
+  console.log("👥 Inserindo equipe e integrantes...");
+
+  const equipe = await prisma.equipe.create({
+    data: {
+      nome: "Equipe ReadFlow",
+      descricao: "Integrantes responsáveis pelo desenvolvimento e conteúdo do projeto.",
+      usuarios: {
+        connect: [
+          { id: admin.id },
+          { id: editor.id },
+          { id: conteudista.id },
+        ],
+      },
+      integrantes: {
+        create: [
+          { nome: "BEATRIZ_TSUMOTO" },
+          { nome: "JULIA_DEGRAVA" },
+          { nome: "ISABELLA_PINESSO" },
+          { nome: "ANA_BAGGIO" },
+          { nome: "VINICIUS_BERTUNHO" },
+          { nome: "MURILO_ROCHA" },
+        ],
+      },
     },
   });
 
