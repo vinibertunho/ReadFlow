@@ -82,7 +82,7 @@ async function main() {
   // Conteúdo estruturado do Livro
   const livroData = {
     titulo: "Capitães da Areia",
-    autor: "",
+    autor: "Jorge Amado",
     anoPublicacao: null,
     genero_pt: "",
     genero_en: "",
