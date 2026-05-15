@@ -102,7 +102,7 @@ async function main() {
     conclusao_pt: "",
     conclusao_en: "",
     video_url: "",
-    capa_url: "https://ibb.co/SDKnDwjK.jpeg",
+    capa_url: "https://i.ibb.co/dsQ2s4TQ/Design-sem-nome-2.png",
     usuarioId: editor.id,
   };
 
