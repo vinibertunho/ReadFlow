@@ -29,7 +29,7 @@ app.use('/api/questoes', questaoRoutes);
 app.use('/api/quiz', quizRoutes);
 app.use('/api/curiosidades', curiosidadeRoutes);
 app.use('/api/equipes', equipeRoutes);
-app.use('/api/livros-externos', livrosExternosRoutes);
+app.use('/livrosExternos', livrosExternosRoutes);
 
 app.use((req, res) => {
     res.status(404).json({ error: 'Rota não encontrada' });
