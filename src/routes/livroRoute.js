@@ -1,7 +1,10 @@
 import express from 'express';
 import * as controller from '../controllers/livroController.js';
+import { apiKey } from '../lib/middlewares/apiKey.js';
 
 const router = express.Router();
+
+router.use(apiKey);
 
 router.post('/', controller.criar);
 router.get('/', controller.buscarTodos);

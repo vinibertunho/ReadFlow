@@ -2,6 +2,7 @@ import express from 'express';
 import 'dotenv/config';
 import cors from 'cors';
 import livrosRoutes from './routes/livroRoute.js';
+import { apiKey } from './lib/middlewares/apiKey.js';
 import usuarioRoutes from './routes/usuarioRoute.js';
 import personagemRoutes from './routes/personagemRoute.js';
 import questaoRoutes from './routes/questaoRoute.js';
@@ -20,7 +21,7 @@ app.get('/', (req, res) => {
 });
 
 // Rotas
-app.use('/api/livros', livrosRoutes);
+app.use('/api/livros', apiKey, livrosRoutes);
 app.use('/api/usuarios', usuarioRoutes);
 app.use('/api/personagens', personagemRoutes);
 app.use('/api/questoes', questaoRoutes);
