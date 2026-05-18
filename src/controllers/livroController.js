@@ -3,7 +3,9 @@ import LivroModel from "../models/LivroModel.js";
 export const criar = async (req, res) => {
     try {
         if (!req.body) {
-            return res.status(400).json({ error: 'Corpo da requisição vazio. Envie os dados!' });
+            return res.status(400).json({
+                error: 'Corpo da requisição vazio. Envie os dados!'
+            });
         }
 
         const {
@@ -11,57 +13,120 @@ export const criar = async (req, res) => {
             autor,
             anoPublicacao,
             sinopse,
+
+            genero_pt,
+            genero_en,
+
+            contexto_pt,
+            contexto_en,
+
+            descricao_pt,
+            descricao_en,
+
             detalhes_autor_pt,
             detalhes_autor_en,
+
             estilo_escrita_pt,
             estilo_escrita_en,
+
             verossimilhanca_pt,
             verossimilhanca_en,
+
             caracteristicas_literarias_pt,
             caracteristicas_literarias_en,
+
             conclusao_pt,
             conclusao_en,
+
             video_url,
             capa_url,
             usuarioId,
         } = req.body;
 
         if (!titulo) {
-            return res.status(400).json({ error: 'O campo "titulo" é obrigatório!' });
+            return res.status(400).json({
+                error: 'O campo "titulo" é obrigatório!'
+            });
         }
+
         if (!autor) {
-            return res.status(400).json({ error: 'O campo "autor" é obrigatório!' });
+            return res.status(400).json({
+                error: 'O campo "autor" é obrigatório!'
+            });
+        }
+
+        if (!genero_pt) {
+            return res.status(400).json({
+                error: 'O campo "genero_pt" é obrigatório!'
+            });
+        }
+
+        if (!genero_en) {
+            return res.status(400).json({
+                error: 'O campo "genero_en" é obrigatório!'
+            });
         }
 
         const livro = new LivroModel({
             titulo,
             autor,
-            anoPublicacao: anoPublicacao ? parseInt(anoPublicacao) : null,
+
+            anoPublicacao: anoPublicacao
+                ? parseInt(anoPublicacao)
+                : null,
+
             sinopse: sinopse ?? null,
+
+            genero_pt,
+            genero_en,
+
+            contexto_pt: contexto_pt ?? null,
+            contexto_en: contexto_en ?? null,
+
+            descricao_pt: descricao_pt ?? null,
+            descricao_en: descricao_en ?? null,
+
             detalhes_autor_pt: detalhes_autor_pt ?? null,
             detalhes_autor_en: detalhes_autor_en ?? null,
+
             estilo_escrita_pt: estilo_escrita_pt ?? null,
             estilo_escrita_en: estilo_escrita_en ?? null,
+
             verossimilhanca_pt: verossimilhanca_pt ?? null,
             verossimilhanca_en: verossimilhanca_en ?? null,
-            caracteristicas_literarias_pt: caracteristicas_literarias_pt ?? null,
-            caracteristicas_literarias_en: caracteristicas_literarias_en ?? null,
+
+            caracteristicas_literarias_pt:
+                caracteristicas_literarias_pt ?? null,
+
+            caracteristicas_literarias_en:
+                caracteristicas_literarias_en ?? null,
+
             conclusao_pt: conclusao_pt ?? null,
             conclusao_en: conclusao_en ?? null,
+
             video_url: video_url ?? null,
             capa_url: capa_url ?? null,
-            usuarioId: usuarioId ? parseInt(usuarioId) : null,
+
+            usuarioId: usuarioId
+                ? parseInt(usuarioId)
+                : null,
         });
 
         const data = await livro.criar();
 
-        return res.status(201).json({ message: 'Livro criado com sucesso!', data });
+        return res.status(201).json({
+            message: 'Livro criado com sucesso!',
+            data
+        });
+
     } catch (error) {
         console.error('Erro ao criar livro:', error);
-        return res.status(500).json({ error: 'Erro interno ao salvar o livro.' });
+
+        return res.status(500).json({
+            error: 'Erro interno ao salvar o livro.'
+        });
     }
 };
-
 export const buscarTodos = async (req, res) => {
     try {
         const registros = await LivroModel.buscarTodos(req.query);
