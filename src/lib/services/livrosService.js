@@ -4,11 +4,9 @@ const BASE_URL = 'https://bookverse-back-pob5.onrender.com/livros';
 const API_KEY = process.env.BOOKVERSE_API_KEY;
 
 export const buscarLivrosExternos = async () => {
-    // Garantir que a API fetch exista (Node <18 não tem fetch global)
     if (typeof fetch === 'undefined') {
         try {
             const mod = await import('node-fetch');
-            // node-fetch v3 exporta o fetch como default
             global.fetch = mod.default;
             console.info('Fallback: carregado node-fetch como global.fetch');
         } catch (e) {
