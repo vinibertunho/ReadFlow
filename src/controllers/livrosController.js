@@ -10,8 +10,11 @@ export const listarLivrosExternos = async (req, res) => {
     } catch (error) {
         console.error('Erro ao buscar livros externos:', error);
 
-        return res.status(500).json({
-            error: 'Erro ao buscar os livros na API externa.',
-        });
+        const payload = { error: 'Erro ao buscar os livros na API externa.' };
+        if (process.env.NODE_ENV !== 'production') {
+            payload.detail = (error && error.message) || String(error);
+        }
+
+        return res.status(500).json(payload);
     }
 };
