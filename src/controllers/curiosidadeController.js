@@ -75,29 +75,42 @@ export const atualizar = async (req, res) => {
             return res.status(400).json({ error: 'ID inválido.' });
         }
 
-        if (!req.body) {
-            return res.status(400).json({ error: 'Corpo da requisição vazio.' });
-        }
-
         const curiosidade = await CuriosidadeModel.buscarPorId(parseInt(id));
 
         if (!curiosidade) {
-            return res.status(404).json({ error: 'Registro não encontrado para atualizar.' });
+            return res.status(404).json({
+                error: 'Registro não encontrado para atualizar.',
+            });
         }
 
-        if (req.body.titulo !== undefined) curiosidade.titulo = req.body.titulo;
-        if (req.body.texto !== undefined) curiosidade.texto = req.body.texto;
-        if (req.body.livroId !== undefined) curiosidade.livroId = req.body.livroId;
-        if (req.body.publicado !== undefined) curiosidade.publicado = req.body.publicado;
+        curiosidade.titulo =
+            req.body.titulo ?? curiosidade.titulo;
+
+        curiosidade.texto =
+            req.body.texto ?? curiosidade.texto;
+
+        curiosidade.livroId =
+            req.body.livroId ?? curiosidade.livroId;
+
+        curiosidade.autorUsuarioId =
+            req.body.autorUsuarioId ?? curiosidade.autorUsuarioId;
+
+        curiosidade.publicado =
+            req.body.publicado ?? curiosidade.publicado;
 
         const data = await curiosidade.atualizar();
 
-        return res
-            .status(200)
-            .json({ message: `A curiosidade "${data.titulo}" foi atualizada!`, data });
+        return res.status(200).json({
+            message: `A curiosidade "${data.titulo}" foi atualizada!`,
+            data,
+        });
+
     } catch (error) {
         console.error('Erro ao atualizar:', error);
-        return res.status(500).json({ error: 'Erro ao atualizar registro.' });
+
+        return res.status(500).json({
+            error: 'Erro ao atualizar registro.',
+        });
     }
 };
 

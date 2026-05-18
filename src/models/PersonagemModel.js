@@ -4,6 +4,7 @@ function validarNome(nome) {
     if (!nome || String(nome).trim().length === 0) {
         throw new Error('O nome do personagem é obrigatório.');
     }
+
     return String(nome).trim();
 }
 
@@ -11,23 +12,31 @@ function validarLivroId(livroId) {
     if (!livroId) {
         throw new Error('O livroId é obrigatório.');
     }
-    return livroId;
+
+    return parseInt(livroId, 10);
 }
 
 export default class PersonagemModel {
     constructor({
         id = null,
-        livroId,
-        nome,
+        livroId = null,
+        nome = null,
         descricao = null,
     } = {}) {
         this.id = id;
-        this.livroId = validarLivroId(livroId);
-        this.nome = validarNome(nome);
+        this.livroId = livroId;
+        this.nome = nome;
         this.descricao = descricao;
     }
 
+    validar() {
+        this.livroId = validarLivroId(this.livroId);
+        this.nome = validarNome(this.nome);
+    }
+
     async criar() {
+        this.validar();
+
         return prisma.personagem.create({
             data: {
                 livroId: this.livroId,
@@ -38,8 +47,12 @@ export default class PersonagemModel {
     }
 
     async atualizar() {
+        this.validar();
+
         return prisma.personagem.update({
-            where: { id: this.id },
+            where: {
+                id: this.id,
+            },
             data: {
                 livroId: this.livroId,
                 nome: this.nome,
@@ -49,7 +62,11 @@ export default class PersonagemModel {
     }
 
     async deletar() {
-        return prisma.personagem.delete({ where: { id: this.id } });
+        return prisma.personagem.delete({
+            where: {
+                id: this.id,
+            },
+        });
     }
 
     static async buscarTodos(filtros = {}) {
@@ -58,18 +75,28 @@ export default class PersonagemModel {
         if (filtros.livroId !== undefined) {
             where.livroId = parseInt(filtros.livroId, 10);
         }
+
         if (filtros.nome) {
-            where.nome = { contains: filtros.nome, mode: 'insensitive' };
+            where.nome = {
+                contains: filtros.nome,
+                mode: 'insensitive',
+            };
         }
 
         return prisma.personagem.findMany({ where });
     }
 
     static async buscarPorId(id) {
-        const data = await prisma.personagem.findUnique({ where: { id } });
+        const data = await prisma.personagem.findUnique({
+            where: {
+                id,
+            },
+        });
+
         if (!data) {
             return null;
         }
+
         return new PersonagemModel(data);
     }
 }
