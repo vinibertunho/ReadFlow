@@ -32,12 +32,12 @@ enum DificuldadeQuestao {
 }
 
 enum NomeIntegranteEquipe {
-  BEATRIZ_TSUMOTO     @map("Beatriz Tsumoto")
-  JULIA_DEGRAVA       @map("Julia Degrava")
-  ISABELLA_PINESSO    @map("Isabella Pinesso")
-  ANA_BAGGIO          @map("Ana Baggio")
-  VINICIUS_BERTUNHO   @map("Vinicius Bertunho")
-  MURILO_ROCHA        @map("Murilo Rocha")
+  BEATRIZ_TSUMOTO   @map("Beatriz Tsumoto")
+  JULIA_DEGRAVA     @map("Julia Degrava")
+  ISABELLA_PINESSO  @map("Isabella Pinesso")
+  ANA_BAGGIO        @map("Ana Baggio")
+  VINICIUS_BERTUNHO @map("Vinicius Bertunho")
+  MURILO_ROCHA      @map("Murilo Rocha")
 }
 
 model Usuario {
@@ -58,119 +58,129 @@ model Usuario {
 }
 
 model Equipe {
-  id            Int       @id @default(autoincrement())
-  nome          String
-  descricao     String?
-  criadoEm      DateTime  @default(now()) @map("criado_em")
-  atualizadoEm  DateTime  @updatedAt @map("atualizado_em")
-  integrantes   IntegranteEquipe[]
-  usuarios      Usuario[]
+  id           Int                @id @default(autoincrement())
+  nome         String
+  descricao    String?
+  criadoEm     DateTime           @default(now()) @map("criado_em")
+  atualizadoEm DateTime           @updatedAt @map("atualizado_em")
+  integrantes  IntegranteEquipe[]
+  usuarios     Usuario[]
 
   @@map("equipes")
 }
 
 model IntegranteEquipe {
-  id          Int                  @id @default(autoincrement())
-  equipeId    Int                  @map("equipe_id")
-  nome        NomeIntegranteEquipe
-  criadoEm    DateTime             @default(now()) @map("criado_em")
-  atualizadoEm DateTime            @updatedAt @map("atualizado_em")
-  equipe      Equipe                @relation(fields: [equipeId], references: [id], onDelete: Cascade)
+  id           Int                  @id @default(autoincrement())
+  equipeId     Int                  @map("equipe_id")
+  nome         NomeIntegranteEquipe
+  criadoEm     DateTime             @default(now()) @map("criado_em")
+  atualizadoEm DateTime             @updatedAt @map("atualizado_em")
+  equipe       Equipe               @relation(fields: [equipeId], references: [id], onDelete: Cascade)
 
   @@map("integrantes_equipe")
 }
 
 model Livro {
-  id            Int          @id @default(autoincrement())
-  titulo        String
-  autor         String
-  anoPublicacao Int?         @map("ano_publicacao")
-  sinopse       String?
-  genero_pt     String
-  genero_en     String
-  contexto_pt   String?
-  contexto_en   String?
-  descricao_pt  String?
-  descricao_en  String?
-  detalhes_autor_pt String?
-  detalhes_autor_en String?
-  estilo_escrita_pt String?
-  estilo_escrita_en String?
-  verossimilhanca_pt String?
-  verossimilhanca_en String?
+  id                            Int     @id @default(autoincrement())
+  titulo                        String
+  autor                         String
+  anoPublicacao                 Int?    @map("ano_publicacao")
+  sinopse                       String?
+  genero_pt                     String
+  genero_en                     String
+  contexto_pt                   String?
+  contexto_en                   String?
+  descricao_pt                  String?
+  descricao_en                  String?
+  detalhes_autor_pt             String?
+  detalhes_autor_en             String?
+  estilo_escrita_pt             String?
+  estilo_escrita_en             String?
+  verossimilhanca_pt            String?
+  verossimilhanca_en            String?
   caracteristicas_literarias_pt String?
   caracteristicas_literarias_en String?
-  conclusao_pt  String?
-  conclusao_en  String?
-  video_url     String?
-  capa_url      String?
-  usuarioId     Int?         @map("usuario_id")
-  criadoEm      DateTime     @default(now()) @map("criado_em")
-  atualizadoEm  DateTime     @updatedAt @map("atualizado_em")
-  usuario       Usuario?     @relation(fields: [usuarioId], references: [id], onDelete: SetNull)
-  personagens   Personagem[]
-  quizzes       Quiz[]
-  curiosidades  Curiosidade[]
+  conclusao_pt                  String?
+  conclusao_en                  String?
+
+  contexto_historico_pt String? @map("contexto_historico_pt")
+  contexto_historico_en String? @map("contexto_historico_en")
+  simbolismo_pt         String? @map("simbolismo_pt")
+  simbolismo_en         String? @map("simbolismo_en")
+  engajamento_pt        String? @map("engajamento_pt")
+  engajamento_en        String? @map("engajamento_en")
+  temas_chave_pt        String? @map("temas_chave_pt")
+  temas_chave_en        String? @map("temas_chave_en")
+
+  video_url    String?
+  capa_url     String?
+  usuarioId    Int?          @map("usuario_id")
+  criadoEm     DateTime      @default(now()) @map("criado_em")
+  atualizadoEm DateTime      @updatedAt @map("atualizado_em")
+  usuario      Usuario?      @relation(fields: [usuarioId], references: [id], onDelete: SetNull)
+  personagens  Personagem[]
+  quizzes      Quiz[]
+  curiosidades Curiosidade[]
 
   @@map("livros")
 }
 
 model Quiz {
-  id             Int         @id @default(autoincrement())
-  livroId        Int?        @map("livro_id")
+  id             Int       @id @default(autoincrement())
+  livroId        Int?      @map("livro_id")
   titulo         String
   descricao      String?
-  idioma         Idioma      @default(PT_BR)
-  tempoLimiteMin Int?        @map("tempo_limite_min")
-  ativo          Boolean     @default(true)
-  criadoEm       DateTime    @default(now()) @map("criado_em")
-  atualizadoEm   DateTime    @updatedAt @map("atualizado_em")
-  livro          Livro?      @relation(fields: [livroId], references: [id], onDelete: SetNull)
+  idioma         Idioma    @default(PT_BR)
+  tempoLimiteMin Int?      @map("tempo_limite_min")
+  ativo          Boolean   @default(true)
+  criadoEm       DateTime  @default(now()) @map("criado_em")
+  atualizadoEm   DateTime  @updatedAt @map("atualizado_em")
+  livro          Livro?    @relation(fields: [livroId], references: [id], onDelete: SetNull)
   questoes       Questao[]
 
   @@map("quizzes")
 }
 
 model Curiosidade {
-  id             Int       @id @default(autoincrement())
-  livroId        Int?      @map("livro_id")
+  id             Int      @id @default(autoincrement())
+  livroId        Int?     @map("livro_id")
   titulo         String
   texto          String
-  autorUsuarioId Int?      @map("autor_usuario_id")
-  publicado      Boolean   @default(false)
-  criadoEm       DateTime  @default(now()) @map("criado_em")
-  atualizadoEm   DateTime  @updatedAt @map("atualizado_em")
-  livro          Livro?    @relation(fields: [livroId], references: [id], onDelete: SetNull)
-  autor          Usuario?  @relation(fields: [autorUsuarioId], references: [id], onDelete: SetNull)
+  autorUsuarioId Int?     @map("autor_usuario_id")
+  publicado      Boolean  @default(false)
+  criadoEm       DateTime @default(now()) @map("criado_em")
+  atualizadoEm   DateTime @updatedAt @map("atualizado_em")
+  livro          Livro?   @relation(fields: [livroId], references: [id], onDelete: SetNull)
+  autor          Usuario? @relation(fields: [autorUsuarioId], references: [id], onDelete: SetNull)
 
   @@map("curiosidades")
 }
 
 model Personagem {
-  id        Int     @id @default(autoincrement())
-  livroId   Int     @map("livro_id")
+  id        Int      @id @default(autoincrement())
+  livroId   Int      @map("livro_id")
   nome      String
   descricao String?
   criadoEm  DateTime @default(now()) @map("criado_em")
-  livro     Livro   @relation(fields: [livroId], references: [id], onDelete: Cascade)
+  livro     Livro    @relation(fields: [livroId], references: [id], onDelete: Cascade)
 
   @@map("personagens")
 }
 
 model Questao {
-  id                  Int                 @id @default(autoincrement())
-  quizId              Int                 @map("quiz_id")
+  id                  Int                @id @default(autoincrement())
+  quizId              Int                @map("quiz_id")
   enunciado           String
-  alternativaA        String              @map("alternativa_a")
-  alternativaB        String              @map("alternativa_b")
-  alternativaC        String              @map("alternativa_c")
-  alternativaD        String              @map("alternativa_d")
-  alternativaE        String?             @map("alternativa_e")
+  alternativaA        String             @map("alternativa_a")
+  alternativaB        String             @map("alternativa_b")
+  alternativaC        String             @map("alternativa_c")
+  alternativaD        String             @map("alternativa_d")
+  alternativaE        String?            @map("alternativa_e")
   gabarito            LetraAlternativa
-  dificuldade         DificuldadeQuestao  @default(MEDIA)
-  comentarioResolucao String?             @map("comentario_resolucao")
-  criadoEm            DateTime            @default(now()) @map("criado_em")
-  quiz                Quiz                @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  dificuldade         DificuldadeQuestao @default(MEDIA)
+  comentarioResolucao String?            @map("comentario_resolucao")
+  criadoEm            DateTime           @default(now()) @map("criado_em")
+  quiz                Quiz               @relation(fields: [quizId], references: [id], onDelete: Cascade)
 
   @@map("questoes")
 }

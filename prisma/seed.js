@@ -79,49 +79,70 @@ async function main() {
 
   console.log("📚 Inserindo livro, personagens, curiosidades e quiz...");
 
-  // Conteúdo estruturado do Livro
+  // Conteúdo estruturado do Livro baseado no seu Schema e nos cards informativos
   const livroData = {
     titulo: "Capitães da Areia",
     autor: "Jorge Amado",
-    anoPublicacao: null,
-    genero_pt: "",
-    genero_en: "",
-    contexto_pt: "",
-    contexto_en: "",
-    descricao_pt: "",
-    descricao_en: "",
-    sinopse: "",
-    detalhes_autor_pt: "",
-    detalhes_autor_en: "",
-    estilo_escrita_pt: "",
-    estilo_escrita_en: "",
-    verossimilhanca_pt: "",
-    verossimilhanca_en: "",
-    caracteristicas_literarias_pt: "",
-    caracteristicas_literarias_en: "",
-    conclusao_pt: "",
-    conclusao_en: "",
-    video_url: "",
+    anoPublicacao: 1937,
+    genero_pt: "Romance Social / Literatura Modernista",
+    genero_en: "Social Novel / Modernist Literature",
+    sinopse: "A vida de um group de menores abandonados que vivem em um trapiche em Salvador, Bahia, sobrevivendo de pequenos furtos e golpes, enquanto enfrentam as mazelas da desigualdade social.",
+    
+    // Contextos (Dados do card "Contexto histórico")
+    contexto_pt: "Publicado em 1937 durante a Era Vargas, o livro sofreu severa censura do Estado Novo, tendo exemplares queimados em praça pública em Salvador devido ao seu forte caráter de denúncia social.",
+    contexto_en: "Published in 1937 during the Vargas Era, the book suffered severe censorship from the Estado Novo regime, with copies burned in public squares in Salvador due to its strong character of social denunciation.",
+    
+    // Descrições (Dados do card "Temas chave")
+    descricao_pt: "Aborda a marginalização da infância urbana, destacando temas fundamentais como a solidariedade do grupo, a busca incessante pela liberdade, a desigualdade social e o forte preconceito de classe.",
+    descricao_en: "Addresses the marginalization of urban childhood, highlighting fundamental themes such as group solidarity, the unceasing pursuit of freedom, social inequality, and strong class prejudice.",
+    
+    // Detalhes do Autor
+    detalhes_autor_pt: "Jorge Amado (1912–2001) foi um dos escritores brasileiros mais célebres do século XX. Sua obra é profundamente marcada pelo engajamento político e pela defesa das classes marginalizadas.",
+    detalhes_autor_en: "Jorge Amado (1912–2001) was one of the most celebrated Brazilian writers of the 20th century. His work is deeply marked by political engagement and the defense of marginalized classes.",
+    
+    // Estilo de Escrita
+    estilo_escrita_pt: "Fusão marcante de realismo cru com lirismo poético. O autor utiliza linguagem coloquial e expressões regionais da Bahia para aproximar o leitor da realidade dos meninos.",
+    estilo_escrita_en: "A striking fusion of raw realism with poetic lyricism. The author utilizes colloquial language and regional expressions from Bahia to bring the reader closer to the boys' reality.",
+    
+    // Verossimilhança (Dados do card "Engajamento")
+    verossimilhanca_pt: "A narrativa humaniza os jovens infratores, demonstrando com forte teor crítico que a criminalidade juvenil não é uma escolha inata, mas sim um reflexo direto da falta de afeto e de oportunidades estruturais.",
+    verossimilhanca_en: "The narrative humanizes young offenders, demonstrating with sharp criticism that juvenile criminality is not an innate choice, but rather a direct reflection of a lack of affection and structural opportunities.",
+    
+    // Características Literárias (Dados do card "Simbolismo")
+    caracteristicas_literarias_pt: "Rica em elementos simbólicos: o trapiche serve como metáfora para o único lar e refúgio dos rejeitados, enquanto a imensidão do mar personifica o desejo de liberdade e o destino incerto dos jovens.",
+    caracteristicas_literarias_en: "Rich in symbolic elements: the abandoned warehouse serves as a metaphor for the only home and refuge for the rejected, while the vastness of the sea personifies the desire for freedom and the uncertain destiny of the youth.",
+    
+    // Conclusão
+    conclusao_pt: "Capitães da Areia consolida-se como um clássico indispensável da literatura nacional, mantendo-se perfeitamente atemporal ao expor as feridas e contradições sociais e urbanas do Brasil.",
+    conclusao_en: "Capitães da Areia consolidates itself as an indispensable classic of national literature, remaining perfectly timeless by exposing Brazil's social and urban wounds and contradictions.",
+    
+    video_url: null,
     capa_url: "https://i.ibb.co/dsQ2s4TQ/Design-sem-nome-2.png",
     usuarioId: editor.id,
   };
 
+  // ERRO CORRIGIDO AQUI: lIvrData alterado para livroData
   const livro = await prisma.livro.create({
     data: livroData,
   });
 
+  // Personagens principais preenchidos
   await prisma.personagem.createMany({
     data: [
-      { livroId: livro.id, nome: "", descricao: "" },
+      { livroId: livro.id, nome: "Pedro Bala", descricao: "O líder do grupo, justo e corajoso, respeitado por todos os meninos do trapiche." },
+      { livroId: livro.id, nome: "Dora", descricao: "A única menina do grupo, que assume um papel maternal e amoroso antes de se tornar o grande amor de Pedro Bala." },
+      { livroId: livro.id, nome: "Sem-Pernas", descricao: "Um menino coxo e amargurado que atua como espião do grupo nas casas que pretendem assaltar." },
+      { livroId: livro.id, nome: "Volta Seca", descricao: "Um jovem admirador do cangaceiro Lampião, que carrega um forte sentimento de revolta contra as autoridades." },
     ],
   });
 
+  // Curiosidade real inserida
   await prisma.curiosidade.createMany({
     data: [
       {
         livroId: livro.id,
-        titulo: "",
-        texto: "",
+        titulo: "Livros Queimados",
+        texto: "Logo após o seu lançamento em 1937, cerca de 808 exemplares de Capitães da Areia foram apreendidos e queimados em praça pública em Salvador, sob o pretexto de que a obra fazia propaganda comunista.",
         autorUsuarioId: conteudista.id,
         publicado: true,
       },
@@ -333,15 +354,15 @@ async function main() {
       alternativaC: "Volta Seca",
       alternativaD: "Gato",
       alternativaE: "Dora",
-      gabarito: "C",
+      gabarito: "E",
       dificuldade: "DIFICIL",
-      comentarioResolucao: "Volta Seca morre de forma trágica durante o romance.",
+      comentarioResolucao: "Dora morre devido a uma forte febre após o período de reclusão no reformatório.",
     },
     {
       enunciado: "Qual é a crítica social principal que Jorge Amado faz no romance?",
       alternativaA: "A corrupção governamental",
       alternativaB: "A injustiça social e abandono de crianças pobres",
-      alternativaC: "A exploração pelos patrões",
+      alternativaC: "A exploration pelos patrões",
       alternativaD: "A falta de escolas",
       alternativaE: "O tráfico de escravos",
       gabarito: "B",
@@ -546,9 +567,9 @@ async function main() {
       alternativaC: "Dry Rotation",
       alternativaD: "Cat",
       alternativaE: "Dora",
-      gabarito: "C",
+      gabarito: "E",
       dificuldade: "DIFICIL",
-      comentarioResolucao: "Dry Rotation dies tragically during the novel.",
+      comentarioResolucao: "Dora dies from a severe fever after her time in the orphanage/reformatoy.",
     },
     {
       enunciado: "What is the main social criticism that Jorge Amado makes in the novel?",

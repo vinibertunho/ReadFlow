@@ -1,45 +1,83 @@
-import 'dotenv/config';
+import prisma from "./prismaClient.js";
 
-const BASE_URL = 'https://bookverse-back-pob5.onrender.com/livros';
-const API_KEY = process.env.BOOKVERSE_API_KEY;
+const EXTERNAL_API_KEY = process.env.BOOKVERSE_API_KEY;
+const EXTERNAL_API_URL = process.env.BOOKVERSE_API_URL || "https://bookverse-back-pob5.onrender.com/livros";
 
-export const buscarLivrosExternos = async () => {
-    if (typeof fetch === 'undefined') {
-        try {
-            const mod = await import('node-fetch');
-            global.fetch = mod.default;
-            console.info('Fallback: carregado node-fetch como global.fetch');
-        } catch (e) {
-            console.error('fetch não disponível e falha ao importar node-fetch:', e);
-            throw new Error('Fetch API não disponível no ambiente Node e node-fetch não pôde ser importado. Instale node-fetch ou atualize para Node >=18.');
-        }
-    }
+async function fazerRequisicaoExterna(url) {
+  if (!EXTERNAL_API_KEY) {
+    throw new Error(
+      "A variável de ambiente BOOKVERSE_API_KEY não foi definida no Render.",
+    );
+  }
 
-    if (!API_KEY) {
-        console.error('BOOKVERSE_API_KEY não encontrada em process.env');
-        throw new Error('Variavel BOOKVERSE_API_KEY nao configurada no .env.');
-    }
+  const response = await fetch(url, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${EXTERNAL_API_KEY}`,
+      "x-api-key": EXTERNAL_API_KEY,
+      "Content-Type": "application/json",
+    },
+  });
+
+  if (!response.ok) {
+    const responseText = await response.text().catch(() => "");
+    throw new Error(
+      `Erro na API externa: ${response.status} ${response.statusText}${responseText ? ` - ${responseText}` : ""}`,
+    );
+  }
+
+  return response.json();
+}
+
+export async function buscarLivrosExternos() {
+  try {
+    return await fazerRequisicaoExterna(EXTERNAL_API_URL);
+  } catch (error) {
+    console.error("Erro ao buscar livros externos:", error.message);
+    throw error;
+  }
+}
+
+export const bookService = {
+  async buscarLivroExterno(bookId) {
     try {
-        const response = await fetch(BASE_URL, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'x-api-key': API_KEY,
-            },
-        });
-
-        if (!response.ok) {
-            const errorText = await response.text().catch(() => '');
-            console.error(`Erro ao consultar API externa: status=${response.status} body=${errorText}`);
-
-            throw new Error(
-                `Falha ao consultar a API externa. Status ${response.status}. ${errorText}`.trim(),
-            );
-        }
-
-        return response.json();
-    } catch (err) {
-        console.error('Exceção ao buscar livros externos:', err.message || err);
-        throw err;
+      return await fazerRequisicaoExterna(`${EXTERNAL_API_URL}/${bookId}`);
+    } catch (error) {
+      console.error("Erro ao buscar livro na API externa:", error.message);
+      throw error;
     }
+  },
+
+  async salvarLivroNoBanco(dadosLivroExterno, usuarioId = null) {
+    try {
+      const novoLivro = await prisma.livro.create({
+        data: {
+          titulo: dadosLivroExterno.title || "Título Desconhecido",
+          autor: dadosLivroExterno.author || "Autor Desconhecido",
+          anoPublicacao: dadosLivroExterno.publishedYear || null,
+          sinopse: dadosLivroExterno.synopsis || null,
+
+          genero_pt: dadosLivroExterno.genrePt || "Geral",
+          genero_en: dadosLivroExterno.genreEn || "General",
+
+          contexto_historico_pt: dadosLivroExterno.historicalContextPt || null,
+          contexto_historico_en: dadosLivroExterno.historicalContextEn || null,
+          simbolismo_pt: dadosLivroExterno.symbolismPt || null,
+          simbolismo_en: dadosLivroExterno.symbolismEn || null,
+          engajamento_pt: dadosLivroExterno.engagementPt || null,
+          engajamento_en: dadosLivroExterno.engagementEn || null,
+          temas_chave_pt: dadosLivroExterno.keyThemesPt || null,
+          temas_chave_en: dadosLivroExterno.keyThemesEn || null,
+
+          capa_url: dadosLivroExterno.coverUrl || null,
+          usuarioId: usuarioId,
+        },
+      });
+
+      return novoLivro;
+    } catch (error) {
+      console.error("Erro ao salvar livro no banco de dados:", error);
+      throw error;
+    }
+  },
 };
