@@ -111,6 +111,19 @@ async function main() {
     // Características Literárias (Dados do card "Simbolismo")
     caracteristicas_literarias_pt: "Rica em elementos simbólicos: o trapiche serve como metáfora para o único lar e refúgio dos rejeitados, enquanto a imensidão do mar personifica o desejo de liberdade e o destino incerto dos jovens.",
     caracteristicas_literarias_en: "Rich in symbolic elements: the abandoned warehouse serves as a metaphor for the only home and refuge for the rejected, while the vastness of the sea personifies the desire for freedom and the uncertain destiny of the youth.",
+
+    // Campos novos do schema (contexto histórico, simbolismo, engajamento, temas chave)
+    contexto_historico_pt: "No contexto da década de 1930, o Brasil vivia fortes tensões sociais e políticas; 'Capitães da Areia' reflete a realidade dos excluídos e a crítica ao autoritarismo da época.",
+    contexto_historico_en: "In the 1930s context, Brazil faced strong social and political tensions; 'Captains of the Sands' reflects the reality of the excluded and criticizes the authoritarianism of the era.",
+
+    simbolismo_pt: "O trapiche e o mar funcionam como símbolos centrais que apontam para laços de pertença e o desejo de liberdade, respectivamente.",
+    simbolismo_en: "The warehouse and the sea function as central symbols pointing to bonds of belonging and the desire for freedom, respectively.",
+
+    engajamento_pt: "A obra engaja o leitor ao confrontar a indiferença social e mobilizar empatia pelos jovens marginalizados.",
+    engajamento_en: "The work engages the reader by confronting social indifference and mobilizing empathy for marginalized youth.",
+
+    temas_chave_pt: "Infância marginalizada; solidariedade; desigualdade social; resistência e redenção.",
+    temas_chave_en: "Marginalized childhood; solidarity; social inequality; resistance and redemption.",
     
     // Conclusão
     conclusao_pt: "Capitães da Areia consolida-se como um clássico indispensável da literatura nacional, mantendo-se perfeitamente atemporal ao expor as feridas e contradições sociais e urbanas do Brasil.",
