@@ -1,7 +1,7 @@
 import prisma from "./prismaClient.js";
 
 const EXTERNAL_API_KEY = process.env.BOOKVERSE_API_KEY;
-const EXTERNAL_API_URL = process.env.BOOKVERSE_API_URL || "https://bookverse-back-pob5.onrender.com/livros";
+const EXTERNAL_API_URL = "https://bookverse-back-pob5.onrender.com/livros";
 
 async function fazerRequisicaoExterna(url) {
   if (!EXTERNAL_API_KEY) {
