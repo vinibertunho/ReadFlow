@@ -86,28 +86,28 @@ async function main() {
     anoPublicacao: 1937,
     genero_pt: "Romance Social / Literatura Modernista",
     genero_en: "Social Novel / Modernist Literature",
-    sinopse: "A vida de um group de menores abandonados que vivem em um trapiche em Salvador, Bahia, sobrevivendo de pequenos furtos e golpes, enquanto enfrentam as mazelas da desigualdade social.",
-    
+    sinopse: "A vida de um grupo de menores abandonados que vivem em um trapiche em Salvador, Bahia, sobrevivendo de pequenos furtos e golpes, enquanto enfrentam as mazelas da desigualdade social.",
+
     // Contextos (Dados do card "Contexto histórico")
     contexto_pt: "Publicado em 1937 durante a Era Vargas, o livro sofreu severa censura do Estado Novo, tendo exemplares queimados em praça pública em Salvador devido ao seu forte caráter de denúncia social.",
     contexto_en: "Published in 1937 during the Vargas Era, the book suffered severe censorship from the Estado Novo regime, with copies burned in public squares in Salvador due to its strong character of social denunciation.",
-    
+
     // Descrições (Dados do card "Temas chave")
     descricao_pt: "Aborda a marginalização da infância urbana, destacando temas fundamentais como a solidariedade do grupo, a busca incessante pela liberdade, a desigualdade social e o forte preconceito de classe.",
     descricao_en: "Addresses the marginalization of urban childhood, highlighting fundamental themes such as group solidarity, the unceasing pursuit of freedom, social inequality, and strong class prejudice.",
-    
+
     // Detalhes do Autor
     detalhes_autor_pt: "Jorge Amado (1912–2001) foi um dos escritores brasileiros mais célebres do século XX. Sua obra é profundamente marcada pelo engajamento político e pela defesa das classes marginalizadas.",
     detalhes_autor_en: "Jorge Amado (1912–2001) was one of the most celebrated Brazilian writers of the 20th century. His work is deeply marked by political engagement and the defense of marginalized classes.",
-    
+
     // Estilo de Escrita
     estilo_escrita_pt: "Fusão marcante de realismo cru com lirismo poético. O autor utiliza linguagem coloquial e expressões regionais da Bahia para aproximar o leitor da realidade dos meninos.",
     estilo_escrita_en: "A striking fusion of raw realism with poetic lyricism. The author utilizes colloquial language and regional expressions from Bahia to bring the reader closer to the boys' reality.",
-    
+
     // Verossimilhança (Dados do card "Engajamento")
     verossimilhanca_pt: "A narrativa humaniza os jovens infratores, demonstrando com forte teor crítico que a criminalidade juvenil não é uma escolha inata, mas sim um reflexo direto da falta de afeto e de oportunidades estruturais.",
     verossimilhanca_en: "The narrative humanizes young offenders, demonstrating with sharp criticism that juvenile criminality is not an innate choice, but rather a direct reflection of a lack of affection and structural opportunities.",
-    
+
     // Características Literárias (Dados do card "Simbolismo")
     caracteristicas_literarias_pt: "Rica em elementos simbólicos: o trapiche serve como metáfora para o único lar e refúgio dos rejeitados, enquanto a imensidão do mar personifica o desejo de liberdade e o destino incerto dos jovens.",
     caracteristicas_literarias_en: "Rich in symbolic elements: the abandoned warehouse serves as a metaphor for the only home and refuge for the rejected, while the vastness of the sea personifies the desire for freedom and the uncertain destiny of the youth.",
@@ -124,11 +124,11 @@ async function main() {
 
     temas_chave_pt: "Infância marginalizada; solidariedade; desigualdade social; resistência e redenção.",
     temas_chave_en: "Marginalized childhood; solidarity; social inequality; resistance and redemption.",
-    
+
     // Conclusão
     conclusao_pt: "Capitães da Areia consolida-se como um clássico indispensável da literatura nacional, mantendo-se perfeitamente atemporal ao expor as feridas e contradições sociais e urbanas do Brasil.",
     conclusao_en: "Capitães da Areia consolidates itself as an indispensable classic of national literature, remaining perfectly timeless by exposing Brazil's social and urban wounds and contradictions.",
-    
+
     video_url: null,
     capa_url: "https://i.ibb.co/dsQ2s4TQ/Design-sem-nome-2.png",
     usuarioId: editor.id,
