@@ -1,8 +1,7 @@
 export const apiKey = (req, res, next) => {
-    const key = req.headers['x-api-key'] || req.headers['api-key'] || req.headers.authorization?.replace(/^Bearer\s+/i, '');
-    const expectedKey = process.env.API_KEY?.trim();
+    const key = req.headers['x-api-key'];
 
-    if (!key || !expectedKey || key.trim() !== expectedKey) {
+    if (!key || key !== process.env.API_KEY) {
         return res.status(401).json({ error: 'API Key invalida ou ausente.' });
     }
 
