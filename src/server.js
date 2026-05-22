@@ -17,17 +17,10 @@ const PORT = process.env.PORT || 3001;
 app.use(express.json());
 app.use(cors());
 
-// Log simples de todas as requisições para diagnóstico de rotas
-app.use((req, res, next) => {
-    console.log(`[REQ] ${req.method} ${req.originalUrl}`);
-    next();
-});
-
 app.get('/', (req, res) => {
     res.send('🚀 API funcionando');
 });
 
-// Rotas
 app.use('/api/livros', apiKey, livrosRoutes);
 app.use('/api/usuarios', usuarioRoutes);
 app.use('/api/personagens', personagemRoutes);
@@ -35,7 +28,7 @@ app.use('/api/questoes', questaoRoutes);
 app.use('/api/quiz', quizRoutes);
 app.use('/api/curiosidades', curiosidadeRoutes);
 app.use('/api/equipes', equipeRoutes);
-app.use('/livros/integracao', livrosExternosRoutes);
+app.use('/api/integracao', livrosExternosRoutes);
 
 app.use((req, res) => {
     res.status(404).json({ error: 'Rota não encontrada' });
