@@ -3,6 +3,9 @@ import prisma from "./prismaClient.js";
 const EXTERNAL_API_KEY = process.env.BOOKVERSE_API_KEY;
 const EXTERNAL_API_URL = "https://bookverse-back-pob5.onrender.com/livros";
 
+const RANA_API_KEY = "amods";
+const RANA_API_URL = "https://backend-projeto-integrador-rana.onrender.com/api/livro";
+
 async function fazerRequisicaoExterna(url) {
   if (!EXTERNAL_API_KEY) {
     throw new Error(
@@ -29,11 +32,39 @@ async function fazerRequisicaoExterna(url) {
   return response.json();
 }
 
+async function fazerRequisicaoRana(url) {
+  const response = await fetch(url, {
+    method: "GET",
+    headers: {
+      "x-api-key": RANA_API_KEY,
+      "Content-Type": "application/json",
+    },
+  });
+
+  if (!response.ok) {
+    const responseText = await response.text().catch(() => "");
+    throw new Error(
+      `Erro na API Rana: ${response.status} ${response.statusText}${responseText ? ` - ${responseText}` : ""}`
+    );
+  }
+
+  return response.json();
+}
+
 export async function buscarLivrosExternos() {
   try {
     return await fazerRequisicaoExterna(EXTERNAL_API_URL);
   } catch (error) {
     console.error("Erro ao buscar livros externos:", error.message);
+    throw error;
+  }
+}
+
+export async function buscarLivrosRana() {
+  try {
+    return await fazerRequisicaoRana(RANA_API_URL);
+  } catch (error) {
+    console.error("Erro ao buscar livros Rana:", error.message);
     throw error;
   }
 }
