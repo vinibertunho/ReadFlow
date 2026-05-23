@@ -1,30 +1,27 @@
 import prisma from '../lib/services/prismaClient.js';
 
-// --- Configuração dos Endpoints Globais (Com as 4 APIs Parceiras) ---
 const ENDPOINTS_CONFIG = [
     {
         nomeLivro: 'O Guarani',
         urlCompleta: 'https://bookpedia-backend-4ab3.onrender.com/livros',
-        apiKey: process.env.KEY_LIVRO_O_GUARANI,
+        apiKey: process.env.KEY_LIVRO_O_GUARANI || 'projetoamods',
     },
     {
         nomeLivro: 'Quartos de despejo',
         urlCompleta: 'https://backend-projeto-integrador-rana.onrender.com/api/livro',
-        apiKey: process.env.KEY_LIVRO_QUARTOS_DESPEJO,
+        apiKey: process.env.KEY_LIVRO_QUARTOS_DESPEJO || 'projetoamods',
     },
     {
         nomeLivro: 'Memórias Póstumas de Brás Cubas',
         urlCompleta: 'https://projeto-clubyx.onrender.com/livros',
-        apiKey: process.env.KEY_LIVRO_MEMORIAS,
+        apiKey: process.env.KEY_LIVRO_MEMORIAS || 'projetoamods',
     },
     {
         nomeLivro: 'Bookverse',
         urlCompleta: 'https://bookverse-back-pob5.onrender.com/livros',
-        apiKey: process.env.BOOKVERSE_API_KEY,
+        apiKey: process.env.BOOKVERSE_API_KEY || 'projetoamods',
     }
 ];
-
-// --- Funções Auxiliares de Requisição Genérica ---
 
 async function fazerRequisicaoExterna(endpoint) {
     if (!endpoint.urlCompleta || !endpoint.apiKey) {
@@ -50,8 +47,6 @@ async function fazerRequisicaoExterna(endpoint) {
     return response.json();
 }
 
-// --- Normalização e Mapeamento de Dados ---
-
 function mapExternalToInternal(external = {}) {
     return {
         titulo: external.titulo || external.title || external.tituloDoLivro || external.tituloPT || null,
@@ -75,7 +70,7 @@ async function salvarLivroNoBanco(dadosLivroExterno, usuarioId = null) {
         data: {
             titulo: dadosLivroExterno.titulo || dadosLivroExterno.title || dadosLivroExterno.tituloDoLivro || 'Título Desconhecido',
             autor: dadosLivroExterno.autor || dadosLivroExterno.author || dadosLivroExterno.autores || 'Autor Desconhecido',
-            anoPublicacao: dadosLivroExterno.anoPublicacao || dadosLivroExterno.ano || dadosLivroExterno.year || null,
+            anoPublicacao: dadosLivroExterno.dadosLivroExterno || dadosLivroExterno.ano || dadosLivroExterno.year || null,
             sinopse: dadosLivroExterno.sinopse || dadosLivroExterno.description || dadosLivroExterno.resumo || dadosLivroExterno.enredo_pt || null,
             genero_pt: dadosLivroExterno.genero_pt || dadosLivroExterno.genero || 'Geral',
             genero_en: dadosLivroExterno.genero_en || dadosLivroExterno.genre || 'General',
@@ -111,27 +106,19 @@ const normalize = (str = '') =>
         .toLowerCase()
         .trim();
 
-// --- Controllers ---
-
-// 1. Rota Principal unificada (Com as 4 APIs Parceiras)
 export const obterBibliotecaCompleta = async (req, res) => {
     try {
         console.log(`Total de livros cadastrados no array: ${ENDPOINTS_CONFIG.length}`);
 
         const promessas = ENDPOINTS_CONFIG.map(async (livro, index) => {
-            console.log(`[Índice ${index}] Iniciando processo para: ${livro.nomeLivro}`);
-
             try {
                 if (!livro.urlCompleta || !livro.apiKey) {
-                    console.log(`[Índice ${index}] Erro: URL ou Key faltando para ${livro.nomeLivro}`);
                     return {
                         livro: livro.nomeLivro,
                         statusApi: 'Configuração Ausente',
                         conteudo: []
                     };
                 }
-
-                console.log(`[Índice ${index}] Disparando Fetch para: ${livro.urlCompleta}`);
 
                 const resposta = await fetch(livro.urlCompleta, {
                     method: 'GET',
@@ -142,8 +129,6 @@ export const obterBibliotecaCompleta = async (req, res) => {
                     },
                 });
 
-                console.log(`[Índice ${index}] Resposta recebida de ${livro.nomeLivro}. Status: ${resposta.status}`);
-
                 if (!resposta.ok) {
                     return {
                         livro: livro.nomeLivro,
@@ -153,20 +138,28 @@ export const obterBibliotecaCompleta = async (req, res) => {
                 }
 
                 const dadosBrutos = await resposta.json();
-                console.log(`[Índice ${index}] JSON convertido com sucesso para ${livro.nomeLivro}`);
-
                 const listaDeLivros = Array.isArray(dadosBrutos) ? dadosBrutos : dadosBrutos ? [dadosBrutos] : [];
 
-                const dadosFormatados = listaDeLivros.map((item) => ({
-                    titulo: item.titulo || item.title || item.tituloDoLivro || item.tituloPT || 'Título não informado',
-                    autor: item.autor || item.author || item.autores || item.nome || 'Autor não informado',
-                    capa_url: item.capa || item.image || item.capaURL || item.foto || null,
-                    ano: item.ano || item.year || item.anoPublicacao || item.publicacao || 'N/A',
-                    genero_pt: item.genero_pt || item.genero || item.generoPT || 'Gênero não informado',
-                    genero_en: item.genero_en || item.genre || item.generoEN || 'Genre not informed',
-                    enredo_pt: item.enredo_pt || item.resumo || 'Enredo não informado',
-                    enredo_en: item.enredo_en || item.description || item.resumoEn || 'Description not informed',
-                }));
+                const dadosFormatados = listaDeLivros.map((item) => {
+                    let titulo = item.titulo || item.title || item.tituloDoLivro || item.tituloPT || 'Título não informado';
+                    let autor = item.autor || item.author || item.autores || item.nome || 'Autor não informado';
+
+                    if (titulo.toLowerCase().includes('nao informado') && autor.toLowerCase().includes('memorias postumas')) {
+                        titulo = "Memórias Póstumas de Brás Cubas";
+                        autor = "Machado de Assis";
+                    }
+
+                    return {
+                        titulo,
+                        autor,
+                        capa_url: item.capa || item.image || item.capaURL || item.capa_url || item.foto || null,
+                        ano: item.ano || item.year || item.anoPublicacao || item.publicacao || 'N/A',
+                        genero_pt: item.genero_pt || item.genero || item.generoPT || 'Gênero não informado',
+                        genero_en: item.genero_en || item.genre || item.generoEN || 'Genre not informed',
+                        enredo_pt: item.enredo_pt || item.resumo || item.sinopse || 'Enredo não informado',
+                        enredo_en: item.enredo_en || item.description || item.resumoEn || 'Description not informed',
+                    };
+                });
 
                 return {
                     livro: livro.nomeLivro,
@@ -175,7 +168,7 @@ export const obterBibliotecaCompleta = async (req, res) => {
                 };
 
             } catch (erroLivro) {
-                console.error(`🚨 [Erro interno no mapa do livro ${livro.nomeLivro}]:`, erroLivro.message);
+                console.error(`🚨 [Erro no mapa do livro ${livro.nomeLivro}]:`, erroLivro.message);
                 return {
                     livro: livro.nomeLivro,
                     statusApi: 'Erro Interno na Requisição',
@@ -185,8 +178,6 @@ export const obterBibliotecaCompleta = async (req, res) => {
         });
 
         const bibliotecaCompleta = await Promise.all(promessas);
-        console.log('--- PROCESSO CONCLUÍDO COM SUCESSO ---');
-
         return res.status(200).json(bibliotecaCompleta);
 
     } catch (error) {
@@ -195,7 +186,6 @@ export const obterBibliotecaCompleta = async (req, res) => {
     }
 };
 
-// 2. Lista integrada com Dedup
 export const listarIntegracao = async (req, res) => {
     try {
         const chamadas = ENDPOINTS_CONFIG.map(endpoint => 
@@ -212,10 +202,22 @@ export const listarIntegracao = async (req, res) => {
             if (!raw) return [];
 
             const lista = Array.isArray(raw) ? raw : [raw];
-            return lista.map((item) => ({
-                ...mapExternalToInternal(item),
-                fonte: endpoint.nomeLivro,
-            }));
+            return lista.map((item) => {
+                const normalizado = mapExternalToInternal(item);
+
+                if (
+                    (!normalizado.titulo || normalizado.titulo.toLowerCase().includes('nao informado')) &&
+                    (normalizado.autor && normalizado.autor.toLowerCase().includes('memorias postumas'))
+                ) {
+                    normalizado.titulo = "Memórias Póstumas de Brás Cubas";
+                    normalizado.autor = "Machado de Assis";
+                }
+
+                return {
+                    ...normalizado,
+                    fonte: endpoint.nomeLivro,
+                };
+            });
         });
 
         const vistos = new Set();
@@ -232,6 +234,16 @@ export const listarIntegracao = async (req, res) => {
             if (!vistos.has(chave)) {
                 vistos.add(chave);
                 deduped.push(item);
+            } else {
+                const indexExistente = deduped.findIndex(d => normalize(d.titulo) === chave);
+                if (indexExistente !== -1) {
+                    if (!deduped[indexExistente].capa_url && item.capa_url) {
+                        deduped[indexExistente].capa_url = item.capa_url;
+                    }
+                    if ((!deduped[indexExistente].sinopse || deduped[indexExistente].sinopse.includes('não informado')) && item.sinopse) {
+                        deduped[indexExistente].sinopse = item.sinopse;
+                    }
+                }
             }
         }
 
@@ -239,10 +251,6 @@ export const listarIntegracao = async (req, res) => {
             data: deduped,
             meta: {
                 total: deduped.length,
-                fontes: ENDPOINTS_CONFIG.map((endpoint, index) => ({
-                    nome: endpoint.nomeLivro,
-                    total: Array.isArray(resultados[index]) ? resultados[index].length : resultados[index] ? 1 : 0,
-                })),
             },
         });
     } catch (error) {
@@ -251,7 +259,6 @@ export const listarIntegracao = async (req, res) => {
     }
 };
 
-// 3. Importação em lote para o Banco de Dados local
 export const importarTodosOsLivros = async (req, res) => {
     try {
         const { usuarioId } = req.body || {};
@@ -272,10 +279,19 @@ export const importarTodosOsLivros = async (req, res) => {
         const ignorados = [];
 
         for (const livro of todosOsLivros) {
-            const chave = normalize(livro.titulo || livro.title || livro.tituloDoLivro || '');
+            let tituloDefinitivo = livro.titulo || livro.title || livro.tituloDoLivro || '';
+            let autorDefinitivo = livro.autor || livro.author || livro.autores || '';
+
+            if (tituloDefinitivo.toLowerCase().includes('nao informado') && autorDefinitivo.toLowerCase().includes('memorias postumas')) {
+                livro.titulo = "Memórias Póstumas de Brás Cubas";
+                livro.autor = "Machado de Assis";
+                tituloDefinitivo = "Memórias Póstumas de Brás Cubas";
+            }
+
+            const chave = normalize(tituloDefinitivo);
 
             if (!chave || vistos.has(chave)) {
-                ignorados.push(livro.titulo || livro.title || null);
+                ignorados.push(tituloDefinitivo || null);
                 continue;
             }
 
@@ -286,12 +302,12 @@ export const importarTodosOsLivros = async (req, res) => {
                 importados.push(salvo);
             } catch (err) {
                 console.error('Erro ao salvar livro em lote:', err.message || err);
-                ignorados.push(livro.titulo || livro.title || null);
+                ignorados.push(tituloDefinitivo || null);
             }
         }
 
         return res.status(201).json({
-            message: 'Importação em lote de todas as APIs parceiras concluída!',
+            message: 'Importação em lote de todas as APIs parceiras concluída com sucesso!',
             data: importados,
             meta: {
                 totalEncontrados: todosOsLivros.length,

@@ -7,7 +7,6 @@ import {
 
 const router = Router();
 
-// Retorna o status e os livros de cada uma das 4 APIs individualmente
 router.get('/', obterBibliotecaCompleta);
 
 // Retorna uma lista unificada de todos os livros juntos e sem duplicatas
