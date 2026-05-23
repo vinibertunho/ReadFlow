@@ -52,30 +52,81 @@ function mapExternalToInternal(external = {}) {
         titulo: external.titulo || external.title || external.tituloDoLivro || external.tituloPT || null,
         autor: external.autor || external.author || external.autores || external.nome || null,
         anoPublicacao: external.anoPublicacao ? parseInt(external.anoPublicacao) : external.ano ? parseInt(external.ano) : external.year ? parseInt(external.year) : null,
-        sinopse: external.sinopse || external.description || external.resumo || external.enredo_pt || external.synopsis || null,
-        genero_pt: external.genero_pt || external.genero || external.generoPT || external.genrePt || 'Geral',
-        genero_en: external.genero_en || external.genre || external.generoEN || external.genreEn || 'General',
-        contexto_pt: external.contexto_pt || external.contextPt || external.historicalContextPt || null,
-        contexto_en: external.contexto_en || external.contextEn || external.historicalContextEn || null,
-        descricao_pt: external.descricao_pt || external.descriptionPt || null,
-        descricao_en: external.descricao_en || external.descriptionEn || null,
+        paginas: external.paginas ? parseInt(external.paginas) : external.pages ? parseInt(external.pages) : null,
         capa_url: external.capa_url || external.capa || external.image || external.capaURL || external.foto || null,
         video_url: external.video_url || external.videoUrl || null,
+        
+        genero_pt: external.genero_pt || external.genero || external.generoPT || external.genrePt || null,
+        genero_en: external.genero_en || external.genre || external.generoEN || external.genreEn || null,
+        
+        sinopse: external.sinopse || external.description || external.resumo || external.enredo_pt || external.synopsis || null,
+        descricao_pt: external.descricao_pt || external.descriptionPt || null,
+        descricao_en: external.descricao_en || external.descriptionEn || null,
+        
+        personagens_pt: external.personagens_pt || (Array.isArray(external.personagens) ? external.personagens.join('\n') : external.personagens) || null,
+        personagens_en: external.personagens_en || (Array.isArray(external.personagensEn) ? external.personagensEn.join('\n') : external.personagensEn) || null,
+
+        contexto_historico_pt: external.contexto_historico_pt || external.contexto_pt || external.contextPt || external.historicalContextPt || null,
+        contexto_historico_en: external.contexto_historico_en || external.contexto_en || external.contextEn || external.historicalContextEn || null,
+
+        detalhes_autor_pt: external.detalhes_autor_pt || external.aboutAuthorPt || null,
+        detalhes_autor_en: external.detalhes_autor_en || external.aboutAuthorEn || null,
+        estilo_escrita_pt: external.estilo_escrita_pt || external.writingStylePt || null,
+        estilo_escrita_en: external.estilo_escrita_en || external.writingStyleEn || null,
+        verossimilhanca_pt: external.verossimilhanca_pt || external.verisimilitudePt || null,
+        verossimilhanca_en: external.verossimilhanca_en || external.verisimilitudeEn || null,
+        caracteristicas_literarias_pt: external.caracteristicas_literarias_pt || external.literaryFeaturesPt || null,
+        caracteristicas_literarias_en: external.caracteristicas_literarias_en || external.literaryFeaturesEn || null,
+        conclusao_pt: external.conclusao_pt || external.conclusionPt || null,
+        conclusao_en: external.conclusao_en || external.conclusionEn || null,
+
+        simbolismo_pt: external.simbolismo_pt || external.symbolismPt || null,
+        simbolismo_en: external.simbolismo_en || external.symbolismEn || null,
+        engajamento_pt: external.engajamento_pt || external.engagementPt || null,
+        engajamento_en: external.engajamento_en || external.engagementEn || null,
+        temas_chave_pt: external.temas_chave_pt || external.keyThemesPt || null,
+        temas_chave_en: external.temas_chave_en || external.keyThemesEn || null,
+
         usuarioId: null,
     };
 }
 
 async function salvarLivroNoBanco(dadosLivroExterno, usuarioId = null) {
+    const mapeado = mapExternalToInternal(dadosLivroExterno);
+
     const novoLivro = await prisma.livro.create({
         data: {
-            titulo: dadosLivroExterno.titulo || dadosLivroExterno.title || dadosLivroExterno.tituloDoLivro || 'Título Desconhecido',
-            autor: dadosLivroExterno.autor || dadosLivroExterno.author || dadosLivroExterno.autores || 'Autor Desconhecido',
-            anoPublicacao: dadosLivroExterno.dadosLivroExterno || dadosLivroExterno.ano || dadosLivroExterno.year || null,
-            sinopse: dadosLivroExterno.sinopse || dadosLivroExterno.description || dadosLivroExterno.resumo || dadosLivroExterno.enredo_pt || null,
-            genero_pt: dadosLivroExterno.genero_pt || dadosLivroExterno.genero || 'Geral',
-            genero_en: dadosLivroExterno.genero_en || dadosLivroExterno.genre || 'General',
-            capa_url: dadosLivroExterno.capa_url || dadosLivroExterno.capa || dadosLivroExterno.image || null,
-            video_url: dadosLivroExterno.video_url || dadosLivroExterno.videoUrl || null,
+            titulo: mapeado.titulo || 'Título Desconhecido',
+            autor: mapeado.autor || 'Autor Desconhecido',
+            anoPublicacao: mapeado.anoPublicacao,
+            paginas: mapeado.paginas,
+            capa_url: mapeado.capa_url,
+            video_url: mapeado.video_url,
+            genero_pt: mapeado.genero_pt,
+            genero_en: mapeado.genero_en,
+            sinopse: mapeado.sinopse,
+            descricao_pt: mapeado.descricao_pt,
+            descricao_en: mapeado.descricao_en,
+            personagens_pt: mapeado.personagens_pt,
+            personagens_en: mapeado.personagens_en,
+            contexto_historico_pt: mapeado.contexto_historico_pt,
+            contexto_historico_en: mapeado.contexto_historico_en,
+            detalhes_autor_pt: mapeado.detalhes_autor_pt,
+            detalhes_autor_en: mapeado.detalhes_autor_en,
+            estilo_escrita_pt: mapeado.estilo_escrita_pt,
+            estilo_escrita_en: mapeado.estilo_escrita_en,
+            verossimilhanca_pt: mapeado.verossimilhanca_pt,
+            verossimilhanca_en: mapeado.verossimilhanca_en,
+            caracteristicas_literarias_pt: mapeado.caracteristicas_literarias_pt,
+            caracteristicas_literarias_en: mapeado.caracteristicas_literarias_en,
+            conclusao_pt: mapeado.conclusao_pt,
+            conclusao_en: mapeado.conclusao_en,
+            simbolismo_pt: mapeado.simbolismo_pt,
+            simbolismo_en: mapeado.simbolismo_en,
+            engajamento_pt: mapeado.engajamento_pt,
+            engajamento_en: mapeado.engajamento_en,
+            temas_chave_pt: mapeado.temas_chave_pt,
+            temas_chave_en: mapeado.temas_chave_en,
             usuarioId,
         },
     });
@@ -90,7 +141,7 @@ async function salvarLivroNoBanco(dadosLivroExterno, usuarioId = null) {
         try {
             await prisma.personagem.createMany({ data: personagensData });
         } catch (err) {
-            console.warn('Não foi possível inserir personagens:', err.message || err);
+            console.warn(err.message || err);
         }
     }
 
@@ -108,9 +159,7 @@ const normalize = (str = '') =>
 
 export const obterBibliotecaCompleta = async (req, res) => {
     try {
-        console.log(`Total de livros cadastrados no array: ${ENDPOINTS_CONFIG.length}`);
-
-        const promessas = ENDPOINTS_CONFIG.map(async (livro, index) => {
+        const promessas = ENDPOINTS_CONFIG.map(async (livro) => {
             try {
                 if (!livro.urlCompleta || !livro.apiKey) {
                     return {
@@ -141,24 +190,14 @@ export const obterBibliotecaCompleta = async (req, res) => {
                 const listaDeLivros = Array.isArray(dadosBrutos) ? dadosBrutos : dadosBrutos ? [dadosBrutos] : [];
 
                 const dadosFormatados = listaDeLivros.map((item) => {
-                    let titulo = item.titulo || item.title || item.tituloDoLivro || item.tituloPT || 'Título não informado';
-                    let autor = item.autor || item.author || item.autores || item.nome || 'Autor não informado';
+                    const mapped = mapExternalToInternal(item);
 
-                    if (titulo.toLowerCase().includes('nao informado') && autor.toLowerCase().includes('memorias postumas')) {
-                        titulo = "Memórias Póstumas de Brás Cubas";
-                        autor = "Machado de Assis";
+                    if (mapped.titulo?.toLowerCase().includes('nao informado') && mapped.autor?.toLowerCase().includes('memorias postumas')) {
+                        mapped.titulo = "Memórias Póstumas de Brás Cubas";
+                        mapped.autor = "Machado de Assis";
                     }
 
-                    return {
-                        titulo,
-                        autor,
-                        capa_url: item.capa || item.image || item.capaURL || item.capa_url || item.foto || null,
-                        ano: item.ano || item.year || item.anoPublicacao || item.publicacao || 'N/A',
-                        genero_pt: item.genero_pt || item.genero || item.generoPT || 'Gênero não informado',
-                        genero_en: item.genero_en || item.genre || item.generoEN || 'Genre not informed',
-                        enredo_pt: item.enredo_pt || item.resumo || item.sinopse || 'Enredo não informado',
-                        enredo_en: item.enredo_en || item.description || item.resumoEn || 'Description not informed',
-                    };
+                    return mapped;
                 });
 
                 return {
@@ -168,7 +207,6 @@ export const obterBibliotecaCompleta = async (req, res) => {
                 };
 
             } catch (erroLivro) {
-                console.error(`🚨 [Erro no mapa do livro ${livro.nomeLivro}]:`, erroLivro.message);
                 return {
                     livro: livro.nomeLivro,
                     statusApi: 'Erro Interno na Requisição',
@@ -181,18 +219,14 @@ export const obterBibliotecaCompleta = async (req, res) => {
         return res.status(200).json(bibliotecaCompleta);
 
     } catch (error) {
-        console.error('💥 ERRO CRÍTICO NO CATCH PRINCIPAL:', error.message);
-        return res.status(500).json({ erro: 'Erro crítico no servidor.', detalhe: error.message });
+        return res.status(500).json({ erro: error.message });
     }
 };
 
 export const listarIntegracao = async (req, res) => {
     try {
         const chamadas = ENDPOINTS_CONFIG.map(endpoint => 
-            fazerRequisicaoExterna(endpoint).catch(error => {
-                console.warn(`${endpoint.nomeLivro} falhou:`, error && error.message);
-                return [];
-            })
+            fazerRequisicaoExterna(endpoint).catch(() => [])
         );
 
         const resultados = await Promise.all(chamadas);
@@ -243,6 +277,12 @@ export const listarIntegracao = async (req, res) => {
                     if ((!deduped[indexExistente].sinopse || deduped[indexExistente].sinopse.includes('não informado')) && item.sinopse) {
                         deduped[indexExistente].sinopse = item.sinopse;
                     }
+                    if (!deduped[indexExistente].contexto_historico_pt && item.contexto_historico_pt) {
+                        deduped[indexExistente].contexto_historico_pt = item.contexto_historico_pt;
+                    }
+                    if (!deduped[indexExistente].simbolismo_pt && item.simbolismo_pt) {
+                        deduped[indexExistente].simbolismo_pt = item.simbolismo_pt;
+                    }
                 }
             }
         }
@@ -254,8 +294,7 @@ export const listarIntegracao = async (req, res) => {
             },
         });
     } catch (error) {
-        console.error('Erro ao listar integração:', error);
-        return res.status(500).json({ error: 'Erro ao reunir os livros em uma única integração.' });
+        return res.status(500).json({ error: error.message });
     }
 };
 
@@ -301,13 +340,12 @@ export const importarTodosOsLivros = async (req, res) => {
                 const salvo = await salvarLivroNoBanco(livro, usuarioId ? parseInt(usuarioId) : null);
                 importados.push(salvo);
             } catch (err) {
-                console.error('Erro ao salvar livro em lote:', err.message || err);
                 ignorados.push(tituloDefinitivo || null);
             }
         }
 
         return res.status(201).json({
-            message: 'Importação em lote de todas as APIs parceiras concluída com sucesso!',
+            message: 'Importação concluída',
             data: importados,
             meta: {
                 totalEncontrados: todosOsLivros.length,
@@ -316,7 +354,6 @@ export const importarTodosOsLivros = async (req, res) => {
             },
         });
     } catch (error) {
-        console.error('Erro geral ao importar livros:', error);
-        return res.status(500).json({ error: 'Erro ao processar a importação em lote.' });
+        return res.status(500).json({ error: error.message });
     }
 };
