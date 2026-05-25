@@ -167,9 +167,27 @@ function preencherMetadadosFaltantes(mapped) {
     if (metadado) {
         mapped.sinopse = mapped.sinopse || metadado.sinopse;
         mapped.descricao_pt = mapped.descricao_pt || metadado.descricao_pt;
+        mapped.descricao_en = mapped.descricao_en || metadado.descricao_en;
         mapped.personagens_pt = mapped.personagens_pt || metadado.personagens_pt;
+        mapped.personagens_en = mapped.personagens_en || metadado.personagens_en;
         mapped.contexto_historico_pt = mapped.contexto_historico_pt || metadado.contexto_historico_pt;
+        mapped.contexto_historico_en = mapped.contexto_historico_en || metadado.contexto_historico_en;
+        mapped.detalhes_autor_pt = mapped.detalhes_autor_pt || metadado.detalhes_autor_pt;
+        mapped.detalhes_autor_en = mapped.detalhes_autor_en || metadado.detalhes_autor_en;
         mapped.estilo_escrita_pt = mapped.estilo_escrita_pt || metadado.estilo_escrita_pt;
+        mapped.estilo_escrita_en = mapped.estilo_escrita_en || metadado.estilo_escrita_en;
+        mapped.verossimilhanca_pt = mapped.verossimilhanca_pt || metadado.verossimilhanca_pt;
+        mapped.verossimilhanca_en = mapped.verossimilhanca_en || metadado.verossimilhanca_en;
+        mapped.caracteristicas_literarias_pt = mapped.caracteristicas_literarias_pt || metadado.caracteristicas_literarias_pt;
+        mapped.caracteristicas_literarias_en = mapped.caracteristicas_literarias_en || metadado.caracteristicas_literarias_en;
+        mapped.conclusao_pt = mapped.conclusao_pt || metadado.conclusao_pt;
+        mapped.conclusao_en = mapped.conclusao_en || metadado.conclusao_en;
+        mapped.simbolismo_pt = mapped.simbolismo_pt || metadado.simbolismo_pt;
+        mapped.simbolismo_en = mapped.simbolismo_en || metadado.simbolismo_en;
+        mapped.engajamento_pt = mapped.engajamento_pt || metadado.engajamento_pt;
+        mapped.engajamento_en = mapped.engajamento_en || metadado.engajamento_en;
+        mapped.temas_chave_pt = mapped.temas_chave_pt || metadado.temas_chave_pt;
+        mapped.temas_chave_en = mapped.temas_chave_en || metadado.temas_chave_en;
     }
     return mapped;
 }
