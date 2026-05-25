@@ -211,6 +211,17 @@ async function fazerRequisicaoExterna(endpoint) {
 }
 
 function mapExternalToInternal(external = {}) {
+    // Corrige personagens_pt/en para tratar array de objetos
+    function extrairNomesPersonagens(arr) {
+        if (!Array.isArray(arr)) return arr;
+        // Se for array de objetos com campo nome
+        if (arr.length > 0 && typeof arr[0] === 'object' && arr[0] !== null) {
+            return arr.map(p => p.nome || p.name || p.titulo || p.title || JSON.stringify(p)).join('\n');
+        }
+        // Se for array de strings
+        return arr.join('\n');
+    }
+
     let mapped = {
         titulo: external.titulo || external.title || external.tituloDoLivro || external.tituloPT || null,
         autor: external.autor || external.author || external.autores || external.nome || null,
@@ -223,8 +234,8 @@ function mapExternalToInternal(external = {}) {
         sinopse: external.sinopse || external.description || external.resumo || external.enredo_pt || external.synopsis || null,
         descricao_pt: external.descricao_pt || external.descriptionPt || null,
         descricao_en: external.descricao_en || external.descriptionEn || null,
-        personagens_pt: external.personagens_pt || (Array.isArray(external.personagens) ? external.personagens.join('\n') : external.personagens) || null,
-        personagens_en: external.personagens_en || (Array.isArray(external.personagensEn) ? external.personagensEn.join('\n') : external.personagensEn) || null,
+        personagens_pt: external.personagens_pt || extrairNomesPersonagens(external.personagens) || null,
+        personagens_en: external.personagens_en || extrairNomesPersonagens(external.personagensEn) || null,
         contexto_historico_pt: external.contexto_historico_pt || external.contexto_pt || external.contextPt || external.historicalContextPt || null,
         contexto_historico_en: external.contexto_historico_en || external.contexto_en || external.contextEn || external.historicalContextEn || null,
         detalhes_autor_pt: external.detalhes_autor_pt || external.aboutAuthorPt || null,
