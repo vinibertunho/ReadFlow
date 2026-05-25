@@ -36,7 +36,7 @@ const METADADOS_LIVROS = {
         detalhes_autor_en: "José de Alencar (1829-1877) was one of the greatest Brazilian novelists, a pioneer in Romantic literature. He dedicated himself to preserving Brazilian cultural identity.",
         estilo_escrita_pt: "Prosa poética, idealizadora, rica em descrições da exuberante natureza tropical brasileira. Uso de linguagem elevada e sentimentalismo acentuado.",
         estilo_escrita_en: "Poetic prose, idealizing, rich in descriptions of the exuberant tropical Brazilian nature. Use of elevated language and pronounced sentimentalism.",
-        verossimilhanca_pt: "Combina o romance idealizado com elementos realistas da colonização portuguesa, criando uma narrativa que mistura história e ficção.",
+        verossimilhanca_pt: "Combina o romance idealizado com elements realistas da colonização portuguesa, criando uma narrativa que mistura história e ficção.",
         verossimilhanca_en: "Combines idealized romance with realistic elements of Portuguese colonization, creating a narrative that blends history and fiction.",
         caracteristicas_literarias_pt: "Nacionalismo, idealismo, exotismo, amor impossível, conflito entre colonizadores e colonizados, transcendência da natureza.",
         caracteristicas_literarias_en: "Nationalism, idealism, exoticism, impossible love, conflict between colonizers and colonized, transcendence of nature.",
@@ -88,7 +88,7 @@ const METADADOS_LIVROS = {
         estilo_escrita_en: "Ironic pessimism, frequent philosophical digressions, metalanguage and refined mockery. Fragmented narrative with subversive preface.",
         verossimilhanca_pt: "Alta verossimilhança psicológica - análise profunda da hipocrisia humana e das motivações egoístas disfarçadas de virtude.",
         verossimilhanca_en: "High psychological verisimilitude - deep analysis of human hypocrisy and selfish motivations disguised as virtue.",
-        caracteristicas_literarias_pt: "Ironia sistemática, diálogo com tradição literária, crítica social oblíqua, análise psicológica, narrativa não linear.",
+        caracteristicas_literarias_pt: "Ironia sistemática, diálogo com tradição literária, crítica social oblíqua, análise psicológica, narrative não linear.",
         caracteristicas_literarias_en: "Systematic irony, dialogue with literary tradition, oblique social criticism, psychological analysis, non-linear narrative.",
         conclusao_pt: "Obra que revoluciona o romance brasileiro ao questionar a própria narrativa, a moralidade burguesa e a futilidade da existência humana.",
         conclusao_en: "Work that revolutionizes the Brazilian novel by questioning the narrative itself, bourgeois morality and the futility of human existence.",
@@ -121,33 +121,33 @@ const METADADOS_LIVROS = {
         simbolismo_en: "The Bookverse universe symbolizes the continuity of literary tradition, the interconnection of destinies and the eternity of great works.",
         engajamento_pt: "Engajado na promoção e preservação da literatura brasileira clássica, criando novas audiências e interpretações para gerações futuras.",
         engajamento_en: "Engaged in promoting and preserving classic Brazilian literature, creating new audiences and interpretations for future generations.",
-        temas_chave_pt: "Literatura, Identidade Nacional, Conexão entre Obras, Tradição e Inovação, Amor, Aventura, Busca Pessoal, Legado Cultural",
+        temas_chave_pt: "Literature, Identidade Nacional, Conexão entre Obras, Tradição e Inovação, Amor, Aventura, Busca Pessoal, Legado Cultural",
         temas_chave_en: "Literature, National Identity, Connection between Works, Tradition and Innovation, Love, Adventure, Personal Quest, Cultural Legacy"
     },
     "vidas secas": {
         sinopse: "Temas de Redação: 1° Desigualdade Social 2° Falta de acesso à Educação e Direitos 3° Exclusão Social 4° Exploração do Trabalhador 5° Seca e Problemas Climáticos",
-        descricao_pt: "A obra Vidas Secas, de Graciliano Ramos, retrata a vida difícil de uma família de retirantes nordestinos que sofre com a seca, a fome e a pobreza. Fabiano, Sinhá Vitória, os filhos e a cachorra Baleia vivem em constante luta pela sobrevivência e enfrentam injustiças sociais. A obra critica a desigualdade e os sofrimentos causados pela seca no Nordeste brasileiro.",
-        descricao_en: "The novel Vidas Secas (Barren Lives), by Graciliano Ramos, portrays the difficult life of a family of migrants from the Brazilian Northeast who suffer from drought, hunger, and poverty. Fabiano, Sinhá Vitória, their children, and their dog Baleia live in a constant struggle for survival and face social injustices. The work criticizes the inequality and suffering caused by drought in the Brazilian Northeast.",
+        descricao_pt: "A obra Vidas Secas, de Graciliano Ramos, retrata a vida difícil de uma família de retirantes nordestinos que sofre com a seca, a fome e a pobreza.",
+        descricao_en: "The novel Vidas Secas (Barren Lives), by Graciliano Ramos, portrays the difficult life of a family of migrants from the Brazilian Northeast.",
         personagens_pt: "Fabiano (pai retirante)\nSinhá Vitória (mãe)\nFilho mais velho (sem nome)\nFilho mais novo (sem nome)\nBaleia (cachorra)",
         personagens_en: "Fabiano (migrant father)\nSinhá Vitória (mother)\nOlder son (unnamed)\nYounger son (unnamed)\nBaleia (dog)",
-        contexto_historico_pt: "Obra ambientada na seca do Nordeste brasileiro, retratando a realidade dos retirantes do início do século XX. Representa a vulnerabilidade social dos pobres e a falta de políticas públicas que os protejam. Paralelo com desafios climáticos contemporâneos e refugiados climáticos.",
-        contexto_historico_en: "Set during the Brazilian Northeast drought, portraying the reality of migrants from the early 20th century. Represents the social vulnerability of the poor and the lack of public policies to protect them. Parallel with contemporary climate challenges and climate refugees.",
-        detalhes_autor_pt: "Graciliano Ramos (1892-1953) foi um dos maiores romancistas brasileiros, mestre da prosa seca e direta. Dedicou sua obra à denúncia das injustiças sociais e à investigação psicológica profunda. Preso durante a ditadura Vargas, suas experiências influenciaram seu estilo combativo.",
-        detalhes_autor_en: "Graciliano Ramos (1892-1953) was one of the greatest Brazilian novelists, master of spare and direct prose. He dedicated his work to denouncing social injustices and deep psychological investigation. Imprisoned during the Vargas dictatorship, his experiences influenced his combative style.",
-        estilo_escrita_pt: "Espírito de síntese, descrição não minuciosa do espaço, foco na tragédia social e desumanização. Linguagem econômica e brutal, refletindo a dureza da vida retratada.",
-        estilo_escrita_en: "Spirit of synthesis, non-detailed space description, focus on social tragedy and dehumanization. Economic and brutal language, reflecting the harshness of the life portrayed.",
-        verossimilhanca_pt: "Máxima verossimilhança - baseado em observações reais das condições de vida dos retirantes nordestinos. Graciliano Ramos documentou a realidade com precisão etnográfica e psicológica.",
-        verossimilhanca_en: "Maximum verisimilitude - based on real observations of the living conditions of Northeast migrants. Graciliano Ramos documented reality with ethnographic and psychological precision.",
-        caracteristicas_literarias_pt: "Mudez introspectiva, episódios independentes sem ligação cronológica rígida, análise psicológica sintonizada ao comportamento embrutecido. Narrativa fragmentada que espelha a desarticulação social.",
-        caracteristicas_literarias_en: "Introspective muteness, semi-independent chapters without rigid chronological connection, psychological analysis tied to brutalized behavior. Fragmented narrative that mirrors social disarticulation.",
-        conclusao_pt: "Vidas Secas é um grito de protesto contra a desigualdade estrutural e a negligência estatal, elevando a dignidade dos marginalizados através da literatura. A obra permanece profundamente relevante para questões contemporâneas.",
-        conclusao_en: "Vidas Secas is a cry of protest against structural inequality and state neglect, elevating the dignity of the marginalized through literature. The work remains profoundly relevant to contemporary issues.",
-        simbolismo_pt: "A seca simboliza a opressão sistemática; os filhos sem nome representam a desumanização e invisibilidade social; Baleia encarna a inocência e compaixão em meio à crueldade.",
-        simbolismo_en: "The drought symbolizes systematic oppression; the unnamed children represent dehumanization and social invisibility; Baleia embodies innocence and compassion amid cruelty.",
-        engajamento_pt: "Obra profundamente engajada na denúncia das desigualdades sociais, na crítica à falta de educação e direitos básicos, e na exposição da exploração do trabalhador rural brasileiro.",
-        engajamento_en: "Work deeply engaged in denouncing social inequalities, criticizing lack of education and basic rights, and exposing the exploitation of Brazilian rural workers.",
-        temas_chave_pt: "Desigualdade Social, Fome, Seca, Migração Forçada, Desumanização, Falta de Direitos, Exploração, Exclusão Social, Miséria, Resiliência Humana",
-        temas_chave_en: "Social Inequality, Hunger, Drought, Forced Migration, Dehumanization, Lack of Rights, Exploitation, Social Exclusion, Misery, Human Resilience"
+        contexto_historico_pt: "Obra ambientada na seca do Nordeste brasileiro, retratando a realidade dos retirantes do início do século XX.",
+        contexto_historico_en: "Set during the Brazilian Northeast drought, portraying the reality of migrants from the early 20th century.",
+        detalhes_autor_pt: "Graciliano Ramos (1892-1953) foi um dos maiores romancistas brasileiros, mestre da prosa seca e direta.",
+        detalhes_autor_en: "Graciliano Ramos (1892-1953) was one of the greatest Brazilian novelists, master of spare and direct prose.",
+        estilo_escrita_pt: "Espírito de síntese, descrição não minuciosa do espaço, foco na tragédia social e desumanização.",
+        estilo_escrita_en: "Spirit of synthesis, non-detailed space description, focus on social tragedy and dehumanization.",
+        verossimilhanca_pt: "Máxima verossimilhança - baseado em observações reais das condições de vida dos retirantes nordestinos.",
+        verossimilhanca_en: "Maximum verisimilitude - based on real observations of the living conditions of Northeast migrants.",
+        caracteristicas_literarias_pt: "Mudez introspectiva, episódios independentes sem ligação cronológica rígida.",
+        caracteristicas_literarias_en: "Introspective muteness, semi-independent chapters without rigid chronological connection.",
+        conclusao_pt: "Vidas Secas é um grito de protesto contra a desigualdade estrutural e a negligência estatal.",
+        conclusao_en: "Vidas Secas is a cry of protest against structural inequality and state neglect.",
+        simbolismo_pt: "A seca simboliza a opressão sistemática; os filhos sem nome representam a desumanização; Baleia encarna a inocência.",
+        simbolismo_en: "The drought symbolizes systematic oppression; the unnamed children represent dehumanization; Baleia embodies innocence.",
+        engajamento_pt: "Obra profundamente engajada na denúncia das desigualdades sociais.",
+        engajamento_en: "Work deeply engaged in denouncing social inequalities.",
+        temas_chave_pt: "Desigualdade Social, Fome, Seca, Migração Forçada, Desumanização, Falta de Direitos",
+        temas_chave_en: "Social Inequality, Hunger, Drought, Forced Migration, Dehumanization, Lack of Rights"
     }
 };
 
@@ -161,39 +161,29 @@ const normalize = (str = '') =>
         .trim();
 
 function preencherMetadadosFaltantes(mapped) {
-    const chave = normalize(mapped.titulo || '');
-    const metadado = METADADOS_LIVROS[chave];
+    let chave = normalize(mapped.titulo || '');
+    let metadado = METADADOS_LIVROS[chave];
+
+    if (!metadado && mapped.titulo) {
+        const tituloNorm = normalize(mapped.titulo);
+        for (const [key, value] of Object.entries(METADADOS_LIVROS)) {
+            if (tituloNorm.includes(key) || key.includes(tituloNorm)) {
+                metadado = value;
+                break;
+            }
+        }
+    }
 
     if (metadado) {
-        mapped.sinopse = mapped.sinopse || metadado.sinopse;
-        mapped.descricao_pt = mapped.descricao_pt || metadado.descricao_pt;
-        mapped.descricao_en = mapped.descricao_en || metadado.descricao_en;
-        mapped.personagens_pt = mapped.personagens_pt || metadado.personagens_pt;
-        mapped.personagens_en = mapped.personagens_en || metadado.personagens_en;
-        mapped.contexto_historico_pt = mapped.contexto_historico_pt || metadado.contexto_historico_pt;
-        mapped.contexto_historico_en = mapped.contexto_historico_en || metadado.contexto_historico_en;
-        mapped.detalhes_autor_pt = mapped.detalhes_autor_pt || metadado.detalhes_autor_pt;
-        mapped.detalhes_autor_en = mapped.detalhes_autor_en || metadado.detalhes_autor_en;
-        mapped.estilo_escrita_pt = mapped.estilo_escrita_pt || metadado.estilo_escrita_pt;
-        mapped.estilo_escrita_en = mapped.estilo_escrita_en || metadado.estilo_escrita_en;
-        mapped.verossimilhanca_pt = mapped.verossimilhanca_pt || metadado.verossimilhanca_pt;
-        mapped.verossimilhanca_en = mapped.verossimilhanca_en || metadado.verossimilhanca_en;
-        mapped.caracteristicas_literarias_pt = mapped.caracteristicas_literarias_pt || metadado.caracteristicas_literarias_pt;
-        mapped.caracteristicas_literarias_en = mapped.caracteristicas_literarias_en || metadado.caracteristicas_literarias_en;
-        mapped.conclusao_pt = mapped.conclusao_pt || metadado.conclusao_pt;
-        mapped.conclusao_en = mapped.conclusao_en || metadado.conclusao_en;
-        mapped.simbolismo_pt = mapped.simbolismo_pt || metadado.simbolismo_pt;
-        mapped.simbolismo_en = mapped.simbolismo_en || metadado.simbolismo_en;
-        mapped.engajamento_pt = mapped.engajamento_pt || metadado.engajamento_pt;
-        mapped.engajamento_en = mapped.engajamento_en || metadado.engajamento_en;
-        mapped.temas_chave_pt = mapped.temas_chave_pt || metadado.temas_chave_pt;
-        mapped.temas_chave_en = mapped.temas_chave_en || metadado.temas_chave_en;
+        Object.keys(metadado).forEach(campo => {
+            mapped[campo] = mapped[campo] || metadado[campo];
+        });
     }
     return mapped;
 }
 
 async function fazerRequisicaoExterna(endpoint) {
-    if (!endpoint.urlCompleta || !endpoint.apiKey) return null;
+    if (!endpoint.urlCompleta) return null;
     try {
         const response = await fetch(endpoint.urlCompleta, {
             method: 'GET',
@@ -204,104 +194,86 @@ async function fazerRequisicaoExterna(endpoint) {
             },
         });
         if (!response.ok) return null;
-        return response.json();
+        return await response.json();
     } catch {
         return null;
     }
 }
 
 function mapExternalToInternal(external = {}) {
-    // Corrige personagens_pt/en para tratar array de objetos
     function extrairNomesPersonagens(arr) {
         if (!Array.isArray(arr)) return arr;
-        // Se for array de objetos com campo nome
         if (arr.length > 0 && typeof arr[0] === 'object' && arr[0] !== null) {
             return arr.map(p => p.nome || p.name || p.titulo || p.title || JSON.stringify(p)).join('\n');
         }
-        // Se for array de strings
         return arr.join('\n');
     }
 
+    let titulo = external.titulo || external.title || external.tituloDoLivro || external.tituloPT || external.nome || null;
+    let autor = external.autor || external.author || external.autores || null;
+
+    if (!titulo && autor) {
+        const autorLower = autor.toLowerCase();
+        if (autorLower.includes('memórias') || autorLower.includes('guarani') || 
+            autorLower.includes('quartos') || autorLower.includes('vidas') || 
+            autorLower.includes('bookverse')) {
+            titulo = autor;
+            autor = null;
+        }
+    }
+
+    if (!autor && titulo) {
+        const tituloLower = titulo.toLowerCase();
+        if (tituloLower.includes('memórias')) {
+            autor = "Machado de Assis";
+        } else if (tituloLower.includes('guarani')) {
+            autor = "José de Alencar";
+        } else if (tituloLower.includes('quartos')) {
+            autor = "Carolina Maria de Jesus";
+        } else if (tituloLower.includes('vidas')) {
+            autor = "Graciliano Ramos";
+        }
+    }
+    
     let mapped = {
-        titulo: external.titulo || external.title || external.tituloDoLivro || external.tituloPT || null,
-        autor: external.autor || external.author || external.autores || external.nome || null,
+        titulo: titulo,
+        autor: autor,
         anoPublicacao: external.anoPublicacao ? parseInt(external.anoPublicacao) : external.ano ? parseInt(external.ano) : external.year ? parseInt(external.year) : null,
         paginas: external.paginas ? parseInt(external.paginas) : external.pages ? parseInt(external.pages) : null,
-        capa_url: external.capa_url || external.capa || external.image || external.capaURL || external.foto || null,
+        capa_url: external.capa_url || external.capa || external.image || external.capaURL || null,
         video_url: external.video_url || external.videoUrl || null,
-        genero_pt: external.genero_pt || external.genero || external.generoPT || external.genrePt || null,
-        genero_en: external.genero_en || external.genre || external.generoEN || external.genreEn || null,
-        sinopse: external.sinopse || external.description || external.resumo || external.enredo_pt || external.synopsis || null,
-        descricao_pt: external.descricao_pt || external.descriptionPt || null,
-        descricao_en: external.descricao_en || external.descriptionEn || null,
-        personagens_pt: external.personagens_pt || extrairNomesPersonagens(external.personagens) || null,
+        genero_pt: external.genero_pt || external.genero || null,
+        genero_en: external.genero_en || external.genre || null,
+        sinopse: external.sinopse || external.description || external.resumo || null,
+        descricao_pt: external.descricao_pt || null,
+        descricao_en: external.descricao_en || null,
+        personagens_pt: external.personagens_pt || external.personagens || extrairNomesPersonagens(external.personagensArray) || null,
         personagens_en: external.personagens_en || extrairNomesPersonagens(external.personagensEn) || null,
-        contexto_historico_pt: external.contexto_historico_pt || external.contexto_pt || external.contextPt || external.historicalContextPt || null,
-        contexto_historico_en: external.contexto_historico_en || external.contexto_en || external.contextEn || external.historicalContextEn || null,
-        detalhes_autor_pt: external.detalhes_autor_pt || external.aboutAuthorPt || null,
-        detalhes_autor_en: external.detalhes_autor_en || external.aboutAuthorEn || null,
-        estilo_escrita_pt: external.estilo_escrita_pt || external.writingStylePt || null,
-        estilo_escrita_en: external.estilo_escrita_en || external.writingStyleEn || null,
-        verossimilhanca_pt: external.verossimilhanca_pt || external.verisimilitudePt || null,
-        verossimilhanca_en: external.verossimilhanca_en || external.verisimilitudeEn || null,
-        caracteristicas_literarias_pt: external.caracteristicas_literarias_pt || external.literaryFeaturesPt || null,
-        caracteristicas_literarias_en: external.caracteristicas_literarias_en || external.literaryFeaturesEn || null,
-        conclusao_pt: external.conclusao_pt || external.conclusionPt || null,
-        conclusao_en: external.conclusao_en || external.conclusionEn || null,
-        simbolismo_pt: external.simbolismo_pt || external.symbolismPt || null,
-        simbolismo_en: external.simbolismo_en || external.symbolismEn || null,
-        engajamento_pt: external.engajamento_pt || external.engagementPt || null,
-        engajamento_en: external.engajamento_en || external.engagementEn || null,
-        temas_chave_pt: external.temas_chave_pt || external.keyThemesPt || null,
-        temas_chave_en: external.temas_chave_en || external.keyThemesEn || null,
+        contexto_historico_pt: external.contexto_historico_pt || external.contexto_pt || null,
+        contexto_historico_en: external.contexto_historico_en || external.contexto_en || null,
+        detalhes_autor_pt: external.detalhes_autor_pt || null,
+        detalhes_autor_en: external.detalhes_autor_en || null,
+        estilo_escrita_pt: external.estilo_escrita_pt || null,
+        estilo_escrita_en: external.estilo_escrita_en || null,
+        verossimilhanca_pt: external.verossimilhanca_pt || null,
+        verossimilhanca_en: external.verossimilhanca_en || null,
+        caracteristicas_literarias_pt: external.caracteristicas_literarias_pt || null,
+        caracteristicas_literarias_en: external.caracteristicas_literarias_en || null,
+        conclusao_pt: external.conclusao_pt || null,
+        conclusao_en: external.conclusao_en || null,
+        simbolismo_pt: external.simbolismo_pt || null,
+        simbolismo_en: external.simbolismo_en || null,
+        engajamento_pt: external.engajamento_pt || null,
+        engajamento_en: external.engajamento_en || null,
+        temas_chave_pt: external.temas_chave_pt || null,
+        temas_chave_en: external.temas_chave_en || null,
         usuarioId: null
     };
 
     return preencherMetadadosFaltantes(mapped);
 }
 
-async function salvarLivroNoBanco(dadosLivroExterno, usuarioId = null) {
-    const mapeado = mapExternalToInternal(dadosLivroExterno);
-
-    const novoLivro = await prisma.livro.create({
-        data: {
-            titulo: mapeado.titulo || 'Título Desconhecido',
-            autor: mapeado.autor || 'Autor Desconhecido',
-            anoPublicacao: mapeado.anoPublicacao,
-            paginas: mapeado.paginas,
-            capa_url: mapeado.capa_url,
-            video_url: mapeado.video_url,
-            genero_pt: mapeado.genero_pt,
-            genero_en: mapeado.genero_en,
-            sinopse: mapeado.sinopse,
-            descricao_pt: mapeado.descricao_pt,
-            descricao_en: mapeado.descricao_en,
-            personagens_pt: mapeado.personagens_pt,
-            personagens_en: mapeado.personagens_en,
-            contexto_historico_pt: mapeado.contexto_historico_pt,
-            contexto_historico_en: mapeado.contexto_historico_en,
-            detalhes_autor_pt: mapeado.detalhes_autor_pt,
-            detalhes_autor_en: mapeado.detalhes_autor_en,
-            estilo_escrita_pt: mapeado.estilo_escrita_pt,
-            estilo_escrita_en: mapeado.estilo_escrita_en,
-            verossimilhanca_pt: mapeado.verossimilhanca_pt,
-            verossimilhanca_en: mapeado.verossimilhanca_en,
-            caracteristicas_literarias_pt: mapeado.caracteristicas_literarias_pt,
-            caracteristicas_literarias_en: mapeado.caracteristicas_literarias_en,
-            conclusao_pt: mapeado.conclusao_pt,
-            conclusao_en: mapeado.conclusao_en,
-            simbolismo_pt: mapeado.simbolismo_pt,
-            simbolismo_en: mapeado.simbolismo_en,
-            engajamento_pt: mapeado.engajamento_pt,
-            engajamento_en: mapeado.engajamento_en,
-            temas_chave_pt: mapeado.temas_chave_pt,
-            temas_chave_en: mapeado.temas_chave_en,
-            usuarioId,
-        },
-    });
-
-    return novoLivro;
-}
+// ====== EXPORTS DAS ROTAS ======
 
 export const obterLivroPorIdOuTitulo = async (req, res) => {
     try {
@@ -334,7 +306,10 @@ export const obterLivroPorIdOuTitulo = async (req, res) => {
 
             const lista = Array.isArray(raw) ? raw : [raw];
             const livroEncontrado = lista.find(item => {
-                const itemTitulo = item.titulo || item.title || item.tituloDoLivro || '';
+                let itemTitulo = item.titulo || item.title || item.tituloDoLivro || item.nome || '';
+                if (!itemTitulo && item.autor && item.autor.toLowerCase().includes('memórias')) {
+                    itemTitulo = item.autor;
+                }
                 return normalize(itemTitulo) === normalize(termoBusca);
             });
 
@@ -355,7 +330,7 @@ export const obterBibliotecaCompleta = async (req, res) => {
     try {
         const promessas = ENDPOINTS_CONFIG.map(async (livro) => {
             try {
-                if (!livro.urlCompleta || !livro.apiKey) {
+                if (!livro.urlCompleta) {
                     return { livro: livro.nomeLivro, statusApi: 'Configuração Ausente', conteudo: [] };
                 }
 
@@ -369,31 +344,21 @@ export const obterBibliotecaCompleta = async (req, res) => {
                 });
 
                 if (!resposta.ok) {
-                    return { livro: livro.nomeLivro, statusApi: `Erro HTTP ${resposta.status}`, conteudo: [] };
+                    return { livro: livro.nomeLivro, statusApi: `Erro ${resposta.status}`, conteudo: [] };
                 }
 
-                const dadosBrutos = await resposta.json();
-                const listaDeLivros = Array.isArray(dadosBrutos) ? dadosBrutos : dadosBrutos ? [dadosBrutos] : [];
+                const dados = await resposta.json();
+                const lista = Array.isArray(dados) ? dados : [dados];
+                const mapeados = lista.map(item => mapExternalToInternal(item));
 
-                const dadosFormatados = listaDeLivros.map((item) => {
-                    const mapped = mapExternalToInternal(item);
-                    if (mapped.titulo?.toLowerCase().includes('nao informado') && mapped.autor?.toLowerCase().includes('memorias postumas')) {
-                        mapped.titulo = "Memórias Póstumas de Brás Cubas";
-                        mapped.autor = "Machado de Assis";
-                    }
-                    return preencherMetadadosFaltantes(mapped);
-                });
-
-                return { livro: livro.nomeLivro, statusApi: 'Online', conteudo: dadosFormatados };
-
+                return { livro: livro.nomeLivro, statusApi: 'Online', conteudo: mapeados };
             } catch {
-                return { livro: livro.nomeLivro, statusApi: 'Erro Interno na Requisição', conteudo: [] };
+                return { livro: livro.nomeLivro, statusApi: 'Falha de Conexão', conteudo: [] };
             }
         });
 
-        const bibliotecaCompleta = await Promise.all(promessas);
-        return res.status(200).json(bibliotecaCompleta);
-
+        const resultados = await Promise.all(promessas);
+        return res.status(200).json(resultados);
     } catch (error) {
         return res.status(500).json({ erro: error.message });
     }
@@ -401,129 +366,81 @@ export const obterBibliotecaCompleta = async (req, res) => {
 
 export const listarIntegracao = async (req, res) => {
     try {
-        const chamadas = ENDPOINTS_CONFIG.map(endpoint => fazerRequisicaoExterna(endpoint).catch(() => []));
-        const resultados = await Promise.all(chamadas);
+        const promessas = ENDPOINTS_CONFIG.map(endpoint => fazerRequisicaoExterna(endpoint));
+        const resultados = await Promise.all(promessas);
 
-        const mappedLists = ENDPOINTS_CONFIG.flatMap((endpoint, index) => {
-            const raw = resultados[index];
-            if (!raw) return [];
-
+        const livros = new Map();
+        
+        resultados.forEach(raw => {
+            if (!raw) return;
             const lista = Array.isArray(raw) ? raw : [raw];
-            return lista.map((item) => {
-                const normalizado = mapExternalToInternal(item);
-
-                if ((!normalizado.titulo || normalizado.titulo.toLowerCase().includes('nao informado')) && (normalizado.autor && normalizado.autor.toLowerCase().includes('memorias postumas'))) {
-                    normalizado.titulo = "Memórias Póstumas de Brás Cubas";
-                    normalizado.autor = "Machado de Assis";
+            lista.forEach(item => {
+                const mapeado = mapExternalToInternal(item);
+                const chave = normalize(mapeado.titulo || '');
+                if (chave && !livros.has(chave)) {
+                    livros.set(chave, mapeado);
                 }
-
-                return { ...preencherMetadadosFaltantes(normalizado), fonte: endpoint.nomeLivro };
             });
         });
 
-        const vistos = new Set();
-        const deduped = [];
-
-        for (const item of mappedLists) {
-            const chave = normalize(item.titulo || '');
-            if (!chave) {
-                deduped.push(item);
-                continue;
-            }
-
-            if (!vistos.has(chave)) {
-                vistos.add(chave);
-                deduped.push(item);
-            } else {
-                const idx = deduped.findIndex(d => normalize(d.titulo) === chave);
-                if (idx !== -1) {
-                    if (!deduped[idx].capa_url && item.capa_url) deduped[idx].capa_url = item.capa_url;
-                    if ((!deduped[idx].sinopse || deduped[idx].sinopse.includes('não informado')) && item.sinopse) deduped[idx].sinopse = item.sinopse;
-                    if (!deduped[idx].contexto_historico_pt && item.contexto_historico_pt) deduped[idx].contexto_historico_pt = item.contexto_historico_pt;
-                    if (!deduped[idx].simbolismo_pt && item.simbolismo_pt) deduped[idx].simbolismo_pt = item.simbolismo_pt;
-                }
-            }
-        }
-
-        return res.status(200).json({ data: deduped, meta: { total: deduped.length } });
+        const livrosUnificados = Array.from(livros.values());
+        return res.status(200).json(livrosUnificados);
     } catch (error) {
-        return res.status(500).json({ error: error.message });
+        return res.status(500).json({ erro: error.message });
     }
 };
 
 export const importarTodosOsLivros = async (req, res) => {
     try {
-        const { usuarioId } = req.body || {};
-        const chamadas = ENDPOINTS_CONFIG.map(endpoint => fazerRequisicaoExterna(endpoint).catch(() => []));
-        const resultados = await Promise.all(chamadas);
-        const todosOsLivros = resultados.flat().filter(Boolean);
+        const promessas = ENDPOINTS_CONFIG.map(endpoint => fazerRequisicaoExterna(endpoint));
+        const resultados = await Promise.all(promessas);
 
-        if (todosOsLivros.length === 0) {
-            return res.status(404).json({ error: 'Nenhum livro encontrado nas APIs parceiras.' });
-        }
+        const livrosParaImportar = [];
+        const livrosTitulos = new Set();
 
-        const vistos = new Set();
-        const importados = [];
-        const ignorados = [];
+        resultados.forEach(raw => {
+            if (!raw) return;
+            const lista = Array.isArray(raw) ? raw : [raw];
+            lista.forEach(item => {
+                const mapeado = mapExternalToInternal(item);
+                const titulo = normalize(mapeado.titulo || '');
+                if (titulo && !livrosTitulos.has(titulo)) {
+                    livrosTitulos.add(titulo);
+                    livrosParaImportar.push(mapeado);
+                }
+            });
+        });
 
-        for (const livro of todosOsLivros) {
-            let tituloDefinitivo = livro.titulo || livro.title || livro.tituloDoLivro || '';
-            let autorDefinitivo = livro.autor || livro.author || livro.autores || '';
-
-            if (tituloDefinitivo.toLowerCase().includes('nao informado') && autorDefinitivo.toLowerCase().includes('memorias postumas')) {
-                livro.titulo = "Memórias Póstumas de Brás Cubas";
-                livro.autor = "Machado de Assis";
-                tituloDefinitivo = "Memórias Póstumas de Brás Cubas";
-            }
-
-            const chave = normalize(tituloDefinitivo);
-            if (!chave || vistos.has(chave)) {
-                ignorados.push(tituloDefinitivo || null);
-                continue;
-            }
-            vistos.add(chave);
-
-            try {
-                const salvo = await salvarLivroNoBanco(livro, usuarioId ? parseInt(usuarioId) : null);
-                importados.push(salvo);
-            } catch {
-                ignorados.push(tituloDefinitivo || null);
-            }
-        }
+        const livrosCriados = await Promise.all(
+            livrosParaImportar.map(livro =>
+                prisma.livro.upsert({
+                    where: { titulo: livro.titulo },
+                    update: livro,
+                    create: livro,
+                })
+            )
+        );
 
         return res.status(201).json({
-            message: 'Importação concluída',
-            data: importados,
-            meta: { totalEncontrados: todosOsLivros.length, totalImportados: importados.length, totalIgnorados: ignorados.filter(Boolean).length }
+            mensagem: `${livrosCriados.length} livro(s) importado(s) com sucesso`,
+            livros: livrosCriados,
         });
     } catch (error) {
-        return res.status(500).json({ error: error.message });
+        return res.status(500).json({ erro: error.message });
     }
 };
 
 export const obterGuarani = async (req, res) => {
     try {
         const endpoint = ENDPOINTS_CONFIG.find(e => e.nomeLivro === 'O Guarani');
-        if (!endpoint) {
-            return res.status(404).json({ erro: 'Livro não configurado.' });
-        }
+        if (!endpoint) return res.status(404).json({ erro: 'Configuração de O Guarani não encontrada' });
 
         const dados = await fazerRequisicaoExterna(endpoint);
-        if (!dados) {
-            return res.status(404).json({ erro: 'Livro não encontrado na API parceira.' });
-        }
+        if (!dados) return res.status(404).json({ erro: 'Não foi possível obter dados de O Guarani' });
 
         const lista = Array.isArray(dados) ? dados : [dados];
-        const livro = lista[0] || lista.find(item => 
-            normalize(item.titulo || item.title || '') === normalize('O Guarani')
-        );
-
-        if (!livro) {
-            return res.status(404).json({ erro: 'Livro não encontrado.' });
-        }
-
-        const mapeado = mapExternalToInternal(livro);
-        return res.status(200).json(preencherMetadadosFaltantes(mapeado));
+        const mapeados = lista.map(item => mapExternalToInternal(item));
+        return res.status(200).json(mapeados);
     } catch (error) {
         return res.status(500).json({ erro: error.message });
     }
@@ -532,26 +449,14 @@ export const obterGuarani = async (req, res) => {
 export const obterQuartosDespejo = async (req, res) => {
     try {
         const endpoint = ENDPOINTS_CONFIG.find(e => e.nomeLivro === 'Quartos de despejo');
-        if (!endpoint) {
-            return res.status(404).json({ erro: 'Livro não configurado.' });
-        }
+        if (!endpoint) return res.status(404).json({ erro: 'Configuração de Quartos de Despejo não encontrada' });
 
         const dados = await fazerRequisicaoExterna(endpoint);
-        if (!dados) {
-            return res.status(404).json({ erro: 'Livro não encontrado na API parceira.' });
-        }
+        if (!dados) return res.status(404).json({ erro: 'Não foi possível obter dados de Quartos de Despejo' });
 
         const lista = Array.isArray(dados) ? dados : [dados];
-        const livro = lista[0] || lista.find(item => 
-            normalize(item.titulo || item.title || '') === normalize('Quartos de despejo')
-        );
-
-        if (!livro) {
-            return res.status(404).json({ erro: 'Livro não encontrado.' });
-        }
-
-        const mapeado = mapExternalToInternal(livro);
-        return res.status(200).json(preencherMetadadosFaltantes(mapeado));
+        const mapeados = lista.map(item => mapExternalToInternal(item));
+        return res.status(200).json(mapeados);
     } catch (error) {
         return res.status(500).json({ erro: error.message });
     }
@@ -560,26 +465,14 @@ export const obterQuartosDespejo = async (req, res) => {
 export const obterMemoriasCubas = async (req, res) => {
     try {
         const endpoint = ENDPOINTS_CONFIG.find(e => e.nomeLivro === 'Memórias Póstumas de Brás Cubas');
-        if (!endpoint) {
-            return res.status(404).json({ erro: 'Livro não configurado.' });
-        }
+        if (!endpoint) return res.status(404).json({ erro: 'Configuração de Memórias Póstumas de Brás Cubas não encontrada' });
 
         const dados = await fazerRequisicaoExterna(endpoint);
-        if (!dados) {
-            return res.status(404).json({ erro: 'Livro não encontrado na API parceira.' });
-        }
+        if (!dados) return res.status(404).json({ erro: 'Não foi possível obter dados de Memórias Póstumas de Brás Cubas' });
 
         const lista = Array.isArray(dados) ? dados : [dados];
-        const livro = lista[0] || lista.find(item => 
-            normalize(item.titulo || item.title || '') === normalize('Memórias Póstumas de Brás Cubas')
-        );
-
-        if (!livro) {
-            return res.status(404).json({ erro: 'Livro não encontrado.' });
-        }
-
-        const mapeado = mapExternalToInternal(livro);
-        return res.status(200).json(preencherMetadadosFaltantes(mapeado));
+        const mapeados = lista.map(item => mapExternalToInternal(item));
+        return res.status(200).json(mapeados);
     } catch (error) {
         return res.status(500).json({ erro: error.message });
     }
@@ -588,26 +481,14 @@ export const obterMemoriasCubas = async (req, res) => {
 export const obterBookverse = async (req, res) => {
     try {
         const endpoint = ENDPOINTS_CONFIG.find(e => e.nomeLivro === 'Bookverse');
-        if (!endpoint) {
-            return res.status(404).json({ erro: 'Livro não configurado.' });
-        }
+        if (!endpoint) return res.status(404).json({ erro: 'Configuração de Bookverse não encontrada' });
 
         const dados = await fazerRequisicaoExterna(endpoint);
-        if (!dados) {
-            return res.status(404).json({ erro: 'Livro não encontrado na API parceira.' });
-        }
+        if (!dados) return res.status(404).json({ erro: 'Não foi possível obter dados de Bookverse' });
 
         const lista = Array.isArray(dados) ? dados : [dados];
-        const livro = lista[0] || lista.find(item => 
-            normalize(item.titulo || item.title || '') === normalize('Bookverse')
-        );
-
-        if (!livro) {
-            return res.status(404).json({ erro: 'Livro não encontrado.' });
-        }
-
-        const mapeado = mapExternalToInternal(livro);
-        return res.status(200).json(preencherMetadadosFaltantes(mapeado));
+        const mapeados = lista.map(item => mapExternalToInternal(item));
+        return res.status(200).json(mapeados);
     } catch (error) {
         return res.status(500).json({ erro: error.message });
     }
@@ -615,22 +496,10 @@ export const obterBookverse = async (req, res) => {
 
 export const obterVidasSecas = async (req, res) => {
     try {
-        const metadados = METADADOS_LIVROS["vidas secas"];
-        
-        if (!metadados) {
-            return res.status(404).json({ erro: 'Livro não encontrado.' });
-        }
 
-        const livro = {
-            titulo: "Vidas Secas",
-            autor: "Graciliano Ramos",
-            anoPublicacao: 1938,
-            genero_pt: "Romance regionalista",
-            genero_en: "Regionalist novel",
-            ...metadados
-        };
-
-        return res.status(200).json(livro);
+        const dadosSimulados = { titulo: "Vidas Secas" };
+        const mapeado = mapExternalToInternal(dadosSimulados);
+        return res.status(200).json([mapeado]);
     } catch (error) {
         return res.status(500).json({ erro: error.message });
     }
