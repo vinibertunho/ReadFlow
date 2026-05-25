@@ -56,13 +56,10 @@ async function main() {
   const equipe = await prisma.equipe.create({
     data: {
       nome: "Equipe ReadFlow",
-      descricao: "Integrantes responsáveis pelo desenvolvimento e conteúdo do projeto.",
+      descricao:
+        "Integrantes responsáveis pelo desenvolvimento e conteúdo do projeto.",
       usuarios: {
-        connect: [
-          { id: admin.id },
-          { id: editor.id },
-          { id: conteudista.id },
-        ],
+        connect: [{ id: admin.id }, { id: editor.id }, { id: conteudista.id }],
       },
       integrantes: {
         create: [
@@ -86,51 +83,74 @@ async function main() {
     anoPublicacao: 1937,
     genero_pt: "Romance Social / Literatura Modernista",
     genero_en: "Social Novel / Modernist Literature",
-    sinopse: "A vida de um grupo de menores abandonados que vivem em um trapiche em Salvador, Bahia, sobrevivendo de pequenos furtos e golpes, enquanto enfrentam as mazelas da desigualdade social.",
+    sinopse:
+      "A vida de um grupo de menores abandonados que vivem em um trapiche em Salvador, Bahia, sobrevivendo de pequenos furtos e golpes, enquanto enfrentam as mazelas da desigualdade social.",
 
     // Contextos (Dados do card "Contexto histórico")
-    contexto_pt: "Publicado em 1937 durante a Era Vargas, o livro sofreu severa censura do Estado Novo, tendo exemplares queimados em praça pública em Salvador devido ao seu forte caráter de denúncia social.",
-    contexto_en: "Published in 1937 during the Vargas Era, the book suffered severe censorship from the Estado Novo regime, with copies burned in public squares in Salvador due to its strong character of social denunciation.",
+    contexto_pt:
+      "Publicado em 1937 durante a Era Vargas, o livro sofreu severa censura do Estado Novo, tendo exemplares queimados em praça pública em Salvador devido ao seu forte caráter de denúncia social.",
+    contexto_en:
+      "Published in 1937 during the Vargas Era, the book suffered severe censorship from the Estado Novo regime, with copies burned in public squares in Salvador due to its strong character of social denunciation.",
 
     // Descrições (Dados do card "Temas chave")
-    descricao_pt: "Aborda a marginalização da infância urbana, destacando temas fundamentais como a solidariedade do grupo, a busca incessante pela liberdade, a desigualdade social e o forte preconceito de classe.",
-    descricao_en: "Addresses the marginalization of urban childhood, highlighting fundamental themes such as group solidarity, the unceasing pursuit of freedom, social inequality, and strong class prejudice.",
+    descricao_pt:
+      "Aborda a marginalização da infância urbana, destacando temas fundamentais como a solidariedade do grupo, a busca incessante pela liberdade, a desigualdade social e o forte preconceito de classe.",
+    descricao_en:
+      "Addresses the marginalization of urban childhood, highlighting fundamental themes such as group solidarity, the unceasing pursuit of freedom, social inequality, and strong class prejudice.",
 
     // Detalhes do Autor
-    detalhes_autor_pt: "Jorge Amado (1912–2001) foi um dos escritores brasileiros mais célebres do século XX. Sua obra é profundamente marcada pelo engajamento político e pela defesa das classes marginalizadas.",
-    detalhes_autor_en: "Jorge Amado (1912–2001) was one of the most celebrated Brazilian writers of the 20th century. His work is deeply marked by political engagement and the defense of marginalized classes.",
+    detalhes_autor_pt:
+      "Jorge Amado (1912–2001) foi um dos escritores brasileiros mais célebres do século XX. Sua obra é profundamente marcada pelo engajamento político e pela defesa das classes marginalizadas.",
+    detalhes_autor_en:
+      "Jorge Amado (1912–2001) was one of the most celebrated Brazilian writers of the 20th century. His work is deeply marked by political engagement and the defense of marginalized classes.",
 
     // Estilo de Escrita
-    estilo_escrita_pt: "Fusão marcante de realismo cru com lirismo poético. O autor utiliza linguagem coloquial e expressões regionais da Bahia para aproximar o leitor da realidade dos meninos.",
-    estilo_escrita_en: "A striking fusion of raw realism with poetic lyricism. The author utilizes colloquial language and regional expressions from Bahia to bring the reader closer to the boys' reality.",
+    estilo_escrita_pt:
+      "Fusão marcante de realismo cru com lirismo poético. O autor utiliza linguagem coloquial e expressões regionais da Bahia para aproximar o leitor da realidade dos meninos.",
+    estilo_escrita_en:
+      "A striking fusion of raw realism with poetic lyricism. The author utilizes colloquial language and regional expressions from Bahia to bring the reader closer to the boys' reality.",
 
     // Verossimilhança (Dados do card "Engajamento")
-    verossimilhanca_pt: "A narrativa humaniza os jovens infratores, demonstrando com forte teor crítico que a criminalidade juvenil não é uma escolha inata, mas sim um reflexo direto da falta de afeto e de oportunidades estruturais.",
-    verossimilhanca_en: "The narrative humanizes young offenders, demonstrating with sharp criticism that juvenile criminality is not an innate choice, but rather a direct reflection of a lack of affection and structural opportunities.",
+    verossimilhanca_pt:
+      "A narrativa humaniza os jovens infratores, demonstrando com forte teor crítico que a criminalidade juvenil não é uma escolha inata, mas sim um reflexo direto da falta de afeto e de oportunidades estruturais.",
+    verossimilhanca_en:
+      "The narrative humanizes young offenders, demonstrating with sharp criticism that juvenile criminality is not an innate choice, but rather a direct reflection of a lack of affection and structural opportunities.",
 
     // Características Literárias (Dados do card "Simbolismo")
-    caracteristicas_literarias_pt: "Rica em elementos simbólicos: o trapiche serve como metáfora para o único lar e refúgio dos rejeitados, enquanto a imensidão do mar personifica o desejo de liberdade e o destino incerto dos jovens.",
-    caracteristicas_literarias_en: "Rich in symbolic elements: the abandoned warehouse serves as a metaphor for the only home and refuge for the rejected, while the vastness of the sea personifies the desire for freedom and the uncertain destiny of the youth.",
+    caracteristicas_literarias_pt:
+      "Rica em elementos simbólicos: o trapiche serve como metáfora para o único lar e refúgio dos rejeitados, enquanto a imensidão do mar personifica o desejo de liberdade e o destino incerto dos jovens.",
+    caracteristicas_literarias_en:
+      "Rich in symbolic elements: the abandoned warehouse serves as a metaphor for the only home and refuge for the rejected, while the vastness of the sea personifies the desire for freedom and the uncertain destiny of the youth.",
 
     // Campos novos do schema (contexto histórico, simbolismo, engajamento, temas chave)
-    contexto_historico_pt: "No contexto da década de 1930, o Brasil vivia fortes tensões sociais e políticas; 'Capitães da Areia' reflete a realidade dos excluídos e a crítica ao autoritarismo da época.",
-    contexto_historico_en: "In the 1930s context, Brazil faced strong social and political tensions; 'Captains of the Sands' reflects the reality of the excluded and criticizes the authoritarianism of the era.",
+    contexto_historico_pt:
+      "No contexto da década de 1930, o Brasil vivia fortes tensões sociais e políticas; 'Capitães da Areia' reflete a realidade dos excluídos e a crítica ao autoritarismo da época.",
+    contexto_historico_en:
+      "In the 1930s context, Brazil faced strong social and political tensions; 'Captains of the Sands' reflects the reality of the excluded and criticizes the authoritarianism of the era.",
 
-    simbolismo_pt: "O trapiche e o mar funcionam como símbolos centrais que apontam para laços de pertença e o desejo de liberdade, respectivamente.",
-    simbolismo_en: "The warehouse and the sea function as central symbols pointing to bonds of belonging and the desire for freedom, respectively.",
+    simbolismo_pt:
+      "O trapiche e o mar funcionam como símbolos centrais que apontam para laços de pertença e o desejo de liberdade, respectivamente.",
+    simbolismo_en:
+      "The warehouse and the sea function as central symbols pointing to bonds of belonging and the desire for freedom, respectively.",
 
-    engajamento_pt: "A obra engaja o leitor ao confrontar a indiferença social e mobilizar empatia pelos jovens marginalizados.",
-    engajamento_en: "The work engages the reader by confronting social indifference and mobilizing empathy for marginalized youth.",
+    engajamento_pt:
+      "A obra engaja o leitor ao confrontar a indiferença social e mobilizar empatia pelos jovens marginalizados.",
+    engajamento_en:
+      "The work engages the reader by confronting social indifference and mobilizing empathy for marginalized youth.",
 
-    temas_chave_pt: "Infância marginalizada; solidariedade; desigualdade social; resistência e redenção.",
-    temas_chave_en: "Marginalized childhood; solidarity; social inequality; resistance and redemption.",
+    temas_chave_pt:
+      "Infância marginalizada; solidariedade; desigualdade social; resistência e redenção.",
+    temas_chave_en:
+      "Marginalized childhood; solidarity; social inequality; resistance and redemption.",
 
     // Conclusão
-    conclusao_pt: "Capitães da Areia consolida-se como um clássico indispensável da literatura nacional, mantendo-se perfeitamente atemporal ao expor as feridas e contradições sociais e urbanas do Brasil.",
-    conclusao_en: "Capitães da Areia consolidates itself as an indispensable classic of national literature, remaining perfectly timeless by exposing Brazil's social and urban wounds and contradictions.",
+    conclusao_pt:
+      "Capitães da Areia consolida-se como um clássico indispensável da literatura nacional, mantendo-se perfeitamente atemporal ao expor as feridas e contradições sociais e urbanas do Brasil.",
+    conclusao_en:
+      "Capitães da Areia consolidates itself as an indispensable classic of national literature, remaining perfectly timeless by exposing Brazil's social and urban wounds and contradictions.",
 
     video_url: null,
-    capa_url: "https://i.ibb.co/dsQ2s4TQ/Design-sem-nome-2.png",
+    capa_url: "https://i.ibb.co/mF98znBm/capitaes.jpg",
     usuarioId: editor.id,
   };
 
@@ -142,10 +162,30 @@ async function main() {
   // Personagens principais preenchidos
   await prisma.personagem.createMany({
     data: [
-      { livroId: livro.id, nome: "Pedro Bala", descricao: "O líder do grupo, justo e corajoso, respeitado por todos os meninos do trapiche." },
-      { livroId: livro.id, nome: "Dora", descricao: "A única menina do grupo, que assume um papel maternal e amoroso antes de se tornar o grande amor de Pedro Bala." },
-      { livroId: livro.id, nome: "Sem-Pernas", descricao: "Um menino coxo e amargurado que atua como espião do grupo nas casas que pretendem assaltar." },
-      { livroId: livro.id, nome: "Volta Seca", descricao: "Um jovem admirador do cangaceiro Lampião, que carrega um forte sentimento de revolta contra as autoridades." },
+      {
+        livroId: livro.id,
+        nome: "Pedro Bala",
+        descricao:
+          "O líder do grupo, justo e corajoso, respeitado por todos os meninos do trapiche.",
+      },
+      {
+        livroId: livro.id,
+        nome: "Dora",
+        descricao:
+          "A única menina do grupo, que assume um papel maternal e amoroso antes de se tornar o grande amor de Pedro Bala.",
+      },
+      {
+        livroId: livro.id,
+        nome: "Sem-Pernas",
+        descricao:
+          "Um menino coxo e amargurado que atua como espião do grupo nas casas que pretendem assaltar.",
+      },
+      {
+        livroId: livro.id,
+        nome: "Volta Seca",
+        descricao:
+          "Um jovem admirador do cangaceiro Lampião, que carrega um forte sentimento de revolta contra as autoridades.",
+      },
     ],
   });
 
@@ -155,7 +195,8 @@ async function main() {
       {
         livroId: livro.id,
         titulo: "Livros Queimados",
-        texto: "Logo após o seu lançamento em 1937, cerca de 808 exemplares de Capitães da Areia foram apreendidos e queimados em praça pública em Salvador, sob o pretexto de que a obra fazia propaganda comunista.",
+        texto:
+          "Logo após o seu lançamento em 1937, cerca de 808 exemplares de Capitães da Areia foram apreendidos e queimados em praça pública em Salvador, sob o pretexto de que a obra fazia propaganda comunista.",
         autorUsuarioId: conteudista.id,
         publicado: true,
       },
@@ -185,7 +226,8 @@ async function main() {
   // Questões em Português
   const questoesPT = [
     {
-      enunciado: "Qual é o nome da organização de meninos de rua no romance 'Capitães da Areia'?",
+      enunciado:
+        "Qual é o nome da organização de meninos de rua no romance 'Capitães da Areia'?",
       alternativaA: "Banda da Praia",
       alternativaB: "Capitães da Areia",
       alternativaC: "Garotos do Porto",
@@ -193,7 +235,8 @@ async function main() {
       alternativaE: "Guerreiros da Rua",
       gabarito: "B",
       dificuldade: "FACIL",
-      comentarioResolucao: "O grupo de meninos de rua é chamado de Capitães da Areia.",
+      comentarioResolucao:
+        "O grupo de meninos de rua é chamado de Capitães da Areia.",
     },
     {
       enunciado: "Quem é o Capitão do grupo de Capitães da Areia?",
@@ -204,7 +247,8 @@ async function main() {
       alternativaE: "Alvarado",
       gabarito: "B",
       dificuldade: "FACIL",
-      comentarioResolucao: "Pedro Bala é o líder e capitão do grupo dos Capitães da Areia.",
+      comentarioResolucao:
+        "Pedro Bala é o líder e capitão do grupo dos Capitães da Areia.",
     },
     {
       enunciado: "Em qual cidade o romance 'Capitães da Areia' é ambientado?",
@@ -218,7 +262,8 @@ async function main() {
       comentarioResolucao: "A história se passa em Salvador, Bahia.",
     },
     {
-      enunciado: "Qual é a profissão do personagem Sem-Pernas antes de entrar para o grupo?",
+      enunciado:
+        "Qual é a profissão do personagem Sem-Pernas antes de entrar para o grupo?",
       alternativaA: "Vendedor de jornais",
       alternativaB: "Carregador de carga",
       alternativaC: "Menino de recado",
@@ -226,7 +271,8 @@ async function main() {
       alternativaE: "Aprendiz de sapateiro",
       gabarito: "A",
       dificuldade: "MEDIA",
-      comentarioResolucao: "Sem-Pernas vendia jornais nas ruas antes de se juntar aos Capitães.",
+      comentarioResolucao:
+        "Sem-Pernas vendia jornais nas ruas antes de se juntar aos Capitães.",
     },
     {
       enunciado: "Quem é Dora no romance?",
@@ -237,7 +283,8 @@ async function main() {
       alternativaE: "Mulher de Alvarado",
       gabarito: "C",
       dificuldade: "MEDIA",
-      comentarioResolucao: "Dora é a única menina que faz parte do grupo dos Capitães da Areia.",
+      comentarioResolucao:
+        "Dora é a única menina que faz parte do grupo dos Capitães da Areia.",
     },
     {
       enunciado: "Qual é o nome do cais onde os meninos vivem?",
@@ -251,7 +298,8 @@ async function main() {
       comentarioResolucao: "Os Capitães da Areia vivem no Cais do Saveiro.",
     },
     {
-      enunciado: "Qual personagem é conhecido por sua habilidade de roubo e sua lealdade ao grupo?",
+      enunciado:
+        "Qual personagem é conhecido por sua habilidade de roubo e sua lealdade ao grupo?",
       alternativaA: "Alvarado",
       alternativaB: "Gato",
       alternativaC: "Volta Seca",
@@ -259,7 +307,8 @@ async function main() {
       alternativaE: "Batuqueiro",
       gabarito: "B",
       dificuldade: "MEDIA",
-      comentarioResolucao: "Gato é um hábil ladrão e personagem importante no grupo.",
+      comentarioResolucao:
+        "Gato é um hábil ladrão e personagem importante no grupo.",
     },
     {
       enunciado: "Qual é o tema central do romance 'Capitães da Areia'?",
@@ -270,7 +319,8 @@ async function main() {
       alternativaE: "A busca por ouro",
       gabarito: "B",
       dificuldade: "DIFICIL",
-      comentarioResolucao: "O romance trata da redenção e da humanidade dos marginalizados sociais.",
+      comentarioResolucao:
+        "O romance trata da redenção e da humanidade dos marginalizados sociais.",
     },
     {
       enunciado: "Quem persegue constantemente os Capitães da Areia?",
@@ -281,7 +331,8 @@ async function main() {
       alternativaE: "O Governador",
       gabarito: "B",
       dificuldade: "MEDIA",
-      comentarioResolucao: "O Delegado de Polícia busca constantemente capturar o grupo.",
+      comentarioResolucao:
+        "O Delegado de Polícia busca constantemente capturar o grupo.",
     },
     {
       enunciado: "O romance é estruturado em qual formato literário?",
@@ -292,7 +343,8 @@ async function main() {
       alternativaE: "Poesia",
       gabarito: "C",
       dificuldade: "DIFICIL",
-      comentarioResolucao: "O romance é narrado por diferentes perspectivas e vozes.",
+      comentarioResolucao:
+        "O romance é narrado por diferentes perspectivas e vozes.",
     },
     {
       enunciado: "Qual personagem é um violão e músico do grupo?",
@@ -303,7 +355,8 @@ async function main() {
       alternativaE: "Alvarado",
       gabarito: "A",
       dificuldade: "MEDIA",
-      comentarioResolucao: "Batuqueiro é o músico que toca violão para o grupo.",
+      comentarioResolucao:
+        "Batuqueiro é o músico que toca violão para o grupo.",
     },
     {
       enunciado: "Qual é a relação de Pedro Bala com o candomblé?",
@@ -314,10 +367,12 @@ async function main() {
       alternativaE: "Nega completamente",
       gabarito: "C",
       dificuldade: "MEDIA",
-      comentarioResolucao: "Pedro Bala frequenta e respeita a religião afro-brasileira.",
+      comentarioResolucao:
+        "Pedro Bala frequenta e respeita a religião afro-brasileira.",
     },
     {
-      enunciado: "Quantos personagens principais formam o núcleo central do grupo?",
+      enunciado:
+        "Quantos personagens principais formam o núcleo central do grupo?",
       alternativaA: "5",
       alternativaB: "8",
       alternativaC: "10",
@@ -325,7 +380,8 @@ async function main() {
       alternativaE: "15",
       gabarito: "C",
       dificuldade: "DIFICIL",
-      comentarioResolucao: "O grupo possui aproximadamente 10 personagens principais.",
+      comentarioResolucao:
+        "O grupo possui aproximadamente 10 personagens principais.",
     },
     {
       enunciado: "Qual é o destino de Pedro Bala ao final do romance?",
@@ -336,7 +392,8 @@ async function main() {
       alternativaE: "Torna-se um criminoso profissional",
       gabarito: "C",
       dificuldade: "DIFICIL",
-      comentarioResolucao: "Pedro Bala segue para participar de movimentos sociais.",
+      comentarioResolucao:
+        "Pedro Bala segue para participar de movimentos sociais.",
     },
     {
       enunciado: "Qual o papel da mãe de santo no romance?",
@@ -347,7 +404,8 @@ async function main() {
       alternativaE: "Policiais disfarçada",
       gabarito: "B",
       dificuldade: "MEDIA",
-      comentarioResolucao: "A mãe de santo oferece proteção espiritual e moral ao grupo.",
+      comentarioResolucao:
+        "A mãe de santo oferece proteção espiritual e moral ao grupo.",
     },
     {
       enunciado: "Qual é a origem social dos meninos do grupo?",
@@ -358,7 +416,8 @@ async function main() {
       alternativaE: "São todos filhos de comerciantes",
       gabarito: "C",
       dificuldade: "MEDIA",
-      comentarioResolucao: "Os Capitães são meninos marginalizados, pobres e muitos órfãos.",
+      comentarioResolucao:
+        "Os Capitães são meninos marginalizados, pobres e muitos órfãos.",
     },
     {
       enunciado: "Qual personagem morre durante o romance de forma trágica?",
@@ -369,10 +428,12 @@ async function main() {
       alternativaE: "Dora",
       gabarito: "E",
       dificuldade: "DIFICIL",
-      comentarioResolucao: "Dora morre devido a uma forte febre após o período de reclusão no reformatório.",
+      comentarioResolucao:
+        "Dora morre devido a uma forte febre após o período de reclusão no reformatório.",
     },
     {
-      enunciado: "Qual é a crítica social principal que Jorge Amado faz no romance?",
+      enunciado:
+        "Qual é a crítica social principal que Jorge Amado faz no romance?",
       alternativaA: "A corrupção governamental",
       alternativaB: "A injustiça social e abandono de crianças pobres",
       alternativaC: "A exploration pelos patrões",
@@ -380,7 +441,8 @@ async function main() {
       alternativaE: "O tráfico de escravos",
       gabarito: "B",
       dificuldade: "DIFICIL",
-      comentarioResolucao: "O romance critica a injustiça social e o abandono de crianças pobres.",
+      comentarioResolucao:
+        "O romance critica a injustiça social e o abandono de crianças pobres.",
     },
     {
       enunciado: "Em que ano foi publicado 'Capitães da Areia'?",
@@ -391,14 +453,16 @@ async function main() {
       alternativaE: "1960",
       gabarito: "B",
       dificuldade: "FACIL",
-      comentarioResolucao: "'Capitães da Areia' foi publicado em 1937 por Jorge Amado.",
+      comentarioResolucao:
+        "'Capitães da Areia' foi publicado em 1937 por Jorge Amado.",
     },
   ];
 
   // Questões em Inglês
   const questoesEN = [
     {
-      enunciado: "What is the name of the street boys' organization in the novel 'Captains of the Sands'?",
+      enunciado:
+        "What is the name of the street boys' organization in the novel 'Captains of the Sands'?",
       alternativaA: "Beach Gang",
       alternativaB: "Captains of the Sands",
       alternativaC: "Port Boys",
@@ -406,7 +470,8 @@ async function main() {
       alternativaE: "Street Warriors",
       gabarito: "B",
       dificuldade: "FACIL",
-      comentarioResolucao: "The group of street boys is called Captains of the Sands.",
+      comentarioResolucao:
+        "The group of street boys is called Captains of the Sands.",
     },
     {
       enunciado: "Who is the Captain of the Captains of the Sands group?",
@@ -417,7 +482,8 @@ async function main() {
       alternativaE: "Alvarado",
       gabarito: "B",
       dificuldade: "FACIL",
-      comentarioResolucao: "Pedro Bala is the leader and captain of the Captains of the Sands.",
+      comentarioResolucao:
+        "Pedro Bala is the leader and captain of the Captains of the Sands.",
     },
     {
       enunciado: "In which city is the novel 'Captains of the Sands' set?",
@@ -431,7 +497,8 @@ async function main() {
       comentarioResolucao: "The story takes place in Salvador, Bahia.",
     },
     {
-      enunciado: "What was the profession of the character Legless before joining the group?",
+      enunciado:
+        "What was the profession of the character Legless before joining the group?",
       alternativaA: "Newspaper seller",
       alternativaB: "Cargo handler",
       alternativaC: "Messenger boy",
@@ -439,7 +506,8 @@ async function main() {
       alternativaE: "Shoe apprentice",
       gabarito: "A",
       dificuldade: "MEDIA",
-      comentarioResolucao: "Legless sold newspapers on the streets before joining the Captains.",
+      comentarioResolucao:
+        "Legless sold newspapers on the streets before joining the Captains.",
     },
     {
       enunciado: "Who is Dora in the novel?",
@@ -450,7 +518,8 @@ async function main() {
       alternativaE: "Wife of Alvarado",
       gabarito: "C",
       dificuldade: "MEDIA",
-      comentarioResolucao: "Dora is the only girl who is part of the Captains of the Sands group.",
+      comentarioResolucao:
+        "Dora is the only girl who is part of the Captains of the Sands group.",
     },
     {
       enunciado: "What is the name of the wharf where the boys live?",
@@ -461,10 +530,12 @@ async function main() {
       alternativaE: "Commerce Wharf",
       gabarito: "A",
       dificuldade: "MEDIA",
-      comentarioResolucao: "The Captains of the Sands live at the Saveiro Wharf.",
+      comentarioResolucao:
+        "The Captains of the Sands live at the Saveiro Wharf.",
     },
     {
-      enunciado: "Which character is known for his theft skills and loyalty to the group?",
+      enunciado:
+        "Which character is known for his theft skills and loyalty to the group?",
       alternativaA: "Alvarado",
       alternativaB: "Cat",
       alternativaC: "Dry Rotation",
@@ -472,10 +543,12 @@ async function main() {
       alternativaE: "Drummer",
       gabarito: "B",
       dificuldade: "MEDIA",
-      comentarioResolucao: "Cat is a skilled thief and important character in the group.",
+      comentarioResolucao:
+        "Cat is a skilled thief and important character in the group.",
     },
     {
-      enunciado: "What is the central theme of the novel 'Captains of the Sands'?",
+      enunciado:
+        "What is the central theme of the novel 'Captains of the Sands'?",
       alternativaA: "Adventure at sea",
       alternativaB: "Redemption and the marginalized of society",
       alternativaC: "Drug trafficking",
@@ -483,7 +556,8 @@ async function main() {
       alternativaE: "Search for gold",
       gabarito: "B",
       dificuldade: "DIFICIL",
-      comentarioResolucao: "The novel deals with redemption and the humanity of socially marginalized people.",
+      comentarioResolucao:
+        "The novel deals with redemption and the humanity of socially marginalized people.",
     },
     {
       enunciado: "Who constantly pursues the Captains of the Sands?",
@@ -494,7 +568,8 @@ async function main() {
       alternativaE: "The Governor",
       gabarito: "B",
       dificuldade: "MEDIA",
-      comentarioResolucao: "The Police Delegate constantly seeks to capture the group.",
+      comentarioResolucao:
+        "The Police Delegate constantly seeks to capture the group.",
     },
     {
       enunciado: "In what literary format is the novel structured?",
@@ -505,7 +580,8 @@ async function main() {
       alternativaE: "Poetry",
       gabarito: "C",
       dificuldade: "DIFICIL",
-      comentarioResolucao: "The novel is narrated from different perspectives and voices.",
+      comentarioResolucao:
+        "The novel is narrated from different perspectives and voices.",
     },
     {
       enunciado: "Which character is a guitarist and musician of the group?",
@@ -516,7 +592,8 @@ async function main() {
       alternativaE: "Alvarado",
       gabarito: "A",
       dificuldade: "MEDIA",
-      comentarioResolucao: "The Drummer is the musician who plays guitar for the group.",
+      comentarioResolucao:
+        "The Drummer is the musician who plays guitar for the group.",
     },
     {
       enunciado: "What is Pedro Bala's relationship with candomblé?",
@@ -527,10 +604,12 @@ async function main() {
       alternativaE: "He completely denies it",
       gabarito: "C",
       dificuldade: "MEDIA",
-      comentarioResolucao: "Pedro Bala frequents and respects the Afro-Brazilian religion.",
+      comentarioResolucao:
+        "Pedro Bala frequents and respects the Afro-Brazilian religion.",
     },
     {
-      enunciado: "How many main characters form the central nucleus of the group?",
+      enunciado:
+        "How many main characters form the central nucleus of the group?",
       alternativaA: "5",
       alternativaB: "8",
       alternativaC: "10",
@@ -549,7 +628,8 @@ async function main() {
       alternativaE: "Becomes a professional criminal",
       gabarito: "C",
       dificuldade: "DIFICIL",
-      comentarioResolucao: "Pedro Bala goes on to participate in social movements.",
+      comentarioResolucao:
+        "Pedro Bala goes on to participate in social movements.",
     },
     {
       enunciado: "What is the role of the priestess in the novel?",
@@ -560,7 +640,8 @@ async function main() {
       alternativaE: "Disguised police",
       gabarito: "B",
       dificuldade: "MEDIA",
-      comentarioResolucao: "The priestess offers spiritual and moral protection to the group.",
+      comentarioResolucao:
+        "The priestess offers spiritual and moral protection to the group.",
     },
     {
       enunciado: "What is the social origin of the boys in the group?",
@@ -571,7 +652,8 @@ async function main() {
       alternativaE: "All are merchants' sons",
       gabarito: "C",
       dificuldade: "MEDIA",
-      comentarioResolucao: "The Captains are marginalized poor boys and many are orphans.",
+      comentarioResolucao:
+        "The Captains are marginalized poor boys and many are orphans.",
     },
     {
       enunciado: "Which character dies tragically during the novel?",
@@ -582,10 +664,12 @@ async function main() {
       alternativaE: "Dora",
       gabarito: "E",
       dificuldade: "DIFICIL",
-      comentarioResolucao: "Dora dies from a severe fever after her time in the orphanage/reformatoy.",
+      comentarioResolucao:
+        "Dora dies from a severe fever after her time in the orphanage/reformatoy.",
     },
     {
-      enunciado: "What is the main social criticism that Jorge Amado makes in the novel?",
+      enunciado:
+        "What is the main social criticism that Jorge Amado makes in the novel?",
       alternativaA: "Government corruption",
       alternativaB: "Social injustice and abandonment of poor children",
       alternativaC: "Exploitation by employers",
@@ -593,7 +677,8 @@ async function main() {
       alternativaE: "Slave trafficking",
       gabarito: "B",
       dificuldade: "DIFICIL",
-      comentarioResolucao: "The novel criticizes social injustice and the abandonment of poor children.",
+      comentarioResolucao:
+        "The novel criticizes social injustice and the abandonment of poor children.",
     },
     {
       enunciado: "In what year was 'Captains of the Sands' published?",
@@ -604,7 +689,8 @@ async function main() {
       alternativaE: "1960",
       gabarito: "B",
       dificuldade: "FACIL",
-      comentarioResolucao: "'Captains of the Sands' was published in 1937 by Jorge Amado.",
+      comentarioResolucao:
+        "'Captains of the Sands' was published in 1937 by Jorge Amado.",
     },
   ];
 
