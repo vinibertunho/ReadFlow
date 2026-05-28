@@ -160,6 +160,63 @@ const normalize = (str = '') =>
         .toLowerCase()
         .trim();
 
+function extrairPersonagensLista(valor) {
+    if (!valor) return [];
+
+    if (Array.isArray(valor)) {
+        return valor
+            .map(item => {
+                if (!item) return null;
+                if (typeof item === 'string') {
+                    const nome = item.trim();
+                    return nome ? { nome, descricao: null } : null;
+                }
+
+                const nome = (item.nome || item.name || item.titulo || item.title || '').toString().trim();
+                if (!nome) return null;
+
+                return {
+                    nome,
+                    descricao: item.descricao || item.description || null,
+                };
+            })
+            .filter(Boolean);
+    }
+
+    if (typeof valor === 'string') {
+        return valor
+            .split(/\r?\n|;/)
+            .map(nome => nome.trim())
+            .filter(Boolean)
+            .map(nome => ({ nome, descricao: null }));
+    }
+
+    return [];
+}
+
+function incluirPersonagensNoLivro(livro) {
+    if (!livro || typeof livro !== 'object') return livro;
+
+    const personagens = [
+        ...extrairPersonagensLista(livro.personagens),
+        ...extrairPersonagensLista(livro.personagens_pt),
+        ...extrairPersonagensLista(livro.personagens_en),
+    ];
+
+    const vistos = new Set();
+    const personagensUnicos = personagens.filter(personagem => {
+        const chave = normalize(personagem.nome || '');
+        if (!chave || vistos.has(chave)) return false;
+        vistos.add(chave);
+        return true;
+    });
+
+    return {
+        ...livro,
+        personagens: personagensUnicos,
+    };
+}
+
 function preencherMetadadosFaltantes(mapped) {
     let chave = normalize(mapped.titulo || '');
     let metadado = METADADOS_LIVROS[chave];
@@ -283,18 +340,21 @@ export const obterLivroPorIdOuTitulo = async (req, res) => {
         let livroLocal = null;
         if (!isNaN(parseInt(termoBusca))) {
             livroLocal = await prisma.livro.findUnique({
-                where: { id: parseInt(termoBusca) }
+                where: { id: parseInt(termoBusca) },
+                include: { personagens: true },
             });
         }
 
         if (!livroLocal) {
             livroLocal = await prisma.livro.findFirst({
-                where: { titulo: { contains: termoBusca } }
+                where: { titulo: { contains: termoBusca } },
+                include: { personagens: true },
             });
         }
 
         if (livroLocal) {
-            return res.status(200).json(preencherMetadadosFaltantes(livroLocal));
+            const livroComMetadados = preencherMetadadosFaltantes(livroLocal);
+            return res.status(200).json(incluirPersonagensNoLivro(livroComMetadados));
         }
 
         const chamadas = ENDPOINTS_CONFIG.map(endpoint => fazerRequisicaoExterna(endpoint));
@@ -315,7 +375,7 @@ export const obterLivroPorIdOuTitulo = async (req, res) => {
 
             if (livroEncontrado) {
                 const mapeado = mapExternalToInternal(livroEncontrado);
-                return res.status(200).json(mapeado);
+                return res.status(200).json(incluirPersonagensNoLivro(mapeado));
             }
         }
 
@@ -349,7 +409,9 @@ export const obterBibliotecaCompleta = async (req, res) => {
 
                 const dados = await resposta.json();
                 const lista = Array.isArray(dados) ? dados : [dados];
-                const mapeados = lista.map(item => mapExternalToInternal(item));
+                const mapeados = lista
+                    .map(item => mapExternalToInternal(item))
+                    .map(item => incluirPersonagensNoLivro(item));
 
                 return { livro: livro.nomeLivro, statusApi: 'Online', conteudo: mapeados };
             } catch {
@@ -378,7 +440,7 @@ export const listarIntegracao = async (req, res) => {
                 const mapeado = mapExternalToInternal(item);
                 const chave = normalize(mapeado.titulo || '');
                 if (chave && !livros.has(chave)) {
-                    livros.set(chave, mapeado);
+                    livros.set(chave, incluirPersonagensNoLivro(mapeado));
                 }
             });
         });
@@ -439,7 +501,9 @@ export const obterGuarani = async (req, res) => {
         if (!dados) return res.status(404).json({ erro: 'Não foi possível obter dados de O Guarani' });
 
         const lista = Array.isArray(dados) ? dados : [dados];
-        const mapeados = lista.map(item => mapExternalToInternal(item));
+        const mapeados = lista
+            .map(item => mapExternalToInternal(item))
+            .map(item => incluirPersonagensNoLivro(item));
         return res.status(200).json(mapeados);
     } catch (error) {
         return res.status(500).json({ erro: error.message });
@@ -455,7 +519,9 @@ export const obterQuartosDespejo = async (req, res) => {
         if (!dados) return res.status(404).json({ erro: 'Não foi possível obter dados de Quartos de Despejo' });
 
         const lista = Array.isArray(dados) ? dados : [dados];
-        const mapeados = lista.map(item => mapExternalToInternal(item));
+        const mapeados = lista
+            .map(item => mapExternalToInternal(item))
+            .map(item => incluirPersonagensNoLivro(item));
         return res.status(200).json(mapeados);
     } catch (error) {
         return res.status(500).json({ erro: error.message });
@@ -471,7 +537,9 @@ export const obterMemoriasCubas = async (req, res) => {
         if (!dados) return res.status(404).json({ erro: 'Não foi possível obter dados de Memórias Póstumas de Brás Cubas' });
 
         const lista = Array.isArray(dados) ? dados : [dados];
-        const mapeados = lista.map(item => mapExternalToInternal(item));
+        const mapeados = lista
+            .map(item => mapExternalToInternal(item))
+            .map(item => incluirPersonagensNoLivro(item));
         return res.status(200).json(mapeados);
     } catch (error) {
         return res.status(500).json({ erro: error.message });
@@ -487,7 +555,9 @@ export const obterBookverse = async (req, res) => {
         if (!dados) return res.status(404).json({ erro: 'Não foi possível obter dados de Bookverse' });
 
         const lista = Array.isArray(dados) ? dados : [dados];
-        const mapeados = lista.map(item => mapExternalToInternal(item));
+        const mapeados = lista
+            .map(item => mapExternalToInternal(item))
+            .map(item => incluirPersonagensNoLivro(item));
         return res.status(200).json(mapeados);
     } catch (error) {
         return res.status(500).json({ erro: error.message });
@@ -498,7 +568,7 @@ export const obterVidasSecas = async (req, res) => {
     try {
 
         const dadosSimulados = { titulo: "Vidas Secas" };
-        const mapeado = mapExternalToInternal(dadosSimulados);
+    const mapeado = incluirPersonagensNoLivro(mapExternalToInternal(dadosSimulados));
         return res.status(200).json([mapeado]);
     } catch (error) {
         return res.status(500).json({ erro: error.message });
