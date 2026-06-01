@@ -1,10 +1,10 @@
-import LivroModel from "../models/LivroModel.js";
+import LivroModel from '../models/LivroModel.js';
 
 export const criar = async (req, res) => {
     try {
         if (!req.body) {
             return res.status(400).json({
-                error: 'Corpo da requisição vazio. Envie os dados!'
+                error: 'Corpo da requisição vazio. Envie os dados!',
             });
         }
 
@@ -38,6 +38,15 @@ export const criar = async (req, res) => {
             conclusao_pt,
             conclusao_en,
 
+            contexto_historico_pt,
+            contexto_historico_en,
+            simbolismo_pt,
+            simbolismo_en,
+            engajamento_pt,
+            engajamento_en,
+            temas_chave_pt,
+            temas_chave_en,
+
             video_url,
             capa_url,
             usuarioId,
@@ -45,25 +54,25 @@ export const criar = async (req, res) => {
 
         if (!titulo) {
             return res.status(400).json({
-                error: 'O campo "titulo" é obrigatório!'
+                error: 'O campo "titulo" é obrigatório!',
             });
         }
 
         if (!autor) {
             return res.status(400).json({
-                error: 'O campo "autor" é obrigatório!'
+                error: 'O campo "autor" é obrigatório!',
             });
         }
 
         if (!genero_pt) {
             return res.status(400).json({
-                error: 'O campo "genero_pt" é obrigatório!'
+                error: 'O campo "genero_pt" é obrigatório!',
             });
         }
 
         if (!genero_en) {
             return res.status(400).json({
-                error: 'O campo "genero_en" é obrigatório!'
+                error: 'O campo "genero_en" é obrigatório!',
             });
         }
 
@@ -71,9 +80,7 @@ export const criar = async (req, res) => {
             titulo,
             autor,
 
-            anoPublicacao: anoPublicacao
-                ? parseInt(anoPublicacao)
-                : null,
+            anoPublicacao: anoPublicacao ? parseInt(anoPublicacao) : null,
 
             sinopse: sinopse ?? null,
 
@@ -95,35 +102,39 @@ export const criar = async (req, res) => {
             verossimilhanca_pt: verossimilhanca_pt ?? null,
             verossimilhanca_en: verossimilhanca_en ?? null,
 
-            caracteristicas_literarias_pt:
-                caracteristicas_literarias_pt ?? null,
+            caracteristicas_literarias_pt: caracteristicas_literarias_pt ?? null,
 
-            caracteristicas_literarias_en:
-                caracteristicas_literarias_en ?? null,
+            caracteristicas_literarias_en: caracteristicas_literarias_en ?? null,
 
             conclusao_pt: conclusao_pt ?? null,
             conclusao_en: conclusao_en ?? null,
 
+            contexto_historico_pt: contexto_historico_pt ?? null,
+            contexto_historico_en: contexto_historico_en ?? null,
+            simbolismo_pt: simbolismo_pt ?? null,
+            simbolismo_en: simbolismo_en ?? null,
+            engajamento_pt: engajamento_pt ?? null,
+            engajamento_en: engajamento_en ?? null,
+            temas_chave_pt: temas_chave_pt ?? null,
+            temas_chave_en: temas_chave_en ?? null,
+
             video_url: video_url ?? null,
             capa_url: capa_url ?? null,
 
-            usuarioId: usuarioId
-                ? parseInt(usuarioId)
-                : null,
+            usuarioId: usuarioId ? parseInt(usuarioId) : null,
         });
 
         const data = await livro.criar();
 
         return res.status(201).json({
             message: 'Livro criado com sucesso!',
-            data
+            data,
         });
-
     } catch (error) {
         console.error('Erro ao criar livro:', error);
 
         return res.status(500).json({
-            error: 'Erro interno ao salvar o livro.'
+            error: 'Erro interno ao salvar o livro.',
         });
     }
 };
@@ -223,6 +234,30 @@ export const atualizar = async (req, res) => {
         if (req.body.conclusao_en !== undefined) {
             livro.conclusao_en = req.body.conclusao_en;
         }
+        if (req.body.contexto_historico_pt !== undefined) {
+            livro.contexto_historico_pt = req.body.contexto_historico_pt;
+        }
+        if (req.body.contexto_historico_en !== undefined) {
+            livro.contexto_historico_en = req.body.contexto_historico_en;
+        }
+        if (req.body.simbolismo_pt !== undefined) {
+            livro.simbolismo_pt = req.body.simbolismo_pt;
+        }
+        if (req.body.simbolismo_en !== undefined) {
+            livro.simbolismo_en = req.body.simbolismo_en;
+        }
+        if (req.body.engajamento_pt !== undefined) {
+            livro.engajamento_pt = req.body.engajamento_pt;
+        }
+        if (req.body.engajamento_en !== undefined) {
+            livro.engajamento_en = req.body.engajamento_en;
+        }
+        if (req.body.temas_chave_pt !== undefined) {
+            livro.temas_chave_pt = req.body.temas_chave_pt;
+        }
+        if (req.body.temas_chave_en !== undefined) {
+            livro.temas_chave_en = req.body.temas_chave_en;
+        }
         if (req.body.video_url !== undefined) {
             livro.video_url = req.body.video_url;
         }
@@ -258,7 +293,10 @@ export const deletar = async (req, res) => {
 
         await livro.deletar();
 
-        return res.json({ message: `O livro "${livro.titulo}" foi deletado com sucesso!`, deletado: livro });
+        return res.json({
+            message: `O livro "${livro.titulo}" foi deletado com sucesso!`,
+            deletado: livro,
+        });
     } catch (error) {
         console.error('Erro ao deletar livro:', error);
         return res.status(500).json({ error: 'Erro ao deletar livro.' });
