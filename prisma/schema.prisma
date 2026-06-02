@@ -32,12 +32,17 @@ enum DificuldadeQuestao {
 }
 
 enum NomeIntegranteEquipe {
-  BEATRIZ_TSUMOTO   @map("Beatriz Tsumoto")
-  JULIA_DEGRAVA     @map("Julia Degrava")
-  ISABELLA_PINESSO  @map("Isabella Pinesso")
-  ANA_BAGGIO        @map("Ana Baggio")
-  VINICIUS_BERTUNHO @map("Vinicius Bertunho")
-  MURILO_ROCHA      @map("Murilo Rocha")
+  BEATRIZ_TSUMOTO
+  JULIA_DEGRAVA
+  ISABELLA_PINESSO
+  ANA_BAGGIO
+  VINICIUS_BERTUNHO
+  MURILO_ROCHA
+  BRYAN
+  EDUARDO
+  ELOISA
+  CECILIA
+  GABRIEL_BIEL
 }
 
 model Usuario {
@@ -73,6 +78,7 @@ model IntegranteEquipe {
   id           Int                  @id @default(autoincrement())
   equipeId     Int                  @map("equipe_id")
   nome         NomeIntegranteEquipe
+  fotoUrl      String?              @map("foto_url")
   criadoEm     DateTime             @default(now()) @map("criado_em")
   atualizadoEm DateTime             @updatedAt @map("atualizado_em")
   equipe       Equipe               @relation(fields: [equipeId], references: [id], onDelete: Cascade)
