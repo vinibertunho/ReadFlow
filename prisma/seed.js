@@ -77,6 +77,26 @@ async function main() {
             nome: "MURILO_ROCHA",
             fotoUrl: "https://i.ibb.co/bj7KcW1w/murilo.jpg",
           },
+          {
+            nome: "BRYAN_REZENDE",
+            fotoUrl: "https://i.ibb.co/4R8Nt0h3/bryan.jpg",
+          },
+          {
+            nome: "EDUARDO_TONON",
+            fotoUrl: "https://i.ibb.co/R4d5gtSP/edu.jpg",
+          },
+          {
+            nome: "ELOISA_MADRUGA",
+            fotoUrl: "https://i.ibb.co/GrBJ5q1/elo.jpg",
+          },
+          {
+            nome: "CECILIA",
+            fotoUrl: "https://i.ibb.co/VYDkkx3Y/cecilia.jpg",
+          },
+          {
+            nome: "GABRIEL",
+            fotoUrl: "https://i.ibb.co/4Zjy3NLB/biel.jpg",
+          },
         ],
       },
     },
