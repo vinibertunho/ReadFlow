@@ -221,6 +221,21 @@ function incluirPersonagensNoLivro(livro) {
     };
 }
 
+function similaridadeTitulo(a, b) {
+    // Remove plurais simples (s/es no final) para comparação
+    const sem_plural = str => str.replace(/es$/, '').replace(/s$/, '').trim();
+    const aNorm = sem_plural(a);
+    const bNorm = sem_plural(b);
+    if (aNorm === bNorm) return true;
+    if (a.includes(b) || b.includes(a)) return true;
+    if (aNorm.includes(bNorm) || bNorm.includes(aNorm)) return true;
+    // Verifica se as primeiras palavras significativas batem
+    const palavrasA = a.split(' ').filter(p => p.length > 2);
+    const palavrasB = b.split(' ').filter(p => p.length > 2);
+    const matches = palavrasA.filter(p => palavrasB.some(q => sem_plural(p) === sem_plural(q)));
+    return matches.length >= Math.min(2, Math.min(palavrasA.length, palavrasB.length));
+}
+
 function preencherMetadadosFaltantes(mapped) {
     let chave = normalize(mapped.titulo || '');
     let metadado = METADADOS_LIVROS[chave];
@@ -228,7 +243,7 @@ function preencherMetadadosFaltantes(mapped) {
     if (!metadado && mapped.titulo) {
         const tituloNorm = normalize(mapped.titulo);
         for (const [key, value] of Object.entries(METADADOS_LIVROS)) {
-            if (tituloNorm.includes(key) || key.includes(tituloNorm)) {
+            if (similaridadeTitulo(tituloNorm, key)) {
                 metadado = value;
                 break;
             }
