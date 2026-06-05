@@ -446,7 +446,7 @@ async function main() {
         alternativaE:
           "O esconderijo secreto de Dora após sua fuga do reformatório baiano.",
         gabarito: "B",
-        dificuldade: "MEDIA",
+        dificuldade: "DIFICIL",
         comentarioResolucao:
           "O carrossel traz o vislumbre da infância pura e inocente que foi roubada deles pela miséria das ruas.",
       },
@@ -540,7 +540,7 @@ async function main() {
         alternativaE:
           "Tuberculose decorrente das péssimas condições habitacionais.",
         gabarito: "C",
-        dificuldade: "MEDIA",
+        dificuldade: "DIFICIL",
         comentarioResolucao:
           "O pai de Pedro Bala era um líder grevista que acabou assassinado pelas forças policiais do Estado.",
       },
@@ -587,7 +587,7 @@ async function main() {
         alternativaD: "A proliferação em massa da malária.",
         alternativaE: "Uma crise generalizada de desinteria.",
         gabarito: "C",
-        dificuldade: "MEDIA",
+        dificuldade: "DIFICIL",
         comentarioResolucao:
           "A varíola (ou bexiga) assola a comunidade pobre e infecta gravemente membros do bando, como o Sem-Pernas.",
       },
@@ -603,7 +603,7 @@ async function main() {
         alternativaE:
           "Falece em decorrência das agressões sofridas no reformatório.",
         gabarito: "B",
-        dificuldade: "MEDIA",
+        dificuldade: "DIFICIL",
         comentarioResolucao:
           "Graças ao seu talento artístico bruto, o Professor ganha uma oportunidade de ir para o Rio e vira um pintor de sucesso.",
       },
@@ -666,7 +666,7 @@ async function main() {
         alternativaD: "Com uma comerciante do Mercado Modelo.",
         alternativaE: "Com uma artista de circo itinerante.",
         gabarito: "B",
-        dificuldade: "MEDIA",
+        dificuldade: "DIFICIL",
         comentarioResolucao:
           "Gato apaixona-se por Dalva e passa a focar sua vida na malandragem para sustentá-la.",
       },
@@ -703,7 +703,7 @@ async function main() {
         alternativaE:
           "Era o único ponto da cidade livre da atuação do Delegado de Polícia.",
         gabarito: "B",
-        dificuldade: "MEDIA",
+        dificuldade: "DIFICIL",
         comentarioResolucao:
           "O ambiente portuário aproxima Pedro Bala de líderes operários como João de Adão, despertando sua consciência política.",
       },
@@ -920,6 +920,520 @@ async function main() {
         dificuldade: "DIFICIL",
         comentarioResolucao:
           "Os garotos enxergam uma estrela cadente sumindo no mar e associam o fenômeno à subida da alma de Dora aos céus como uma constelação.",
+      },
+    ],
+  });
+
+  const quizEN = await prisma.quiz.create({
+    data: {
+      livroId: libro.id,
+      titulo: "Official Quiz - Captains of the Sands",
+      descricao:
+        "Test your knowledge about the characters, symbolism and chapters of Jorge Amado's novel.",
+      idioma: "EN",
+      tempoLimiteMin: null,
+    },
+  });
+
+  await prisma.questao.createMany({
+    data: [
+      {
+        quizId: quizEN.id,
+        enunciado:
+          "In the chapter 'The Lights of the Carousel', what does the old, faded and worn-out ride represent in the boys' lives?",
+        alternativaA:
+          "A perfect strategic spot to plan new commercial thefts.",
+        alternativaB:
+          "A moment of wonder in which they lived what their childhood should truly have been, having fun like the children they were.",
+        alternativaC:
+          "A trap set up by the Police Chief to capture Pedro Bala.",
+        alternativaD:
+          "The political platform where João de Adão gave speeches about the workers' strikes.",
+        alternativaE:
+          "Dora's secret hideout after her escape from the Bahian reformatory.",
+        gabarito: "B",
+        dificuldade: "DIFICIL",
+        comentarioResolucao:
+          "The carousel brings a glimpse of the pure and innocent childhood that was stolen from them by the misery of the streets.",
+      },
+      {
+        quizId: quizEN.id,
+        enunciado:
+          "What is the main role and tactic used by the character Sem-Pernas to help with the gang's crimes?",
+        alternativaA:
+          "He used his physical strength to break down heavy gates in the Upper City.",
+        alternativaB:
+          "He read the city newspapers to predict where the police would patrol each day.",
+        alternativaC:
+          "Being lame, he aroused people's pity, infiltrating houses to make the group's later robberies easier.",
+        alternativaD:
+          "He used his trickster's smooth talk to negotiate stolen items with fences.",
+        alternativaE:
+          "He climbed the masts of sailboats to watch for the arrival of the Reformatory Director.",
+        gabarito: "C",
+        dificuldade: "FACIL",
+        comentarioResolucao:
+          "Sem-Pernas used the fact that he was physically disabled to pass as vulnerable and spy on the victims' houses.",
+      },
+      {
+        quizId: quizEN.id,
+        enunciado:
+          "In the structure of the work, according to the text provided, what do the 'Sea' and the 'Sand' symbolize respectively?",
+        alternativaA:
+          "The wealth of the elite and the absolute abandonment of the warehouse.",
+        alternativaB:
+          "The religious prejudice of the clergy and the physical torture of the juvenile court.",
+        alternativaC:
+          "Freedom/the dream of a better life and the instability/lack of security in the characters' lives.",
+        alternativaD:
+          "The daily violence of the police and the maternal love embodied by Dora.",
+        alternativaE:
+          "The climb to the Upper City and the geographic misery concentrated in the Lower City.",
+        gabarito: "C",
+        dificuldade: "MEDIA",
+        comentarioResolucao:
+          "The sea represents the vastness of freedom, while the sand denotes their lack of firmness and their social vulnerability.",
+      },
+      {
+        quizId: quizEN.id,
+        enunciado:
+          "What was the place that served as home and headquarters for the Captains of the Sands gang?",
+        alternativaA: "A forgotten basement beneath the municipal market.",
+        alternativaB: "An abandoned warehouse on the beaches of Salvador.",
+        alternativaC: "The underground tunnels of the Passo Church.",
+        alternativaD: "Old shipwrecked vessels in the seaport.",
+        alternativaE: "Makeshift shacks on the hills of the Upper City.",
+        gabarito: "B",
+        dificuldade: "FACIL",
+        comentarioResolucao:
+          "The abandoned warehouse is the central setting that shelters the boys and symbolizes their social marginalization.",
+      },
+      {
+        quizId: quizEN.id,
+        enunciado:
+          "Which character is known for being the only literate member of the gang, responsible for reading to the others?",
+        alternativaA: "Pirulito",
+        alternativaB: "Pedro Bala",
+        alternativaC: "Professor",
+        alternativaD: "Gato",
+        alternativaE: "Sem-Pernas",
+        gabarito: "C",
+        dificuldade: "FACIL",
+        comentarioResolucao:
+          "The Professor used his reading ability to tell stories and read newspapers at night in the warehouse.",
+      },
+      {
+        quizId: quizEN.id,
+        enunciado:
+          "What happens to the character Volta Seca at the end of Jorge Amado's narrative?",
+        alternativaA: "He becomes a merchant sailor.",
+        alternativaB: "He is adopted by a wealthy family from the Upper City.",
+        alternativaC: "He gets a steady job as a worker at the docks.",
+        alternativaD: "He joins the cangaço gang led by Lampião.",
+        alternativaE: "He becomes a religious leader devoted to the needy.",
+        gabarito: "D",
+        dificuldade: "MEDIA",
+        comentarioResolucao:
+          "Driven by his social resentment and revolt, Volta Seca leaves for the backlands to join the cangaço.",
+      },
+      {
+        quizId: quizEN.id,
+        enunciado:
+          "What was the main cause of the death of Pedro Bala's father, an event that shaped the protagonist's conscience?",
+        alternativaA: "A severe smallpox epidemic that ravaged the city.",
+        alternativaB: "A serious work accident at the port's docks.",
+        alternativaC: "Shot by the police during a workers' strike.",
+        alternativaD: "A shipwreck during a storm on the high seas.",
+        alternativaE:
+          "Tuberculosis resulting from terrible housing conditions.",
+        gabarito: "C",
+        dificuldade: "DIFICIL",
+        comentarioResolucao:
+          "Pedro Bala's father was a strike leader who ended up murdered by the State's police forces.",
+      },
+      {
+        quizId: quizEN.id,
+        enunciado:
+          "How does Dora's arrival change the internal dynamic of the boys who lived in the warehouse?",
+        alternativaA:
+          "It causes a violent and irreversible split, with the gang fragmenting.",
+        alternativaB:
+          "It awakens maternal feelings and unity, filling the group's emotional void.",
+        alternativaC:
+          "It makes the boys completely abandon their thieving practices.",
+        alternativaD:
+          "It immediately attracts the attention of the police, who destroy the headquarters.",
+        alternativaE:
+          "It leads to the immediate expulsion of Pedro Bala from the leadership post.",
+        gabarito: "B",
+        dificuldade: "FACIL",
+        comentarioResolucao:
+          "Dora comes to be seen not only as a romantic partner, but takes on the roles of mother and sister, uniting the group.",
+      },
+      {
+        quizId: quizEN.id,
+        enunciado:
+          "Who is the fisherman who teaches capoeira to the Captains of the Sands so they can defend themselves on the streets?",
+        alternativaA: "João de Adão",
+        alternativaB: "Querido de Deus",
+        alternativaC: "Padre José Pedro",
+        alternativaD: "Raimundo",
+        alternativaE: "Boa Vida",
+        gabarito: "B",
+        dificuldade: "FACIL",
+        comentarioResolucao:
+          "Querido de Deus is the brave fisherman and friend who acts as a physical mentor and protector of the youths.",
+      },
+      {
+        quizId: quizEN.id,
+        enunciado:
+          "Which serious public health crisis hits the warehouse and highlights the total medical neglect suffered by the minors?",
+        alternativaA: "The yellow fever epidemic.",
+        alternativaB: "The cholera outbreak brought by the ships.",
+        alternativaC: "The smallpox epidemic, known as 'bexiga'.",
+        alternativaD: "The mass spread of malaria.",
+        alternativaE: "A widespread dysentery crisis.",
+        gabarito: "C",
+        dificuldade: "DIFICIL",
+        comentarioResolucao:
+          "Smallpox (or 'bexiga') ravages the poor community and seriously infects members of the gang, such as Sem-Pernas.",
+      },
+      {
+        quizId: quizEN.id,
+        enunciado:
+          "What is the fate of the character known as the 'Professor' at the end of the book?",
+        alternativaA:
+          "He is caught red-handed and sentenced to life imprisonment.",
+        alternativaB:
+          "He moves to Rio de Janeiro and gains recognition as a painter.",
+        alternativaC:
+          "He permanently takes over the leadership of the Captains of the Sands.",
+        alternativaD: "He becomes a renowned journalist in Salvador.",
+        alternativaE:
+          "He dies as a result of the beatings suffered in the reformatory.",
+        gabarito: "B",
+        dificuldade: "DIFICIL",
+        comentarioResolucao:
+          "Thanks to his raw artistic talent, the Professor gets a chance to go to Rio and becomes a successful painter.",
+      },
+      {
+        quizId: quizEN.id,
+        enunciado:
+          "The character Pirulito stands out within the gang for displaying which striking trait?",
+        alternativaA:
+          "An obsessive inclination toward hoarding coins.",
+        alternativaB:
+          "A deep religiosity and a constant search for spiritual salvation.",
+        alternativaC:
+          "An extraordinary agility for picking the locks of mansions.",
+        alternativaD: "An extremely aggressive temper with rivals.",
+        alternativaE:
+          "The habit of singing little songs in the squares of Salvador.",
+        gabarito: "B",
+        dificuldade: "FACIL",
+        comentarioResolucao:
+          "Pirulito finds in faith and religious teachings a way to cope with the harsh reality in which he lives.",
+      },
+      {
+        quizId: quizEN.id,
+        enunciado:
+          "Why did the book Captains of the Sands suffer censorship and book burning in the year of its release?",
+        alternativaA:
+          "For containing gross grammatical errors and excessive colloquial language.",
+        alternativaB:
+          "For making explicit propaganda for foreign powers in South America.",
+        alternativaC:
+          "For being considered a communist and subversive threat by the Estado Novo.",
+        alternativaD:
+          "At the request of the city of Salvador itself, so as not to harm local tourism.",
+        alternativaE:
+          "For infringing the copyright laws in force at the time.",
+        gabarito: "C",
+        dificuldade: "DIFICIL",
+        comentarioResolucao:
+          "Jorge Amado's social and political engagement led the Vargas dictatorship to confiscate and burn the work.",
+      },
+      {
+        quizId: quizEN.id,
+        enunciado:
+          "Who is the boys' main ally within the Catholic Church, criticized by the high clerical leadership for that closeness?",
+        alternativaA: "Padre Donizete",
+        alternativaB: "Padre José Pedro",
+        alternativaC: "Frei Antônio",
+        alternativaD: "Arcebispo de Salvador",
+        alternativaE: "Padre Lourenço",
+        gabarito: "B",
+        dificuldade: "FACIL",
+        comentarioResolucao:
+          "Padre José Pedro sees them as human beings in need of support, clashing with the prejudice of the elite.",
+      },
+      {
+        quizId: quizEN.id,
+        enunciado:
+          "The character Gato progressively distances himself from the gang's daily activities after getting involved with whom?",
+        alternativaA: "With a wealthy heiress from the Upper City.",
+        alternativaB: "With the young prostitute Dalva.",
+        alternativaC: "With one of the nuns from the local orphanage.",
+        alternativaD: "With a merchant from the Mercado Modelo.",
+        alternativaE: "With a traveling circus performer.",
+        gabarito: "B",
+        dificuldade: "DIFICIL",
+        comentarioResolucao:
+          "Gato falls in love with Dalva and starts focusing his life on hustling to support her.",
+      },
+      {
+        quizId: quizEN.id,
+        enunciado:
+          "What does the tragic death of the character Sem-Pernas represent in the context of the work?",
+        alternativaA:
+          "The total negligence of Bahia's private health networks.",
+        alternativaB:
+          "The peak of youthful despair in the face of the violent police siege.",
+        alternativaC:
+          "Moral punishment for having betrayed his companions' trust.",
+        alternativaD:
+          "The direct result of an internal dispute over the group's command.",
+        alternativaE:
+          "An unfortunate accident with no underlying psychological motivations.",
+        gabarito: "B",
+        dificuldade: "DIFICIL",
+        comentarioResolucao:
+          "Finding himself cornered by the police he so hated, Sem-Pernas chooses to take his own life by jumping off the cliff.",
+      },
+      {
+        quizId: quizEN.id,
+        enunciado:
+          "What is the political importance of the docks and the port of Salvador in Pedro Bala's development?",
+        alternativaA:
+          "It was just the place where he hid the goods stolen from the elite.",
+        alternativaB:
+          "It is the space where he makes contact with strikers and discovers the class struggle.",
+        alternativaC:
+          "It represented the chance to flee the country on a foreign cargo ship.",
+        alternativaD:
+          "It worked as a secondary source of income through legalized child labor.",
+        alternativaE:
+          "It was the only point in the city free from the Police Chief's activity.",
+        gabarito: "B",
+        dificuldade: "DIFICIL",
+        comentarioResolucao:
+          "The port environment brings Pedro Bala close to workers' leaders such as João de Adão, awakening his political conscience.",
+      },
+      {
+        quizId: quizEN.id,
+        enunciado:
+          "How is the city's reformatory portrayed by Jorge Amado in the narrative?",
+        alternativaA:
+          "As an exemplary and innovative educational institution for its time.",
+        alternativaB:
+          "As a hygienist space focused on the peaceful reintegration of minors.",
+        alternativaC:
+          "As a place of torture, gross violence and institutionalized mistreatment.",
+        alternativaD:
+          "As a summer camp monitored by religious volunteers.",
+        alternativaE:
+          "As a safe shelter where food was plentiful and balanced.",
+        gabarito: "C",
+        dificuldade: "FACIL",
+        comentarioResolucao:
+          "The reformatory works as the great institutional villain of the work, destroying the children's physical and psychological dignity.",
+      },
+      {
+        quizId: quizEN.id,
+        enunciado:
+          "At the end of the book, which definitive path does Pedro Bala choose to follow?",
+        alternativaA:
+          "He begins academic studies to become a lawyer.",
+        alternativaB:
+          "He leaves Bahia to live as a farmer in the country's interior.",
+        alternativaC:
+          "He becomes a leader and militant of the proletarian cause and the labor struggles.",
+        alternativaD:
+          "He takes administrative positions at the Juvenile Court of Salvador.",
+        alternativaE:
+          "He decides to live in isolation as a fisherman in the port community.",
+        gabarito: "C",
+        dificuldade: "MEDIA",
+        comentarioResolucao:
+          "Pedro Bala converts his criminal street leadership into legitimate political leadership, fighting for workers' rights.",
+      },
+      {
+        quizId: quizEN.id,
+        enunciado:
+          "The narrative of Captains of the Sands is divided in a specific literary form that blends:",
+        alternativaA: "Medieval romantic poems and fantastical tales.",
+        alternativaB:
+          "Journalistic chronicles, clippings of fictional news and lyrical episodes.",
+        alternativaC:
+          "Real commercial letters and official reports from the city hall.",
+        alternativaD:
+          "Classic theatrical scripts and purely scientific passages.",
+        alternativaE:
+          "International newspaper texts and dense philosophical essays.",
+        gabarito: "B",
+        dificuldade: "DIFICIL",
+        comentarioResolucao:
+          "Jorge Amado uses fake newspaper reports from the era to show the contrast between the city's prejudiced view and the boys' reality.",
+      },
+      {
+        quizId: quizEN.id,
+        enunciado:
+          "What happens to Dora right after she is captured along with Pedro Bala by the police forces?",
+        alternativaA:
+          "She is immediately sent back to her relatives' home.",
+        alternativaB:
+          "She manages to escape by jumping from the police vehicle midway along the port route.",
+        alternativaC:
+          "She is committed to the Olhos D'Água Orphanage, where she falls seriously ill.",
+        alternativaD:
+          "She is acquitted by the juvenile judge due to her young age.",
+        alternativaE:
+          "She is hired as a maid at the mayor's residence.",
+        gabarito: "C",
+        dificuldade: "MEDIA",
+        comentarioResolucao:
+          "Confinement in the orphanage completely deteriorates Dora's health, leading her to contract a fatal fever.",
+      },
+      {
+        quizId: quizEN.id,
+        enunciado:
+          "Which orixá has its mystical image rescued by the boys in a demonstration of respect for religious syncretism?",
+        alternativaA: "Oxum",
+        alternativaB: "Ogum",
+        alternativaC: "Iemanjá",
+        alternativaD: "Xangô",
+        alternativaE: "Oxóssi",
+        gabarito: "B",
+        dificuldade: "DIFICIL",
+        comentarioResolucao:
+          "The boys help recover the image of Ogum confiscated from a terreiro by the repressive police of the time.",
+      },
+      {
+        quizId: quizEN.id,
+        enunciado:
+          "Who is the member of the gang known for being the physically strongest and who acts as Pedro Bala's right-hand man?",
+        alternativaA: "Boa Vida",
+        alternativaB: "João Grande",
+        alternativaC: "Barandão",
+        alternativaD: "Raimundo",
+        alternativaE: "Volta Seca",
+        gabarito: "B",
+        dificuldade: "FACIL",
+        comentarioResolucao:
+          "João Grande possesses great physical strength, but balances it with a huge heart and blind loyalty to Pedro Bala.",
+      },
+      {
+        quizId: quizEN.id,
+        enunciado:
+          "The elite of Salvador and the local press of the time used to refer to the Captains of the Sands as:",
+        alternativaA: "Promising young apprentices of the port.",
+        alternativaB: "Innocent victims of the lack of public schools.",
+        alternativaC: "Dangerous thieves, delinquents and a social plague.",
+        alternativaD: "Street artists misunderstood by the bourgeoisie.",
+        alternativaE: "Just a group of rebellious, unsupervised scouts.",
+        gabarito: "C",
+        dificuldade: "FACIL",
+        comentarioResolucao:
+          "The bourgeois press criminalized the boys' poverty, painting them purely as cruel and irredeemable criminals.",
+      },
+      {
+        quizId: quizEN.id,
+        enunciado:
+          "What is the name of the peaceful character, who lives day to day by hustling without great ambitions and is extremely charismatic?",
+        alternativaA: "Sem-Pernas",
+        alternativaB: "Boa Vida",
+        alternativaC: "Pirulito",
+        alternativaD: "Professor",
+        alternativaE: "Gato",
+        gabarito: "B",
+        dificuldade: "FACIL",
+        comentarioResolucao:
+          "Boa Vida is content with the basics of survival through peaceful hustling, avoiding unnecessary fights.",
+      },
+      {
+        quizId: quizEN.id,
+        enunciado:
+          "Who takes over the official and future leadership post of the Captains of the Sands when Pedro Bala leaves for activism?",
+        alternativaA: "João Grande",
+        alternativaB: "Barandão",
+        alternativaC: "Pirulito",
+        alternativaD: "Boa Vida",
+        alternativaE: "Professor",
+        gabarito: "B",
+        dificuldade: "DIFICIL",
+        comentarioResolucao:
+          "Barandão is prepared internally and steps up to guide the new boys who arrive at the warehouse.",
+      },
+      {
+        quizId: quizEN.id,
+        enunciado:
+          "In which period and movement of Brazilian literature is the book Captains of the Sands placed?",
+        alternativaA: "First Phase of Indianist Romanticism.",
+        alternativaB: "The Realism of Machado de Assis.",
+        alternativaC:
+          "The Social Novel of the 1930s / Second Phase of Modernism.",
+        alternativaD: "Parnassianism and descriptive poetry.",
+        alternativaE: "Avant-garde Concrete Poetry from São Paulo.",
+        gabarito: "C",
+        dificuldade: "MEDIA",
+        comentarioResolucao:
+          "The work is part of 1930s Modernism, characterized by the denunciation of regional inequality and direct social critique.",
+      },
+      {
+        quizId: quizEN.id,
+        enunciado:
+          "What was the stance of most aristocratic families of the Upper City toward the helpless minors?",
+        alternativaA:
+          "Creating charitable foundations aimed at adopting them.",
+        alternativaB:
+          "Total indifference mixed with fear, prejudice and demands for police repression.",
+        alternativaC:
+          "Funding professional training workshops at the docks.",
+        alternativaD:
+          "Opening their rural properties to shelter the children.",
+        alternativaE:
+          "Pressuring parliament for mandatory school inclusion laws.",
+        gabarito: "B",
+        dificuldade: "FACIL",
+        comentarioResolucao:
+          "The elite saw the street children as aesthetic nuisances and threats to private property, ignoring the causes of misery.",
+      },
+      {
+        quizId: quizEN.id,
+        enunciado:
+          "How does Jorge Amado humanize the gang's characters throughout the book?",
+        alternativaA:
+          "By showing that they all had secret bank accounts.",
+        alternativaB:
+          "By exposing their fears, childhood pains, dreams of freedom and deep emotional neediness.",
+        alternativaC:
+          "By making them all publicly apologize in a square in Salvador.",
+        alternativaD:
+          "By scientifically proving they were genetically superior to the rich.",
+        alternativaE:
+          "By turning them all into perfect heroes who never made mistakes or committed petty crimes.",
+        gabarito: "B",
+        dificuldade: "MEDIA",
+        comentarioResolucao:
+          "The author balances the crimes they commit with moments of sweetness, play and the suffering caused by the lack of a family.",
+      },
+      {
+        quizId: quizEN.id,
+        enunciado:
+          "The lyrical ending of Dora's death is marked by which mystical and symbolic element seen by the boys?",
+        alternativaA: "The collapse of a large barrier of rocks at the port.",
+        alternativaB:
+          "A bright shooting star crossing the sky toward the sea.",
+        alternativaC:
+          "The appearance of an illuminated ghost ship on the horizon.",
+        alternativaD:
+          "A perfect rainbow cutting through the Lower City in the middle of the night.",
+        alternativaE:
+          "The mass singing of all the seabirds of the abandoned warehouse.",
+        gabarito: "B",
+        dificuldade: "DIFICIL",
+        comentarioResolucao:
+          "The boys see a shooting star vanishing into the sea and associate the phenomenon with Dora's soul rising to the heavens as a constellation.",
       },
     ],
   });
