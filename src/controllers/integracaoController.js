@@ -51,6 +51,8 @@ const METADADOS_LIVROS = {
     },
     "quartos de despejo": {
         sinopse: "O diário real de Carolina Maria de Jesus relata a dura rotina de uma catadora de papel na favela do Canindé, em São Paulo, lutando diariamente contra a fome e a miséria para sustentar seus filhos.",
+        capa_url: "https://m.media-amazon.com/images/I/71Z3+oFrHnL._AC_UF1000,1000_QL80_.jpg",
+        foto: "https://m.media-amazon.com/images/I/71Z3+oFrHnL._AC_UF1000,1000_QL80_.jpg",
         descricao_pt: "Obra visceral e autobiográfica da literatura periférica e documental brasileira.",
         descricao_en: "A visceral and autobiographical work of peripheral and documentary Brazilian literature.",
         personagens_pt: "Carolina Maria de Jesus\nJoão José\nJosé Carlos\nVera Eunice\nOs moradores da favela do Canindé",
@@ -126,6 +128,8 @@ const METADADOS_LIVROS = {
     },
     "vidas secas": {
         sinopse: "Temas de Redação: 1° Desigualdade Social 2° Falta de acesso à Educação e Direitos 3° Exclusão Social 4° Exploração do Trabalhador 5° Seca e Problemas Climáticos",
+        capa_url: "https://m.media-amazon.com/images/I/71h5JfmCJ1L._AC_UF1000,1000_QL80_.jpg",
+        foto: "https://m.media-amazon.com/images/I/71h5JfmCJ1L._AC_UF1000,1000_QL80_.jpg",
         descricao_pt: "A obra Vidas Secas, de Graciliano Ramos, retrata a vida difícil de uma família de retirantes nordestinos que sofre com a seca, a fome e a pobreza.",
         descricao_en: "The novel Vidas Secas (Barren Lives), by Graciliano Ramos, portrays the difficult life of a family of migrants from the Brazilian Northeast.",
         personagens_pt: "Fabiano (pai retirante)\nSinhá Vitória (mãe)\nFilho mais velho (sem nome)\nFilho mais novo (sem nome)\nBaleia (cachorra)",
@@ -567,9 +571,19 @@ export const obterBookverse = async (req, res) => {
 
 export const obterVidasSecas = async (req, res) => {
     try {
+        const metadado = METADADOS_LIVROS["vidas secas"];
 
-        const dadosSimulados = { titulo: "Vidas Secas" };
-    const mapeado = incluirPersonagensNoLivro(mapExternalToInternal(dadosSimulados));
+        const dadosSimulados = {
+            titulo: "Vidas Secas",
+            autor: "Graciliano Ramos",
+            anoPublicacao: 1938,
+            paginas: 176,
+            genero_pt: "Romance",
+            genero_en: "Novel",
+            ...metadado,
+        };
+
+        const mapeado = incluirPersonagensNoLivro(mapExternalToInternal(dadosSimulados));
         return res.status(200).json([mapeado]);
     } catch (error) {
         return res.status(500).json({ erro: error.message });
