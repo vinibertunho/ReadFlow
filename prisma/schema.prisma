@@ -202,3 +202,13 @@ model Questao {
 
   @@map("questoes")
 }
+
+model SobreProjeto {
+  id           Int      @id @default(autoincrement())
+  descricao_pt String   @map("descricao_pt")
+  descricao_en String   @map("descricao_en")
+  criadoEm     DateTime @default(now()) @map("criado_em")
+  atualizadoEm DateTime @updatedAt @map("atualizado_em")
+
+  @@map("sobre_projeto")
+}

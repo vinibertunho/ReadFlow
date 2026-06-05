@@ -10,6 +10,7 @@ import quizRoutes from './routes/quizRoute.js';
 import curiosidadeRoutes from './routes/curiosidadeRoute.js';
 import equipeRoutes from './routes/equipeRoute.js';
 import livrosExternosRoutes from './routes/livrosExternosRoute.js';
+import sobreProjetoRoutes from './routes/sobreProjetoRoute.js';
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -29,6 +30,7 @@ app.use('/api/quiz', quizRoutes);
 app.use('/api/curiosidades', curiosidadeRoutes);
 app.use('/api/equipes', equipeRoutes);
 app.use('/api/integracao', livrosExternosRoutes);
+app.use('/api/sobre-projeto', sobreProjetoRoutes);
 
 app.use((req, res) => {
     res.status(404).json({ error: 'Rota não encontrada' });

@@ -9,6 +9,7 @@ const adapter = new PrismaPg(pool);
 const prisma = new PrismaClient({ adapter });
 
 async function main() {
+  await prisma.sobreProjeto.deleteMany();
   await prisma.questao.deleteMany();
   await prisma.quiz.deleteMany();
   await prisma.curiosidade.deleteMany();
@@ -1436,6 +1437,15 @@ async function main() {
           "The boys see a shooting star vanishing into the sea and associate the phenomenon with Dora's soul rising to the heavens as a constellation.",
       },
     ],
+  });
+
+  await prisma.sobreProjeto.create({
+    data: {
+      descricao_pt:
+        "O ReadFlow é uma plataforma desenvolvida para facilitar a descoberta e a organização de livros. Com uma interface intuitiva e suporte aos idiomas português e inglês, o sistema permite pesquisar obras de forma rápida e prática, oferecendo uma experiência acessível e agradável para leitores de diferentes perfis. O projeto foi criado com foco em usabilidade, desempenho e incentivo à leitura.",
+      descricao_en:
+        "ReadFlow is a platform designed to make book discovery and organization easier. With an intuitive interface and support for both Portuguese and English, the system allows users to search for books quickly and efficiently, providing an accessible and enjoyable experience for readers of all backgrounds. The project was developed with a focus on usability, performance, and promoting reading.",
+    },
   });
 
   console.log("🌱 [Prisma Seed]: O banco de dados foi populado com sucesso!");
