@@ -91,11 +91,11 @@ async function main() {
             fotoUrl: "https://i.ibb.co/GrBJ5q1/elo.jpg",
           },
           {
-            nome: "CECILIA",
+            nome: "CECILIA_PIRES",
             fotoUrl: "https://i.ibb.co/VYDkkx3Y/cecilia.jpg",
           },
           {
-            nome: "GABRIEL",
+            nome: "GABRIEL_DE_FREITAS",
             fotoUrl: "https://i.ibb.co/4Zjy3NLB/biel.jpg",
           },
         ],
