@@ -41,8 +41,8 @@ enum NomeIntegranteEquipe {
   BRYAN_REZENDE
   EDUARDO_TONON
   ELOISA_MADRUGA
-  CECILIA
-  GABRIEL
+  CECILIA_PIRES
+  GABRIEL_DE_FREITAS
 }
 
 model Usuario {
