@@ -30,7 +30,9 @@ const ENDPOINTS_CONFIG = [
   {
     nomeLivro: "Olhos d'Água",
     urlCompleta: "https://olhosdagua.onrender.com/api/livro",
-    apiKey: process.env.KEY_OLHOS || "6uztY7YTa2Dcgnf2ovDC2Kqmwvq2PdTMOlkx1bLwmhO2HQpQoXHMhk1cBcIjzHj9lztTbW7I83UZ91C8uSos-n8kOx3UuqU8n0BIDVm1venccSH0QVyNYKkLTZboaUpd",
+    apiKey:
+      process.env.KEY_OLHOS ||
+      "6uztY7YTa2Dcgnf2ovDC2Kqmwvq2PdTMOlkx1bLwmhO2HQpQoXHMhk1cBcIjzHj9lztTbW7I83UZ91C8uSos-n8kOx3UuqU8n0BIDVm1venccSH0QVyNYKkLTZboaUpd",
   },
   {
     nomeLivro: "O Caminho de Pedras",
@@ -47,246 +49,446 @@ const ENDPOINTS_CONFIG = [
 const METADADOS_LIVROS = {
   "o guarani": {
     sinopse:
-      "O romance narra o amor entre Peri, um índio da tribo dos goitacás, e Ceci, uma jovem moça branca, filha de um fidalgo português, no cenário do Brasil colonial do século XVII.",
+      "O índio Peri e Ceci, filha de um fidalgo português, vivem um amor impossível no Brasil colonial do século XVII.",
     descricao_pt:
-      "Clássico do Romantismo brasileiro que explora a formação da identidade nacional através do mito do bom selvagem.",
+      "Clássico do Romantismo que constrói a identidade nacional idealizando o indígena como herói brasileiro.",
     descricao_en:
-      "A classic of Brazilian Romanticism that explores the formation of national identity through the myth of the noble savage.",
+      "Romantic classic that builds national identity by idealizing the indigenous person as a Brazilian hero.",
     personagens_pt:
       "Peri (O Guarani)\nCecília (Ceci)\nDom Antônio de Mariz\nDona Lauriana\nÁlvaro\nLoredano",
     personagens_en:
       "Peri (The Guarani)\nCecilia (Ceci)\nDom António de Mariz\nDona Lauriana\nÁlvaro\nLoredano",
     contexto_historico_pt:
-      "Romantismo brasileiro (século XIX), focado na idealização do índio como o herói nacional e a colonização do Brasil.",
+      "Brasil colonial do século XVII, narrado no Romantismo do século XIX com foco na valorização do índio como símbolo nacional.",
     contexto_historico_en:
-      "Brazilian Romanticism (19th century), focused on the idealization of the indigenous people as the national hero and the colonization of Brazil.",
+      "17th-century colonial Brazil, told through 19th-century Romanticism that idealizes indigenous people as national symbols.",
     detalhes_autor_pt:
-      "José de Alencar (1829-1877) foi um dos maiores romancistas brasileiros, pioneiro na literature romantista. Dedicou-se a preservar a identidade cultural brasileira.",
+      "José de Alencar (1829–1877), pioneiro do Romantismo brasileiro, dedicou sua obra à construção da identidade cultural do país.",
     detalhes_autor_en:
-      "José de Alencar (1829-1877) was one of the greatest Brazilian novelists, a pioneer in Romantic literature. He dedicated himself to preserving Brazilian cultural identity.",
+      "José de Alencar (1829–1877), pioneer of Brazilian Romanticism, devoted his work to building the country's cultural identity.",
     estilo_escrita_pt:
-      "Prosa poética, idealizadora, rica em descrições da exuberante natureza tropical brasileira. Uso de linguagem elevada e sentimentalismo acentuado.",
+      "Prosa poética com descrições exuberantes da natureza tropical, linguagem elevada e forte sentimentalismo.",
     estilo_escrita_en:
-      "Poetic prose, idealizing, rich in descriptions of the exuberant tropical Brazilian nature. Use of elevated language and pronounced sentimentalism.",
+      "Poetic prose with lush tropical nature descriptions, elevated language and strong sentimentalism.",
     verossimilhanca_pt:
-      "Combina o romance idealizado com elements realistas da colonização portuguesa, criando uma narrativa que mistura história e ficção.",
+      "Mistura elementos históricos da colonização com ficção romântica idealizada.",
     verossimilhanca_en:
-      "Combines idealized romance with realistic elements of Portuguese colonization, creating a narrative that blends history and fiction.",
+      "Blends historical elements of colonization with idealized romantic fiction.",
     caracteristicas_literarias_pt:
-      "Nacionalismo, idealismo, exotismo, amor impossível, conflito entre colonizadores e colonizados, transcendência da natureza.",
+      "Nacionalismo, idealismo, amor impossível e conflito entre colonizadores e colonizados.",
     caracteristicas_literarias_en:
-      "Nationalism, idealism, exoticism, impossible love, conflict between colonizers and colonized, transcendence of nature.",
+      "Nationalism, idealism, impossible love and conflict between colonizers and colonized.",
     conclusao_pt:
-      "A obra consolida a identidade literária brasileira, criando um herói nacional genuinamente brasileiro e questionando a hierarquia racial colonial.",
+      "Cria um herói nacional genuinamente brasileiro e questiona a hierarquia racial colonial.",
     conclusao_en:
-      "The work consolidates Brazilian literary identity, creating a genuinely Brazilian national hero and questioning colonial racial hierarchy.",
+      "Creates a genuinely Brazilian national hero and questions colonial racial hierarchy.",
     simbolismo_pt:
-      "Peri representa o índio idealizado; a floresta simboliza a liberdade e pureza; Ceci personifica a inocência europeia no novo mundo.",
+      "Peri: o índio idealizado. A floresta: liberdade e pureza. Ceci: a inocência europeia no novo mundo.",
     simbolismo_en:
-      "Peri represents the idealized indigenous; the forest symbolizes freedom and purity; Ceci personifies European innocence in the new world.",
+      "Peri: the idealized indigenous. The forest: freedom and purity. Ceci: European innocence in the new world.",
     engajamento_pt:
-      "Obra fortemente engajada com a formação da nação brasileira, promovendo a valorização da cultura indígena dentro da narrativa romântica.",
+      "Promove a valorização da cultura indígena dentro da narrativa da formação da nação brasileira.",
     engajamento_en:
-      "Deeply engaged with the formation of the Brazilian nation, promoting the valorization of indigenous culture within the romantic narrative.",
+      "Promotes indigenous culture within the narrative of Brazilian nation-building.",
     temas_chave_pt:
-      "Amor, Patriotismo, Natureza, Colonialismo, Identidade Nacional, Sacrifício, Honra, Superação de Barreiras Sociais",
+      "Amor, Patriotismo, Natureza, Colonialismo, Identidade Nacional, Sacrifício, Honra",
     temas_chave_en:
-      "Love, Patriotism, Nature, Colonialism, National Identity, Sacrifice, Honor, Overcoming Social Barriers",
+      "Love, Patriotism, Nature, Colonialism, National Identity, Sacrifice, Honor",
   },
+
   "quartos de despejo": {
     sinopse:
-      "O diário real de Carolina Maria de Jesus relata a dura rotina de uma catadora de papel na favela do Canindé, em São Paulo, lutando diariamente contra a fome e a miséria para sustentar seus filhos.",
+      "Diário real de Carolina Maria de Jesus, catadora de papel na favela do Canindé (SP), que registra a luta diária contra a fome para sustentar seus três filhos.",
     capa_url:
       "https://www.coletivoleitor.com.br/uploads/covers/QUARTO-DE-DESPEJO_ED-COMEMORATIVA.png",
     foto: "https://www.coletivoleitor.com.br/uploads/covers/QUARTO-DE-DESPEJO_ED-COMEMORATIVA.png",
     descricao_pt:
-      "Obra visceral e autobiográfica da literatura periférica e documental brasileira.",
+      "Obra autobiográfica e visceral da literatura periférica brasileira, escrita por quem viveu o que descreve.",
     descricao_en:
-      "A visceral and autobiographical work of peripheral and documentary Brazilian literature.",
+      "Visceral autobiographical work of peripheral Brazilian literature, written by someone who lived what they describe.",
     personagens_pt:
-      "Carolina Maria de Jesus\nJoão José\nJosé Carlos\nVera Eunice\nOs moradores da favela do Canindé",
+      "Carolina Maria de Jesus\nJoão José\nJosé Carlos\nVera Eunice\nMoradores da favela do Canindé",
     personagens_en:
-      "Carolina Maria of Jesus\nJoão José\nJosé Carlos\nVera Eunice\nThe residents of Canindé favela",
+      "Carolina Maria of Jesus\nJoão José\nJosé Carlos\nVera Eunice\nResidents of Canindé favela",
     contexto_historico_pt:
-      "Brasil do final dos anos 1950, marcado pela urbanização acelerada, desigualdade social latente e o surgimento das grandes favelas.",
+      "Brasil do final dos anos 1950, marcado pela urbanização acelerada, desigualdade social e crescimento das favelas.",
     contexto_historico_en:
-      "Brazil of the late 1950s, marked by rapid urbanization, latent social inequality and the emergence of large favelas.",
+      "Brazil in the late 1950s, marked by rapid urbanization, social inequality and the growth of favelas.",
     detalhes_autor_pt:
-      "Carolina Maria de Jesus (1914-1977) foi uma escritora afro-brasileira, mãe de três filhos, que vivia em extrema pobreza. Seu diário se tornou símbolo da luta contra a desigualdade.",
+      "Carolina Maria de Jesus (1914–1977), escritora afro-brasileira que vivia na miséria. Seu diário se tornou símbolo de resistência.",
     detalhes_autor_en:
-      "Carolina Maria of Jesus (1914-1977) was an Afro-Brazilian writer, mother of three children, who lived in extreme poverty. Her diary became a symbol of the struggle against inequality.",
+      "Carolina Maria of Jesus (1914–1977), Afro-Brazilian writer who lived in poverty. Her diary became a symbol of resistance.",
     estilo_escrita_pt:
-      "Linguagem crua, direta, em formato de diário, com desvios da norma culta que trazem realismo e impacto poético. Prosa visceral e autêntica.",
+      "Linguagem crua e direta em formato de diário. Os 'erros' gramaticais são parte da autenticidade e do impacto poético.",
     estilo_escrita_en:
-      "Raw, direct language, in diary format, with deviations from standard speech that bring realism and poetic impact. Visceral and authentic prose.",
+      "Raw, direct language in diary format. The grammatical 'errors' are part of its authenticity and poetic impact.",
     verossimilhanca_pt:
-      "Máxima verossimilhança - é um diário verdadeiro, documentação real da vida na favela, sem ficção ou embellishment.",
+      "Máxima — é um diário verdadeiro. Documentação real da vida na favela, sem ficção.",
     verossimilhanca_en:
-      "Maximum verisimilitude - it is a true diary, real documentation of life in the favela, without fiction or embellishment.",
+      "Maximum — it is a true diary. Real documentation of favela life, without fiction.",
     caracteristicas_literarias_pt:
-      "Realismo de primeira mão, testemunho social, crítica social implícita, lirismo na adversidade, resistência espiritual.",
+      "Testemunho social, crítica implícita das estruturas de poder, lirismo na adversidade e resistência espiritual.",
     caracteristicas_literarias_en:
-      "First-hand realism, social testimony, implicit social criticism, lyricism in adversity, spiritual resistance.",
+      "Social testimony, implicit critique of power structures, lyricism in adversity and spiritual resistance.",
     conclusao_pt:
-      "A obra denota a força da voz periférica e a necessidade de humanização dos marginalizados sociais, questionando a estrutura de desigualdade.",
+      "Afirma a força da voz periférica e exige humanização dos marginalizados, expondo a estrutura da desigualdade.",
     conclusao_en:
-      "The work denotes the strength of the peripheral voice and the need for humanization of the socially marginalized, questioning the structure of inequality.",
+      "Asserts the strength of the peripheral voice and demands humanization of the marginalized, exposing inequality structures.",
     simbolismo_pt:
-      "O diário simboliza a voz silenciada; a favela representa a injustiça sistêmica; a escrita como ato de resistência e sobrevivência.",
+      "O diário: voz silenciada que encontra fala. A favela: injustiça sistêmica. A escrita: ato de resistência e sobrevivência.",
     simbolismo_en:
-      "The diary symbolizes the silenced voice; the favela represents systemic injustice; writing as an act of resistance and survival.",
+      "The diary: silenced voice finding speech. The favela: systemic injustice. Writing: an act of resistance and survival.",
     engajamento_pt:
-      "Obra fundamentalmente engajada na denúncia das condições de pobreza extrema e na reivindicação de dignidade humana para os marginalizados.",
+      "Denuncia a pobreza extrema e reivindica dignidade humana para os marginalizados de forma direta e pessoal.",
     engajamento_en:
-      "Work fundamentally engaged in denouncing extreme poverty conditions and claiming human dignity for the marginalized.",
+      "Denounces extreme poverty and claims human dignity for the marginalized in a direct and personal way.",
     temas_chave_pt:
-      "Pobreza, Fome, Maternidade, Resistência, Dignidade Humana, Desigualdade Social, Violência Estrutural, Esperança na Adversidade",
+      "Pobreza, Fome, Maternidade, Resistência, Dignidade Humana, Desigualdade, Esperança",
     temas_chave_en:
-      "Poverty, Hunger, Motherhood, Resistance, Human Dignity, Social Inequality, Structural Violence, Hope in Adversity",
+      "Poverty, Hunger, Motherhood, Resistance, Human Dignity, Inequality, Hope",
   },
+
   "memorias postumas de bras cubas": {
     sinopse:
-      "Narrado por um 'defunto autor', Brás Cubas relata suas memórias fúteis de forma irônica, expondo as hipocrisias, falhas morais e privilégios da elite aristocrática de sua época.",
+      "Um 'defunto autor' narra suas memórias fúteis com ironia afiada, expondo as hipocrisias e privilégios da elite brasileira do século XIX.",
     descricao_pt:
-      "A obra-prima que inaugurou o Realismo no Brasil, célebre pela sua estrutura fragmentada e narrador não confiável.",
+      "Obra-prima que inaugurou o Realismo no Brasil, famosa pela estrutura fragmentada e pelo narrador não confiável.",
     descricao_en:
-      "The masterpiece that inaugurated Realism in Brazil, famous for its fragmented structure and unreliable narrator.",
+      "Masterpiece that inaugurated Realism in Brazil, famous for its fragmented structure and unreliable narrator.",
     personagens_pt:
       "Brás Cubas\nVirgília\nMarcela\nQuincas Borba\nLobo Neves\nSabina\nPrudêncio",
     personagens_en:
       "Brás Cubas\nVirgília\nMarcela\nQuincas Borba\nLobo Neves\nSabina\nPrudêncio",
     contexto_historico_pt:
-      "Segundo Reinado no Brasil (século XIX), sociedade escravocrata, patriarcal e governada por uma elite oligárquica fútil.",
+      "Segundo Reinado brasileiro (século XIX): sociedade escravocrata, patriarcal e dominada por uma elite oligárquica.",
     contexto_historico_en:
-      "Second Reign in Brazil (19th century), slaveholding, patriarchal society governed by a futile oligarchic elite.",
+      "Brazilian Second Reign (19th century): slaveholding, patriarchal society dominated by an oligarchic elite.",
     detalhes_autor_pt:
-      "Machado de Assis (1839-1908) foi o maior romancista brasileiro, fundador da Academia Brasileira de Letras. Superou preconceitos raciais para tornar-se clássico universal.",
+      "Machado de Assis (1839–1908), maior romancista brasileiro e fundador da ABL, superou o preconceito racial para se tornar clássico universal.",
     detalhes_autor_en:
-      "Machado of Assis (1839-1908) was the greatest Brazilian novelist, founder of the Brazilian Academy of Letters. He overcame racial prejudices to become a universal classic.",
+      "Machado of Assis (1839–1908), Brazil's greatest novelist and founder of the ABL, overcame racial prejudice to become a universal classic.",
     estilo_escrita_pt:
-      "Pessimismo irônico, digressões filosóficas frequentes, metalinguagem e deboche refinado. Narrativa fragmentada com prefácio subversivo.",
+      "Ironia sistemática, digressões filosóficas, metalinguagem e narrativa fragmentada com prefácio subversivo.",
     estilo_escrita_en:
-      "Ironic pessimism, frequent philosophical digressions, metalanguage and refined mockery. Fragmented narrative with subversive preface.",
+      "Systematic irony, philosophical digressions, metalanguage and fragmented narrative with a subversive preface.",
     verossimilhanca_pt:
-      "Alta verossimilhança psicológica - análise profunda da hipocrisia humana e das motivações egoístas disfarçadas de virtude.",
+      "Alta verossimilhança psicológica: expõe com precisão a hipocrisia humana e motivações egoístas disfarçadas de virtude.",
     verossimilhanca_en:
-      "High psychological verisimilitude - deep analysis of human hypocrisy and selfish motivations disguised as virtue.",
+      "High psychological verisimilitude: precisely exposes human hypocrisy and selfish motivations disguised as virtue.",
     caracteristicas_literarias_pt:
-      "Ironia sistemática, diálogo com tradição literária, crítica social oblíqua, análise psicológica, narrative não linear.",
+      "Ironia, intertextualidade, crítica social oblíqua, análise psicológica e narrativa não linear.",
     caracteristicas_literarias_en:
-      "Systematic irony, dialogue with literary tradition, oblique social criticism, psychological analysis, non-linear narrative.",
+      "Irony, intertextuality, oblique social criticism, psychological analysis and non-linear narrative.",
     conclusao_pt:
-      "Obra que revoluciona o romance brasileiro ao questionar a própria narrativa, a moralidade burguesa e a futilidade da existência humana.",
+      "Revoluciona o romance brasileiro ao questionar a própria narrativa, a moral burguesa e a futilidade da existência.",
     conclusao_en:
-      "Work that revolutionizes the Brazilian novel by questioning the narrative itself, bourgeois morality and the futility of human existence.",
+      "Revolutionizes the Brazilian novel by questioning the narrative itself, bourgeois morality and the futility of existence.",
     simbolismo_pt:
-      "Brás Cubas morto representa a morte da ilusão; os capítulos são fragmentos de memória; a escada simboliza a ascensão social vã.",
+      "Brás Cubas morto: morte das ilusões. Capítulos fragmentados: memória seletiva. A escada: ascensão social vã.",
     simbolismo_en:
-      "Dead Brás Cubas represents the death of illusion; the chapters are fragments of memory; the stairs symbolize vain social ascension.",
+      "Dead Brás Cubas: death of illusions. Fragmented chapters: selective memory. The stairs: vain social ascension.",
     engajamento_pt:
-      "Crítica profunda das estruturas sociais, escravidão, hipocrisia moral da elite, perpetuação de privilégios através de sistemas injustos.",
+      "Crítica velada da escravidão, da hipocrisia moral da elite e da perpetuação de privilégios por sistemas injustos.",
     engajamento_en:
-      "Profound criticism of social structures, slavery, moral hypocrisy of the elite, perpetuation of privileges through unjust systems.",
+      "Veiled critique of slavery, elite moral hypocrisy and the perpetuation of privileges through unjust systems.",
     temas_chave_pt:
-      "Morte, Memória, Hipocrisia, Futilidade, Amor Impossível, Ambição, Escravidão, Crítica Social, Ironia da Vida",
+      "Morte, Memória, Hipocrisia, Futilidade, Ambição, Escravidão, Ironia, Crítica Social",
     temas_chave_en:
-      "Death, Memory, Hypocrisy, Futility, Impossible Love, Ambition, Slavery, Social Criticism, Life's Irony",
+      "Death, Memory, Hypocrisy, Futility, Ambition, Slavery, Irony, Social Criticism",
   },
+
   bookverse: {
     sinopse:
-      "Uma coletânea integrada trazendo obras clássicas e contemporâneas do cenário literário brasileiro.",
+      "Coletânea integrada que conecta obras clássicas e contemporâneas da literatura brasileira em um único universo.",
     descricao_pt:
-      "Universo literário expandido que conecta múltiplos autores e obras no ecossistema do Bookverse.",
+      "Plataforma literária que une autores e obras clássicas brasileiras em um ecossistema interconectado.",
     descricao_en:
-      "Expanded literary universe that connects multiple authors and works in the Bookverse ecosystem.",
+      "Literary platform uniting classic Brazilian authors and works in an interconnected ecosystem.",
     personagens_pt: "Capitu\nBentinho\nEscobar\nIacema\nLeonardo",
     personagens_en: "Capitu\nBentinho\nEscobar\nIacema\nLeonardo",
     contexto_historico_pt:
-      "Compilado de literatura geral e clássicos integrados de forma unificada, abrangendo múltiplos períodos literários brasileiros.",
+      "Abrange múltiplos períodos da literatura brasileira, reunidos de forma unificada e temática.",
     contexto_historico_en:
-      "Compilation of general literature and integrated classics in a unified way, encompassing multiple Brazilian literary periods.",
+      "Spans multiple Brazilian literary periods, brought together in a unified and thematic way.",
     detalhes_autor_pt:
-      "Bookverse é uma plataforma que reúne obras de diversos autores clássicos brasileiros, criando um universo literário interconectado e expansível.",
+      "Bookverse é uma plataforma colaborativa que reúne clássicos brasileiros em um universo literário expandido.",
     detalhes_autor_en:
-      "Bookverse is a platform that brings together works by various classic Brazilian authors, creating an interconnected and expandable literary universe.",
+      "Bookverse is a collaborative platform that brings together Brazilian classics in an expanded literary universe.",
     estilo_escrita_pt:
-      "Abordagem dinâmica e diversificada com foco na experiência multiplataforma. Integra vários estilos de escrita em um único universo.",
+      "Abordagem multiplataforma que integra diferentes estilos literários em uma experiência unificada.",
     estilo_escrita_en:
-      "Dynamic and diversified approach with focus on multiplatform experience. Integrates various writing styles into a single universe.",
+      "Multiplatform approach that integrates different literary styles into a unified experience.",
     verossimilhanca_pt:
-      "Verossimilhança na integração de obras distintas que compartilham temáticas brasileiras e período histórico comum.",
+      "Obras distintas compartilham temáticas e períodos históricos brasileiros, criando coerência interna.",
     verossimilhanca_en:
-      "Verisimilitude in the integration of distinct works that share Brazilian themes and common historical period.",
+      "Distinct works share Brazilian themes and historical periods, creating internal coherence.",
     caracteristicas_literarias_pt:
-      "Intertextualidade, romance literário, narrativa envolvente, diversidade de gêneros, profundidade psicológica dos personagens.",
+      "Intertextualidade, diversidade de gêneros e profundidade psicológica dos personagens.",
     caracteristicas_literarias_en:
-      "Intertextuality, literary romance, engaging narrative, diversity of genres, psychological depth of characters.",
+      "Intertextuality, diversity of genres and psychological depth of characters.",
     conclusao_pt:
-      "Bookverse consolida a riqueza da literatura brasileira clássica, permitindo novas conexões e leituras contemporâneas de obras atemporais.",
+      "Consolida a riqueza da literatura brasileira clássica e cria novas conexões entre obras atemporais.",
     conclusao_en:
-      "Bookverse consolidates the richness of classic Brazilian literature, allowing new connections and contemporary readings of timeless works.",
+      "Consolidates the richness of classic Brazilian literature and creates new connections between timeless works.",
     simbolismo_pt:
-      "O universo Bookverse simboliza a continuidade da tradição literária, a interconexão de destinos e a eternidade das grandes obras.",
+      "O universo Bookverse simboliza a continuidade e interconexão das grandes obras da literatura brasileira.",
     simbolismo_en:
-      "The Bookverse universe symbolizes the continuity of literary tradition, the interconnection of destinies and the eternity of great works.",
+      "The Bookverse universe symbolizes the continuity and interconnection of great Brazilian literary works.",
     engajamento_pt:
-      "Engajado na promoção e preservação da literatura brasileira clássica, criando novas audiências e interpretações para gerações futuras.",
+      "Promove e preserva a literatura brasileira clássica, criando novas audiências para gerações futuras.",
     engajamento_en:
-      "Engaged in promoting and preserving classic Brazilian literature, creating new audiences and interpretations for future generations.",
+      "Promotes and preserves classic Brazilian literature, creating new audiences for future generations.",
     temas_chave_pt:
-      "Literature, Identidade Nacional, Conexão entre Obras, Tradição e Inovação, Amor, Aventura, Busca Pessoal, Legado Cultural",
+      "Literatura, Identidade Nacional, Tradição, Inovação, Amor, Aventura, Legado Cultural",
     temas_chave_en:
-      "Literature, National Identity, Connection between Works, Tradition and Innovation, Love, Adventure, Personal Quest, Cultural Legacy",
+      "Literature, National Identity, Tradition, Innovation, Love, Adventure, Cultural Legacy",
   },
+
   "vidas secas": {
     sinopse:
-      "Temas de Redação: 1° Desigualdade Social 2° Falta de acesso à Educação e Direitos 3° Exclusão Social 4° Exploração do Trabalhador 5° Seca e Problemas Climáticos",
+      "Uma família de retirantes nordestinos — Fabiano, Sinhá Vitória, dois filhos e a cachorra Baleia — foge da seca em busca de sobrevivência.",
     capa_url:
       "https://m.media-amazon.com/images/I/71h5JfmCJ1L._AC_UF1000,1000_QL80_.jpg",
     foto: "https://m.media-amazon.com/images/I/71h5JfmCJ1L._AC_UF1000,1000_QL80_.jpg",
     descricao_pt:
-      "A obra Vidas Secas, de Graciliano Ramos, retrata a vida difícil de uma família de retirantes nordestinos que sofre com a seca, a fome e a pobreza.",
+      "Romance do Regionalismo nordestino que retrata com realismo seco a miséria, a seca e a desumanização dos mais pobres.",
     descricao_en:
-      "The novel Vidas Secas (Barren Lives), by Graciliano Ramos, portrays the difficult life of a family of migrants from the Brazilian Northeast.",
+      "Novel of Northeastern regionalism that portrays, with stark realism, the misery, drought and dehumanization of the poorest.",
     personagens_pt:
       "Fabiano (pai retirante)\nSinhá Vitória (mãe)\nFilho mais velho (sem nome)\nFilho mais novo (sem nome)\nBaleia (cachorra)",
     personagens_en:
       "Fabiano (migrant father)\nSinhá Vitória (mother)\nOlder son (unnamed)\nYounger son (unnamed)\nBaleia (dog)",
     contexto_historico_pt:
-      "Obra ambientada na seca do Nordeste brasileiro, retratando a realidade dos retirantes do início do século XX.",
+      "Sertão nordestino no início do século XX: seca, latifúndio e total ausência de políticas públicas para os pobres.",
     contexto_historico_en:
-      "Set during the Brazilian Northeast drought, portraying the reality of migrants from the early 20th century.",
+      "Northeastern backlands in the early 20th century: drought, large estates and complete absence of public policies for the poor.",
     detalhes_autor_pt:
-      "Graciliano Ramos (1892-1953) foi um dos maiores romancistas brasileiros, mestre da prosa seca e direta.",
+      "Graciliano Ramos (1892–1953), mestre da prosa direta e econômica, um dos maiores nomes do Modernismo brasileiro.",
     detalhes_autor_en:
-      "Graciliano Ramos (1892-1953) was one of the greatest Brazilian novelists, master of spare and direct prose.",
+      "Graciliano Ramos (1892–1953), master of direct and economical prose, one of the greatest names in Brazilian Modernism.",
     estilo_escrita_pt:
-      "Espírito de síntese, descrição não minuciosa do espaço, foco na tragédia social e desumanização.",
+      "Prosa enxuta, quase sem adjetivos. Capítulos independentes que refletem a fragmentação da vida dos retirantes.",
     estilo_escrita_en:
-      "Spirit of synthesis, non-detailed space description, focus on social tragedy and dehumanization.",
+      "Lean prose, nearly without adjectives. Independent chapters that reflect the fragmentation of migrants' lives.",
     verossimilhanca_pt:
-      "Máxima verossimilhança - baseado em observações reais das condições de vida dos retirantes nordestinos.",
+      "Máxima verossimilhança, baseada em observações reais das condições dos retirantes nordestinos.",
     verossimilhanca_en:
-      "Maximum verisimilitude - based on real observations of the living conditions of Northeast migrants.",
+      "Maximum verisimilitude, based on real observations of Northeastern migrants' conditions.",
     caracteristicas_literarias_pt:
-      "Mudez introspectiva, episódios independentes sem ligação cronológica rígida.",
+      "Introspecção dos personagens, capítulos semi-independentes e linguagem que imita o isolamento dos protagonistas.",
     caracteristicas_literarias_en:
-      "Introspective muteness, semi-independent chapters without rigid chronological connection.",
+      "Character introspection, semi-independent chapters and language that mirrors the protagonists' isolation.",
     conclusao_pt:
-      "Vidas Secas é um grito de protesto contra a desigualdade estrutural e a negligência estatal.",
+      "Um grito de protesto contra a desigualdade estrutural e o abandono histórico do povo nordestino.",
     conclusao_en:
-      "Vidas Secas is a cry of protest against structural inequality and state neglect.",
+      "A cry of protest against structural inequality and the historical abandonment of the Northeastern people.",
     simbolismo_pt:
-      "A seca simboliza a opressão sistemática; os filhos sem nome representam a desumanização; Baleia encarna a inocência.",
+      "A seca: opressão sistêmica. Os filhos sem nome: desumanização. Baleia: inocência destruída pelo sistema.",
     simbolismo_en:
-      "The drought symbolizes systematic oppression; the unnamed children represent dehumanization; Baleia embodies innocence.",
+      "The drought: systemic oppression. The unnamed children: dehumanization. Baleia: innocence destroyed by the system.",
     engajamento_pt:
-      "Obra profundamente engajada na denúncia das desigualdades sociais.",
-    engajamento_en: "Work deeply engaged in denouncing social inequalities.",
+      "Denuncia a desigualdade social, a exploração do trabalhador rural e a negligência do Estado com o Nordeste.",
+    engajamento_en:
+      "Denounces social inequality, the exploitation of rural workers and state neglect of the Northeast.",
     temas_chave_pt:
       "Desigualdade Social, Fome, Seca, Migração Forçada, Desumanização, Falta de Direitos",
     temas_chave_en:
       "Social Inequality, Hunger, Drought, Forced Migration, Dehumanization, Lack of Rights",
+  },
+  // Adicionar dentro de METADADOS_LIVROS:
+
+  "cancao para ninar menino grande": {
+    sinopse:
+      "Fio Jasmim, ferroviário negro, deixa um rastro de mulheres apaixonadas nas cidades por onde passa. O livro é, na verdade, sobre elas: suas vidas, dores e desejos que existem muito além desse homem.",
+    descricao_pt:
+      "Romance contemporâneo de Conceição Evaristo que usa a 'escrevivência' para retratar a masculinidade negra e o universo afetivo das mulheres negras no Brasil.",
+    descricao_en:
+      "Contemporary novel by Conceição Evaristo using 'escrevivência' to portray Black masculinity and the emotional world of Black women in Brazil.",
+    personagens_pt:
+      "Fio Jasmim\nJuventina (Tina)\nPérola Maria\nAurora Correa Liberto\nDolores dos Santos\nDalva Ruiva\nEleonora Distinta de Sá",
+    personagens_en:
+      "Fio Jasmim\nJuventina (Tina)\nPérola Maria\nAurora Correa Liberto\nDolores dos Santos\nDalva Ruiva\nEleonora Distinta de Sá",
+    contexto_historico_pt:
+      "Brasil contemporâneo, enraizado no racismo estrutural e no patriarcado. A ferrovia como espaço de mobilidade masculina e abandono feminino.",
+    contexto_historico_en:
+      "Contemporary Brazil, rooted in structural racism and patriarchy. The railway as a space of male mobility and female abandonment.",
+    detalhes_autor_pt:
+      "Conceição Evaristo (1946–) nasceu em favela de Belo Horizonte e se tornou uma das maiores escritoras brasileiras contemporâneas. Criou o conceito de 'escrevivência': a escrita nascida da vivência da mulher negra.",
+    detalhes_autor_en:
+      "Conceição Evaristo (1946–) was born in a favela in Belo Horizonte and became one of Brazil's most important contemporary writers. She created the concept of 'escrevivência': writing born from the lived experience of Black women.",
+    estilo_escrita_pt:
+      "Prosa poética com narrativa não linear. Cada capítulo tem uma voz feminina diferente. Os nomes dos personagens são simbólicos e carregam significados múltiplos.",
+    estilo_escrita_en:
+      "Poetic prose with non-linear narrative. Each chapter features a different female voice. Character names are symbolic and carry multiple meanings.",
+    verossimilhanca_pt:
+      "Alta verossimilhança social e afetiva, ancorada nas experiências reais da comunidade negra brasileira.",
+    verossimilhanca_en:
+      "High social and emotional verisimilitude, anchored in real experiences of the Brazilian Black community.",
+    caracteristicas_literarias_pt:
+      "Narrativa polifônica, escrevivência, nomes simbólicos, crítica ao patriarcado e ao racismo, transição entre primeira e terceira pessoa.",
+    caracteristicas_literarias_en:
+      "Polyphonic narrative, escrevivência, symbolic names, critique of patriarchy and racism, shifts between first and third person.",
+    conclusao_pt:
+      "Ao final, Juventina escreve a canção que dá título ao livro — um ato de libertação depois de 35 anos presa a um amor que nunca a escolheu de volta.",
+    conclusao_en:
+      "At the end, Juventina writes the song that gives the book its title — an act of liberation after 35 years bound to a love that never chose her back.",
+    simbolismo_pt:
+      "A ferrovia: o homem que sempre parte. A canção de ninar: o amor que infantiliza o amado. Os nomes femininos: identidades plenas que existem além do homem.",
+    simbolismo_en:
+      "The railway: the man who always leaves. The lullaby: love that infantilizes the beloved. The women's names: full identities that exist beyond the man.",
+    engajamento_pt:
+      "Denuncia a masculinidade tóxica, o racismo estrutural e a invisibilização das mulheres negras, colocando-as no centro da narrativa.",
+    engajamento_en:
+      "Denounces toxic masculinity, structural racism and the invisibilization of Black women, placing them at the center of the narrative.",
+    temas_chave_pt:
+      "Masculinidade Negra, Racismo, Patriarcado, Amor, Abandono, Identidade Feminina, Escrevivência, Resistência",
+    temas_chave_en:
+      "Black Masculinity, Racism, Patriarchy, Love, Abandonment, Female Identity, Escrevivência, Resistance",
+  },
+
+  "olhos dagua": {
+    sinopse:
+      "Coletânea de 15 contos que mergulham no cotidiano de mulheres negras e periféricas — mães, avós, trabalhadoras, sobreviventes — retratando suas dores, resistências e a beleza que persiste mesmo na adversidade.",
+    descricao_pt:
+      "Vencedora do Prêmio Jabuti 2015, a obra é uma das mais importantes da literatura afro-brasileira contemporânea, construída com a 'escrevivência' característica de Conceição Evaristo.",
+    descricao_en:
+      "Winner of the 2015 Jabuti Prize, the work is one of the most important in contemporary Afro-Brazilian literature, built with Conceição Evaristo's characteristic 'escrevivência'.",
+    personagens_pt:
+      "Ayoluwa\nAna Davenga\nNatalina\nDuzu-Querença\nZaíta\nLuamanda\nSalinda\nMaria\nBica\nDona Esterlinda",
+    personagens_en:
+      "Ayoluwa\nAna Davenga\nNatalina\nDuzu-Querença\nZaíta\nLuamanda\nSalinda\nMaria\nBica\nDona Esterlinda",
+    contexto_historico_pt:
+      "Brasil urbano contemporâneo, com foco na periferia e na experiência cotidiana da população negra, especialmente das mulheres.",
+    contexto_historico_en:
+      "Contemporary urban Brazil, focusing on the periphery and the everyday experience of Black people, especially women.",
+    detalhes_autor_pt:
+      "Conceição Evaristo (1946–) nasceu numa favela de BH, trabalhou como doméstica até os 25 anos e se tornou doutora em Literatura Comparada. Sua trajetória fundamenta o conceito de 'escrevivência'.",
+    detalhes_autor_en:
+      "Conceição Evaristo (1946–) was born in a favela in Belo Horizonte, worked as a domestic worker until age 25, and earned a PhD in Comparative Literature. Her trajectory underpins the concept of 'escrevivência'.",
+    estilo_escrita_pt:
+      "Prosa poética com uso marcante de palavras hifenizadas ('gozo-pranto', 'vida-estrada'). Mescla oralidade, lirismo e 'brutalismo poético': cenas duras narradas com leveza.",
+    estilo_escrita_en:
+      "Poetic prose with notable use of hyphenated words ('gozo-pranto', 'vida-estrada'). Blends orality, lyricism and 'poetic brutalism': harsh scenes narrated with lightness.",
+    verossimilhanca_pt:
+      "Máxima — os contos nascem da vivência real da autora e da comunidade negra urbana brasileira, sem idealização.",
+    verossimilhanca_en:
+      "Maximum — the stories are born from the real lived experience of the author and the Black urban Brazilian community, without idealization.",
+    caracteristicas_literarias_pt:
+      "Contos independentes com unidade temática, escrevivência, palavras-valise, oralidade, brutalismo poético e representação da ancestralidade afro-brasileira.",
+    caracteristicas_literarias_en:
+      "Independent stories with thematic unity, escrevivência, portmanteau words, orality, poetic brutalism and representation of Afro-Brazilian ancestry.",
+    conclusao_pt:
+      "A obra resgata a voz e a humanidade de mulheres silenciadas, afirmando que resistência e beleza coexistem com a dor — sem romantizá-la.",
+    conclusao_en:
+      "The work reclaims the voice and humanity of silenced women, affirming that resistance and beauty coexist with pain — without romanticizing it.",
+    simbolismo_pt:
+      "Os olhos d'água: lágrimas e memória ancestral. As palavras hifenizadas: vidas que não cabem em categorias simples. A escrita: ato de existir e resistir.",
+    simbolismo_en:
+      "Eyes of water: tears and ancestral memory. Hyphenated words: lives that don't fit simple categories. Writing: an act of existing and resisting.",
+    engajamento_pt:
+      "Obra profundamente engajada na visibilização das mulheres negras e periféricas, denunciando racismo, violência e invisibilidade social.",
+    engajamento_en:
+      "Deeply engaged in making Black and peripheral women visible, denouncing racism, violence and social invisibility.",
+    temas_chave_pt:
+      "Maternidade, Racismo, Violência, Resistência, Ancestralidade, Amor, Solidariedade, Identidade Negra",
+    temas_chave_en:
+      "Motherhood, Racism, Violence, Resistance, Ancestry, Love, Solidarity, Black Identity",
+  },
+
+  "o caminho de pedras": {
+    sinopse:
+      "Em Fortaleza nos anos 1930, Noemi — casada com o ex-militante João Jaques e mãe do pequeno Guri — se apaixona por Roberto, líder operário. Entre o amor proibido e o ativismo político, ela descobre sua própria voz e liberdade.",
+    descricao_pt:
+      "O romance mais politicamente engajado de Rachel de Queiroz, com um 'socialismo libertário' raro em sua obra e uma protagonista feminina que desafia os papéis impostos pela sociedade conservadora dos anos 1930.",
+    descricao_en:
+      "Rachel de Queiroz's most politically engaged novel, with a rare 'libertarian socialism' and a female protagonist who challenges the roles imposed by the conservative society of the 1930s.",
+    personagens_pt: "Noemi\nJoão Jaques\nRoberto\nGuri\nVinte-e-Um",
+    personagens_en: "Noemi\nJoão Jaques\nRoberto\nGuri\nVinte-e-Um",
+    contexto_historico_pt:
+      "Fortaleza, anos 1930: Era Vargas, perseguição ao movimento operário e comunista, Estado Novo e ascensão do Integralismo. Mulheres ainda excluídas da vida pública e política.",
+    contexto_historico_en:
+      "Fortaleza, 1930s: Vargas Era, persecution of the labor and communist movement, Estado Novo and rise of Integralism. Women still excluded from public and political life.",
+    detalhes_autor_pt:
+      "Rachel de Queiroz (1910–2003): única mulher do Modernismo de 30, primeira a ocupar uma cadeira na Academia Brasileira de Letras (1977) e primeira a receber o Prêmio Camões. Escreveu este romance durante uma prisão política.",
+    detalhes_autor_en:
+      "Rachel de Queiroz (1910–2003): the only woman of the 1930s Modernism movement, the first woman to hold a chair at the Brazilian Academy of Letters (1977) and the first to receive the Camões Prize. She wrote this novel during a political imprisonment.",
+    estilo_escrita_pt:
+      "Linguagem enxuta e direta, com forte carga psicológica. Diálogos intensos revelam conflitos internos. Prosa madura que equilibra análise emocional e crítica social.",
+    estilo_escrita_en:
+      "Lean and direct language with strong psychological depth. Intense dialogues reveal internal conflicts. Mature prose that balances emotional analysis and social critique.",
+    verossimilhanca_pt:
+      "Alta verossimilhança histórica e psicológica — os dilemas políticos e afetivos dos personagens refletem contradições reais do período.",
+    verossimilhanca_en:
+      "High historical and psychological verisimilitude — the political and emotional dilemmas of the characters reflect real contradictions of the period.",
+    caracteristicas_literarias_pt:
+      "Romance de 30, realismo psicológico, protagonismo feminino, crítica social e política, linguagem direta e introspectiva.",
+    caracteristicas_literarias_en:
+      "1930s novel, psychological realism, female protagonism, social and political critique, direct and introspective language.",
+    conclusao_pt:
+      "Noemi percorre um 'caminho de pedras' — cheio de obstáculos — em busca de autonomia real, tanto no amor quanto na política, num mundo que não foi feito para que mulheres escolham.",
+    conclusao_en:
+      "Noemi walks a 'road of stones' — full of obstacles — in search of real autonomy, both in love and in politics, in a world not built for women to choose.",
+    simbolismo_pt:
+      "O caminho de pedras: a luta cotidiana da mulher por liberdade. Roberto: a promessa de um mundo mais justo. João Jaques: o afeto que não basta para prender.",
+    simbolismo_en:
+      "The road of stones: women's daily struggle for freedom. Roberto: the promise of a more just world. João Jaques: the affection that is not enough to hold.",
+    engajamento_pt:
+      "Critica o autoritarismo varguista, a exploração do trabalhador e, sobretudo, a sujeição da mulher — sexual, afetiva e política — numa sociedade patriarcal.",
+    engajamento_en:
+      "Critiques Vargas authoritarianism, worker exploitation and, above all, the subjugation of women — sexual, emotional and political — in a patriarchal society.",
+    temas_chave_pt:
+      "Liberdade Feminina, Amor Proibido, Militância Política, Patriarcado, Era Vargas, Luta de Classes, Autonomia",
+    temas_chave_en:
+      "Female Freedom, Forbidden Love, Political Militancy, Patriarchy, Vargas Era, Class Struggle, Autonomy",
+  },
+
+  "a moreninha": {
+    sinopse:
+      "Augusto, estudante de medicina e namorador inveterado, aceita uma aposta: se não conquistar uma moça no prazo de um mês, escreve um romance. Durante um feriado na ilha de Paquetá, ele se apaixona por Carolina — a Moreninha — sem saber que os dois já se conhecem desde a infância.",
+    descricao_pt:
+      "Publicado em 1844, é o primeiro romance do Romantismo brasileiro e um retrato afetivo dos costumes da juventude carioca do século XIX.",
+    descricao_en:
+      "Published in 1844, it is the first novel of Brazilian Romanticism and an affectionate portrait of the customs of 19th-century Rio de Janeiro youth.",
+    personagens_pt:
+      "Augusto\nCarolina (a Moreninha)\nFilipe\nFabrício\nLeopoldo\nDona Ana",
+    personagens_en:
+      "Augusto\nCarolina (the Moreninha)\nFilipe\nFabrício\nLeopoldo\nDona Ana",
+    contexto_historico_pt:
+      "Rio de Janeiro do Segundo Reinado (meados do século XIX): burguesia em ascensão, costumes europeus, saraus, piqueniques e casamentos arranjados pelos pais.",
+    contexto_historico_en:
+      "Rio de Janeiro of the Second Reign (mid-19th century): rising bourgeoisie, European customs, soirées, picnics and marriages arranged by parents.",
+    detalhes_autor_pt:
+      "Joaquim Manuel de Macedo (1820–1882) estudou medicina mas dedicou-se à literatura e ao jornalismo. Foi pioneiro da prosa ficcional brasileira e um dos primeiros a retratar o cotidiano nacional em vez de copiar modelos europeus.",
+    detalhes_autor_en:
+      "Joaquim Manuel de Macedo (1820–1882) studied medicine but dedicated himself to literature and journalism. He was a pioneer of Brazilian fictional prose and one of the first to portray national daily life instead of copying European models.",
+    estilo_escrita_pt:
+      "Narrativa leve e sentimental em terceira pessoa com narrador onisciente e intrometido. Humor suave, diálogos vivos e descrições do ambiente carioca.",
+    estilo_escrita_en:
+      "Light and sentimental third-person narrative with an omniscient and intrusive narrator. Gentle humor, lively dialogues and descriptions of Rio's environment.",
+    verossimilhanca_pt:
+      "Verossimilhança dos costumes — a obra funciona como documento dos hábitos sociais da juventude burguesa carioca do século XIX.",
+    verossimilhanca_en:
+      "Verisimilitude of customs — the work serves as a document of the social habits of 19th-century Rio's bourgeois youth.",
+    caracteristicas_literarias_pt:
+      "Amor idealizado e puro, amor de infância preservado, final feliz, sentimentalismo, culto à natureza, humor leve e costumbrismo carioca.",
+    caracteristicas_literarias_en:
+      "Idealized and pure love, preserved childhood love, happy ending, sentimentalism, nature worship, gentle humor and Rio de Janeiro costumbrism.",
+    conclusao_pt:
+      "O reencontro de Augusto e Carolina revela que o amor fiel da infância superou o tempo — resolvendo a tensão entre promessa e desejo com o final feliz típico do Romantismo.",
+    conclusao_en:
+      "The reunion of Augusto and Carolina reveals that faithful childhood love has overcome time — resolving the tension between promise and desire with Romanticism's typical happy ending.",
+    simbolismo_pt:
+      "A aposta: a leveza e a irresponsabilidade da juventude. A ilha: espaço de suspensão das regras sociais. A promessa de infância: a fidelidade como valor supremo.",
+    simbolismo_en:
+      "The bet: the lightness and irresponsibility of youth. The island: a space where social rules are suspended. The childhood promise: fidelity as the supreme value.",
+    engajamento_pt:
+      "Engajamento discreto: ao retratar casamentos arranjados e mencionar a escravidão, a obra registra — sem condenar diretamente — as contradições da sociedade imperial brasileira.",
+    engajamento_en:
+      "Discreet engagement: by portraying arranged marriages and mentioning slavery, the work records — without directly condemning — the contradictions of imperial Brazilian society.",
+    temas_chave_pt:
+      "Amor Puro, Fidelidade, Promessa de Infância, Amizade, Costumes Cariocas, Juventude, Romantismo",
+    temas_chave_en:
+      "Pure Love, Fidelity, Childhood Promise, Friendship, Rio de Janeiro Customs, Youth, Romanticism",
   },
 };
 
@@ -500,7 +702,8 @@ function mapExternalToInternal(external = {}) {
     genero_en: external.genero_en || external.genre || null,
     sinopse:
       external.sinopse || external.description || external.resumo || null,
-    descricao_pt: external.descricao_pt || external.resumo || external.enredo || null,
+    descricao_pt:
+      external.descricao_pt || external.resumo || external.enredo || null,
     descricao_en:
       external.descricao_en || external.resumo_en || external.enredo_en || null,
     personagens_pt:
@@ -518,9 +721,7 @@ function mapExternalToInternal(external = {}) {
       external.contexto ||
       null,
     contexto_historico_en:
-      external.contexto_historico_en ||
-      external.contexto_en ||
-      null,
+      external.contexto_historico_en || external.contexto_en || null,
     detalhes_autor_pt:
       external.detalhes_autor_pt || external.detalhesAutor || null,
     detalhes_autor_en:
@@ -800,19 +1001,15 @@ export const obterMemoriasCubas = async (req, res) => {
       (e) => e.nomeLivro === "Memórias Póstumas de Brás Cubas",
     );
     if (!endpoint)
-      return res
-        .status(404)
-        .json({
-          erro: "Configuração de Memórias Póstumas de Brás Cubas não encontrada",
-        });
+      return res.status(404).json({
+        erro: "Configuração de Memórias Póstumas de Brás Cubas não encontrada",
+      });
 
     const dados = await fazerRequisicaoExterna(endpoint);
     if (!dados)
-      return res
-        .status(404)
-        .json({
-          erro: "Não foi possível obter dados de Memórias Póstumas de Brás Cubas",
-        });
+      return res.status(404).json({
+        erro: "Não foi possível obter dados de Memórias Póstumas de Brás Cubas",
+      });
 
     const lista = Array.isArray(dados) ? dados : [dados];
     const mapeados = lista
