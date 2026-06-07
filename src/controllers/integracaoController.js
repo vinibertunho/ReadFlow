@@ -22,6 +22,26 @@ const ENDPOINTS_CONFIG = [
     urlCompleta: "https://bookverse-back-pob5.onrender.com/livros",
     apiKey: process.env.BOOKVERSE_API_KEY || "projetoamods",
   },
+  {
+    nomeLivro: "Canção para ninar menino grande",
+    urlCompleta: "https://atividade-portugues-backend.onrender.com/api/livro",
+    apiKey: process.env.KEY_CANCAO || "chaveSecreta",
+  },
+  {
+    nomeLivro: "Olhos d'Água",
+    urlCompleta: "https://olhosdagua.onrender.com/api/livro",
+    apiKey: process.env.KEY_OLHOS || "6uztY7YTa2Dcgnf2ovDC2Kqmwvq2PdTMOlkx1bLwmhO2HQpQoXHMhk1cBcIjzHj9lztTbW7I83UZ91C8uSos-n8kOx3UuqU8n0BIDVm1venccSH0QVyNYKkLTZboaUpd",
+  },
+  {
+    nomeLivro: "O Caminho de Pedras",
+    urlCompleta: "https://devstones-backend.onrender.com/api/livro",
+    apiKey: process.env.KEY_CAMINHO || "livr0",
+  },
+  {
+    nomeLivro: "A Moreninha",
+    urlCompleta: "https://clubelivro-backend.onrender.com/api/livros",
+    apiKey: process.env.KEY_MORENINHA || "entreLinhas123",
+  },
 ];
 
 const METADADOS_LIVROS = {
@@ -480,8 +500,9 @@ function mapExternalToInternal(external = {}) {
     genero_en: external.genero_en || external.genre || null,
     sinopse:
       external.sinopse || external.description || external.resumo || null,
-    descricao_pt: external.descricao_pt || null,
-    descricao_en: external.descricao_en || null,
+    descricao_pt: external.descricao_pt || external.resumo || external.enredo || null,
+    descricao_en:
+      external.descricao_en || external.resumo_en || external.enredo_en || null,
     personagens_pt:
       external.personagens_pt ||
       external.personagens ||
@@ -492,20 +513,34 @@ function mapExternalToInternal(external = {}) {
       extrairNomesPersonagens(external.personagensEn) ||
       null,
     contexto_historico_pt:
-      external.contexto_historico_pt || external.contexto_pt || null,
+      external.contexto_historico_pt ||
+      external.contexto_pt ||
+      external.contexto ||
+      null,
     contexto_historico_en:
-      external.contexto_historico_en || external.contexto_en || null,
-    detalhes_autor_pt: external.detalhes_autor_pt || null,
-    detalhes_autor_en: external.detalhes_autor_en || null,
-    estilo_escrita_pt: external.estilo_escrita_pt || null,
-    estilo_escrita_en: external.estilo_escrita_en || null,
-    verossimilhanca_pt: external.verossimilhanca_pt || null,
+      external.contexto_historico_en ||
+      external.contexto_en ||
+      null,
+    detalhes_autor_pt:
+      external.detalhes_autor_pt || external.detalhesAutor || null,
+    detalhes_autor_en:
+      external.detalhes_autor_en || external.detalhesAutor_en || null,
+    estilo_escrita_pt:
+      external.estilo_escrita_pt || external.estiloEscrita || null,
+    estilo_escrita_en:
+      external.estilo_escrita_en || external.estiloEscrita_en || null,
+    verossimilhanca_pt:
+      external.verossimilhanca_pt || external.verossimilhanca || null,
     verossimilhanca_en: external.verossimilhanca_en || null,
     caracteristicas_literarias_pt:
-      external.caracteristicas_literarias_pt || null,
+      external.caracteristicas_literarias_pt ||
+      external.caracteristicasLiterarias ||
+      null,
     caracteristicas_literarias_en:
-      external.caracteristicas_literarias_en || null,
-    conclusao_pt: external.conclusao_pt || null,
+      external.caracteristicas_literarias_en ||
+      external.caracteristicasLiterarias_en ||
+      null,
+    conclusao_pt: external.conclusao_pt || external.conclusao || null,
     conclusao_en: external.conclusao_en || null,
     simbolismo_pt: external.simbolismo_pt || null,
     simbolismo_en: external.simbolismo_en || null,
