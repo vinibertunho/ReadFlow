@@ -108,56 +108,81 @@ async function main() {
       titulo: "Capitães da Areia",
       autor: "Jorge Amado",
       anoPublicacao: 1937,
+
       genero_pt:
-        "Ficção Regionalista / Romance Social / Segundo Tempo Modernista",
+        "Romance Social / Ficção Regionalista / Modernismo Brasileiro (Segunda Fase)",
       genero_en:
-        "Regionalist Fiction / Social Novel / Second Phase of Brazilian Modernism",
+        "Social Novel / Regionalist Fiction / Brazilian Modernism (Second Phase)",
+
       sinopse:
-        "A obra acompanha um bando de meninos de rua in Salvador que sobrevivem por meio de furtos, vivendo marginalizados em um trapiche abandonado.",
+        "Capitães da Areia é um dos romances mais importantes da literatura brasileira do século XX. A obra acompanha a trajetória de um grupo de crianças e adolescentes abandonados que vivem em um trapiche nas proximidades do porto de Salvador, sobrevivendo por meio de furtos, pequenos golpes e atividades informais. Conhecidos pela sociedade como marginais e delinquentes, os jovens enfrentam diariamente a fome, a violência policial, o preconceito e a ausência de qualquer assistência do Estado. Ao longo da narrativa, Jorge Amado revela os sonhos, medos, sentimentos e conflitos dos integrantes do grupo, demonstrando que suas atitudes são consequência direta da exclusão social e das profundas desigualdades existentes na sociedade brasileira.",
+
       contexto_pt:
-        "Publicado em 1937 por Jorge Amado, é um clássico da segunda fase do Modernismo brasileiro. Na época de lançamento o Brasil passava pela ditadura de Getúlio Vargas (Estado Novo), marcada pela grande repressão e censura.",
+        "Publicado em 1937, durante o período do Estado Novo de Getúlio Vargas, o romance surge em um contexto histórico marcado por autoritarismo político, censura e intensas transformações sociais. O Brasil vivia um processo acelerado de urbanização que evidenciava problemas estruturais como pobreza extrema, desemprego, desigualdade econômica e abandono infantil. Nesse cenário, Jorge Amado utiliza a literatura como instrumento de denúncia social, expondo uma realidade frequentemente ignorada pelas elites e pelas instituições governamentais. A crítica presente na obra foi considerada tão impactante que exemplares chegaram a ser apreendidos e queimados por autoridades da época.",
+
       contexto_en:
-        "Published in 1937 by Jorge Amado, it is a classic of the second phase of Brazilian Modernism. At the time of its release, Brazil was undergoing Getúlio Vargas' dictatorship (Estado Novo), marked by severe repression and censorship.",
+        "Published in 1937 during Getúlio Vargas' Estado Novo regime, the novel emerged in a period marked by political repression, censorship, and social inequality. The work exposes the reality of homeless children and serves as a strong social critique of Brazilian society.",
+
       descricao_pt:
-        "Aborda a história de menores abandonados em Salvador, onde a pobreza extrema contrastava com as áreas elitizadas, fazendo com que os jovens cometam atos criminosos por pura sobrevivência.",
+        "A narrativa apresenta uma visão humanizada dos meninos de rua de Salvador, rompendo com estereótipos que os classificavam apenas como criminosos. Jorge Amado constrói personagens complexos, dotados de sonhos, valores, amizades e sentimentos, permitindo que o leitor compreenda os fatores sociais que os levaram à marginalização. O romance retrata a convivência dos jovens no trapiche, seus conflitos internos, suas estratégias de sobrevivência e os laços de solidariedade que desenvolvem entre si. Ao mesmo tempo, denuncia a violência institucional praticada por autoridades, reformatórios e setores da sociedade que preferem reprimir os problemas sociais em vez de enfrentá-los.",
+
       descricao_en:
-        "Addresses the story of abandoned minors in Salvador, where extreme poverty contrasted with elite areas, forcing young people to commit criminal acts for pure survival.",
+        "The novel presents a humanized portrayal of homeless children in Salvador, showing that social exclusion and poverty are the true roots of their criminal behavior.",
+
       detalhes_autor_pt:
-        "Jorge Amado (1912-2001) foi um escritor brasileiro, um dos maiores representantes da fiction regionalista que marcou o Segundo Tempo Modernista. Sua obra é baseada na exposição e análise realista dos cenários rurais e urbanos da Bahia. Traduzido para mais de trinta idiomas e vencedor do Prêmio Jabuti em 1959.",
+        "Jorge Amado (1912–2001) foi um dos mais importantes escritores da literatura brasileira e um dos principais representantes da segunda geração modernista. Nascido em Itabuna, no estado da Bahia, dedicou grande parte de sua produção literária à representação das classes populares, dos trabalhadores e da cultura afro-brasileira. Sua obra caracteriza-se pelo forte compromisso social, pela crítica às desigualdades e pela valorização da identidade cultural brasileira. Traduzido para mais de cinquenta idiomas, Jorge Amado alcançou reconhecimento internacional e tornou-se um dos autores brasileiros mais lidos em todo o mundo. Também foi membro da Academia Brasileira de Letras e recebeu diversos prêmios nacionais e internacionais.",
+
       detalhes_autor_en:
-        "Jorge Amado (1912–2001) was one of Brazil’s most important writers and a major representative of regionalist fiction during the second phase of Brazilian Modernism. His works focus on realistic portrayals of rural and urban life in Bahia, translated into more than thirty languages and recipient of the Jabuti Prize in 1959.",
+        "Jorge Amado was one of Brazil's most influential writers, internationally recognized for portraying social inequality, Bahian culture, and the lives of marginalized communities.",
+
       estilo_escrita_pt:
-        "Cenas são descritas de forma crua e por vezes repulsiva para trazer de forma explícita a desigualdade, como visto na representação da epidemia de varíola (bexiga) que assola a comunidade.",
+        "A escrita de Jorge Amado combina realismo social, crítica política e sensibilidade humana. Sua narrativa utiliza linguagem acessível e envolvente, enriquecida por regionalismos, expressões populares e referências à cultura baiana. O autor alterna momentos de forte denúncia social com passagens de lirismo e emoção, criando uma obra capaz de sensibilizar o leitor ao mesmo tempo em que o convida à reflexão. As descrições detalhadas dos ambientes urbanos e das relações humanas contribuem para a construção de uma narrativa extremamente verossímil e impactante.",
+
       estilo_escrita_en:
-        "Scenes are described in a raw and sometimes disturbing way to explicitly expose inequality, as seen in the depiction of the smallpox epidemic that devastates the community.",
+        "The narrative style combines social realism, emotional depth, and political criticism, enriched by regional language and cultural references.",
+
       verossimilhanca_pt:
-        "Inspirado na vida real: a narrative foi fortemente baseada em grupos reais de crianças vulneráveis que viviam em Salvador nos anos 1930. Jorge Amado observava de perto a realidade desses menores para construir seu enredo.",
+        "A obra apresenta elevado grau de verossimilhança por ser inspirada na realidade observada por Jorge Amado nas ruas de Salvador durante a década de 1930. O autor teve contato direto com situações de pobreza, abandono e exclusão social, utilizando essas experiências para construir personagens e acontecimentos que refletem problemas reais da sociedade brasileira. Essa proximidade com a realidade faz com que o romance mantenha sua relevância até os dias atuais.",
+
       verossimilhanca_en:
-        "Inspired by real life: the narrative was strongly based on real groups of vulnerable children living in Salvador during the 1930s. Jorge Amado closely observed the reality of these minors to build his plot.",
+        "The story is strongly grounded in reality and was inspired by the actual living conditions of homeless children in Salvador during the 1930s.",
+
       caracteristicas_literarias_pt:
-        "A obra se destaca pela fusão de denúncia social urbana e lirismo ao retratar a infância perdida. Divide-se em crônicas e episódios que expõem a visão da cidade sobre o bando.",
+        "A obra destaca-se pela presença de regionalismo urbano, crítica social, denúncia das desigualdades econômicas, valorização das classes populares e humanização dos indivíduos marginalizados. O romance apresenta personagens psicologicamente complexos e utiliza uma estrutura narrativa que combina ação, emoção e reflexão. Outro aspecto marcante é a crítica às instituições responsáveis pelo controle social, frequentemente retratadas como instrumentos de opressão e violência contra os mais vulneráveis.",
+
       caracteristicas_literarias_en:
-        "The work stands out for its blend of urban social denunciation and lyricism when portraying a lost childhood. It is divided into chronicles and episodes that expose the city's view of the gang.",
+        "The novel combines regionalism, social criticism, realistic characterization, and a deep concern for issues of inequality and exclusion.",
+
       contexto_historico_pt:
-        "Salvador passava por uma política desigual, dividida entre pobres da cidade baixa e ricos da cidade alta, onde a pobreza extrema contrastava com as áreas elitizadas.",
+        "A Salvador retratada no romance era uma cidade marcada por contrastes profundos entre riqueza e pobreza. Enquanto as elites desfrutavam dos benefícios da modernização urbana, milhares de pessoas sobreviviam em condições precárias. Crianças abandonadas eram frequentemente perseguidas pelas autoridades e encaminhadas para instituições corretivas conhecidas pelos maus-tratos e pela violência. Esse cenário serve como pano de fundo para a crítica social desenvolvida por Jorge Amado ao longo da narrativa.",
+
       contexto_historico_en:
-        "Salvador was going through an unequal political climate, divided between the poor of the lower city and the rich of the upper city, where extreme poverty contrasted with elite areas.",
+        "The novel portrays a Salvador deeply divided by class differences, where poverty, exclusion, and institutional violence shaped the lives of many children.",
+
       simbolismo_pt:
-        "O trapiche simboliza o abandono e exclusão social. Dora representa carinho e esperança. O mar simboliza a liberdade e sonhos, enquanto a areia representa a instabilidade e a falta de segurança.",
+        "Diversos elementos simbólicos enriquecem a narrativa. O trapiche representa simultaneamente o abandono social e o sentimento de pertencimento construído pelos meninos. O mar simboliza liberdade, esperança e a possibilidade de transformação. Dora representa afeto, acolhimento, amor e humanidade em meio à brutalidade do cotidiano. A areia, presente no título da obra, simboliza a instabilidade, a vulnerabilidade e a fragilidade da existência dos protagonistas. Esses símbolos ampliam o significado da narrativa e reforçam sua crítica social.",
+
       simbolismo_en:
-        "The warehouse symbolizes neglect and social exclusion. Dora represents affection and hope. The sea symbolizes freedom and dreams, while the sand represents instability and insecurity.",
+        "The warehouse symbolizes social abandonment, the sea represents freedom and hope, and Dora embodies affection and humanity.",
+
       engajamento_pt:
-        "O engajamento aparece na crítica social à pobreza, ao abandono infantil e à violência policial. Mostra que os meninos não são criminosos por escolha, mas vítimas da exclusão social. Pedro Bala desenvolve engajamento político aproximando-se das lutas trabalhistas.",
+        "Capitães da Areia é uma obra profundamente engajada com questões sociais e políticas. Jorge Amado denuncia a pobreza, a exclusão social, o abandono infantil, a violência policial e a omissão do Estado diante dos problemas enfrentados pelas camadas mais vulneráveis da população. O romance defende uma visão humanista ao demonstrar que os jovens retratados não são criminosos por natureza, mas vítimas de circunstâncias históricas e sociais. O desenvolvimento de Pedro Bala como líder político evidencia a influência das ideias de transformação social presentes na obra.",
+
       engajamento_en:
-        "Social engagement appears in the social criticism of poverty, child abandonment, and police violence. It shows that the boys are not criminals by choice, but victims of social exclusion. Pedro Bala develops political engagement by joining workers' struggles.",
+        "The novel strongly criticizes social inequality, child abandonment, and institutional violence while defending a humanistic perspective on marginalized youth.",
+
       temas_chave_pt:
-        "Exclusão social e criminalização da pobreza; Denúncia social e desigualdade; Luta de classes e ideologia política.",
+        "Desigualdade social; Exclusão social; Criminalização da pobreza; Abandono infantil; Violência institucional; Amizade; Solidariedade; Liberdade; Esperança; Resistência; Luta de classes; Consciência política; Direitos humanos; Justiça social.",
+
       temas_chave_en:
-        "Social Exclusion and the Criminalization of Poverty; Social Criticism and Inequality; Class Struggle and Political Ideology.",
+        "Social inequality; Social exclusion; Child abandonment; Institutional violence; Friendship; Solidarity; Freedom; Hope; Class struggle; Human rights.",
+
       conclusao_pt:
-        "A narrativa termina mostrando destinos distintos: Pedro Bala vira militante proletário, o Professor torna-se pintor de sucesso no Rio de Janeiro e Volta Seca junta-se ao bando de Lampião.",
+        "O desfecho da obra evidencia que os personagens, apesar de compartilharem uma mesma origem marcada pela exclusão social, constroem trajetórias diferentes ao longo da vida. Pedro Bala torna-se líder político e militante operário, o Professor realiza seu sonho artístico, Volta Seca ingressa no cangaço e Pirulito segue o caminho religioso. Essas trajetórias simbolizam diferentes formas de reação às adversidades impostas pela sociedade. A mensagem final do romance reforça a responsabilidade coletiva na construção de oportunidades capazes de romper os ciclos de pobreza, violência e exclusão.",
+
       conclusao_en:
-        "The narrative ends by showing different destinies: Pedro Bala becomes a proletarian militant, Professor becomes a successful painter in Rio de Janeiro, and Volta Seca joins Lampião's gang.",
+        "The ending highlights the different destinies of the characters and reinforces the novel's message about social responsibility and the impact of inequality on human lives.",
+
       video_url: null,
       capa_url: "https://i.ibb.co/mF98znBm/capitaes.jpg",
       usuarioId: editor.id,
@@ -942,8 +967,7 @@ async function main() {
         quizId: quizEN.id,
         enunciado:
           "In the chapter 'The Lights of the Carousel', what does the old, faded and worn-out ride represent in the boys' lives?",
-        alternativaA:
-          "A perfect strategic spot to plan new commercial thefts.",
+        alternativaA: "A perfect strategic spot to plan new commercial thefts.",
         alternativaB:
           "A moment of wonder in which they lived what their childhood should truly have been, having fun like the children they were.",
         alternativaC:
@@ -1121,8 +1145,7 @@ async function main() {
         quizId: quizEN.id,
         enunciado:
           "The character Pirulito stands out within the gang for displaying which striking trait?",
-        alternativaA:
-          "An obsessive inclination toward hoarding coins.",
+        alternativaA: "An obsessive inclination toward hoarding coins.",
         alternativaB:
           "A deep religiosity and a constant search for spiritual salvation.",
         alternativaC:
@@ -1147,8 +1170,7 @@ async function main() {
           "For being considered a communist and subversive threat by the Estado Novo.",
         alternativaD:
           "At the request of the city of Salvador itself, so as not to harm local tourism.",
-        alternativaE:
-          "For infringing the copyright laws in force at the time.",
+        alternativaE: "For infringing the copyright laws in force at the time.",
         gabarito: "C",
         dificuldade: "DIFICIL",
         comentarioResolucao:
@@ -1230,8 +1252,7 @@ async function main() {
           "As a hygienist space focused on the peaceful reintegration of minors.",
         alternativaC:
           "As a place of torture, gross violence and institutionalized mistreatment.",
-        alternativaD:
-          "As a summer camp monitored by religious volunteers.",
+        alternativaD: "As a summer camp monitored by religious volunteers.",
         alternativaE:
           "As a safe shelter where food was plentiful and balanced.",
         gabarito: "C",
@@ -1243,8 +1264,7 @@ async function main() {
         quizId: quizEN.id,
         enunciado:
           "At the end of the book, which definitive path does Pedro Bala choose to follow?",
-        alternativaA:
-          "He begins academic studies to become a lawyer.",
+        alternativaA: "He begins academic studies to become a lawyer.",
         alternativaB:
           "He leaves Bahia to live as a farmer in the country's interior.",
         alternativaC:
@@ -1280,16 +1300,14 @@ async function main() {
         quizId: quizEN.id,
         enunciado:
           "What happens to Dora right after she is captured along with Pedro Bala by the police forces?",
-        alternativaA:
-          "She is immediately sent back to her relatives' home.",
+        alternativaA: "She is immediately sent back to her relatives' home.",
         alternativaB:
           "She manages to escape by jumping from the police vehicle midway along the port route.",
         alternativaC:
           "She is committed to the Olhos D'Água Orphanage, where she falls seriously ill.",
         alternativaD:
           "She is acquitted by the juvenile judge due to her young age.",
-        alternativaE:
-          "She is hired as a maid at the mayor's residence.",
+        alternativaE: "She is hired as a maid at the mayor's residence.",
         gabarito: "C",
         dificuldade: "MEDIA",
         comentarioResolucao:
@@ -1384,14 +1402,11 @@ async function main() {
         quizId: quizEN.id,
         enunciado:
           "What was the stance of most aristocratic families of the Upper City toward the helpless minors?",
-        alternativaA:
-          "Creating charitable foundations aimed at adopting them.",
+        alternativaA: "Creating charitable foundations aimed at adopting them.",
         alternativaB:
           "Total indifference mixed with fear, prejudice and demands for police repression.",
-        alternativaC:
-          "Funding professional training workshops at the docks.",
-        alternativaD:
-          "Opening their rural properties to shelter the children.",
+        alternativaC: "Funding professional training workshops at the docks.",
+        alternativaD: "Opening their rural properties to shelter the children.",
         alternativaE:
           "Pressuring parliament for mandatory school inclusion laws.",
         gabarito: "B",
@@ -1403,8 +1418,7 @@ async function main() {
         quizId: quizEN.id,
         enunciado:
           "How does Jorge Amado humanize the gang's characters throughout the book?",
-        alternativaA:
-          "By showing that they all had secret bank accounts.",
+        alternativaA: "By showing that they all had secret bank accounts.",
         alternativaB:
           "By exposing their fears, childhood pains, dreams of freedom and deep emotional neediness.",
         alternativaC:
@@ -1423,8 +1437,7 @@ async function main() {
         enunciado:
           "The lyrical ending of Dora's death is marked by which mystical and symbolic element seen by the boys?",
         alternativaA: "The collapse of a large barrier of rocks at the port.",
-        alternativaB:
-          "A bright shooting star crossing the sky toward the sea.",
+        alternativaB: "A bright shooting star crossing the sky toward the sea.",
         alternativaC:
           "The appearance of an illuminated ghost ship on the horizon.",
         alternativaD:
